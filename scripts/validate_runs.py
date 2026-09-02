@@ -26,6 +26,7 @@ B_REQUIRED = {"no-consolidation", "uniform-blame"}
 
 CEILING_ACCURACY = 0.95
 FLOOR_ACCURACY = 0.40
+ALLOWED_CLASSIFICATIONS = {"PILOT", "DEVELOPMENT"}
 
 # Metrics each experiment claims to measure. Liveness is enforced only on these:
 # a metric that is structurally zero for an experiment's substrate is not a
@@ -58,15 +59,37 @@ def validate(runs: list[dict], tolerance: float = 0.02) -> dict:
     # checks below are skipped rather than applied to the wrong manifests.
     experiment = None if mixed else next(iter(experiments), None)
 
-    if any(r.get("classification") != "PILOT" for r in runs):
-        reasons.append("input_run_already_claims_nonpilot_status")
+    classifications = {r.get("classification") for r in runs}
+    if None in classifications or "" in classifications:
+        reasons.append("missing_classification")
+        classification = None
+    elif len(classifications) > 1:
+        reasons.append(f"mixed_classifications:{sorted(classifications)}")
+        classification = None
+    else:
+        classification = next(iter(classifications), None)
+        if classification not in ALLOWED_CLASSIFICATIONS:
+            reasons.append("input_run_already_claims_nonpilot_status")
 
-    for field in ("config_lock_sha256", "lifetime_spec_sha256", "source_tree_sha256", "seed", "stream"):
+    for field in (
+        "config_lock_sha256",
+        "lifetime_spec_sha256",
+        "source_tree_sha256",
+        "seed",
+        "stream",
+    ):
         values = {r.get(field) for r in runs}
         if None in values or "" in values:
             reasons.append(f"missing_{field}")
         elif len(values) > 1:
             reasons.append(f"arms_disagree_on_{field}")
+
+    if classification == "DEVELOPMENT":
+        commits = {r.get("git_commit") for r in runs}
+        if None in commits or "" in commits:
+            reasons.append("missing_git_commit_for_nonpilot")
+        elif len(commits) > 1:
+            reasons.append("arms_disagree_on_git_commit")
 
     # Corruption process must be identical across arms. This is the guard
     # against tuning the benchmark to a preferred winner.
@@ -130,8 +153,40 @@ def validate(runs: list[dict], tolerance: float = 0.02) -> dict:
         if len(seen) > 1:
             reasons.append("arms_saw_different_outcome_counts")
 
+        protocol_hashes = {r.get("scoring_protocol_sha256") for r in runs}
+        if None in protocol_hashes or "" in protocol_hashes:
+            reasons.append("missing_scoring_protocol_sha256")
+        elif len(protocol_hashes) > 1:
+            reasons.append("arms_disagree_on_scoring_protocol_sha256")
+
+        controls = [r.get("matched_untouched_control") for r in runs]
+        if any(not isinstance(c, dict) for c in controls):
+            reasons.append("missing_matched_untouched_control")
+        else:
+            selected = [int(c.get("selected_total", 0)) for c in controls]
+            measured = [int(c.get("measured_outcome_deltas", 0)) for c in controls]
+            if any(n <= 0 for n in selected):
+                reasons.append("matched_untouched_control_absent")
+            if any(n <= 0 for n in measured):
+                reasons.append("matched_untouched_control_inert")
+
+            control_shapes = {
+                (
+                    c.get("selection_sha256"),
+                    int(c.get("eligible_total", 0)),
+                    int(c.get("selected_total", 0)),
+                    int(c.get("outcomes_with_controls", 0)),
+                )
+                for c in controls
+            }
+            if len(control_shapes) > 1:
+                reasons.append("arms_disagree_on_matched_untouched_controls")
+            if any(not c.get("selection_sha256") for c in controls):
+                reasons.append("missing_matched_untouched_control_selection_hash")
+
     return {
         "experiment": experiment,
+        "classification": classification,
         "arms": sorted(a for a in arms if a),
         "n_runs": len(runs),
         "valid_for_comparison": not reasons,
