@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this benchmark or experimental protocol, please cite the associated paper when available."
+title: "Lifetime Integrity"
+type: software
+version: 0.1.0
+date-released: 2026-09-02
+license: Apache-2.0
+repository-code: "https://github.com/in-c0/lifetime-integrity"
