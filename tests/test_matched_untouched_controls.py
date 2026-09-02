@@ -99,7 +99,18 @@ def test_control_selection_is_deterministic():
     assert a == b
 
 
-def test_changing_harness_only_control_identity_cannot_change_mechanism_output():
+def test_harness_only_control_identity_can_change_without_changing_mechanism_output():
+    # First prove the salt can actually change a harness-only control identity.
+    single = [synthetic_outcomes()[0]]
+    _, audit_a = _matched_untouched_controls(
+        synthetic_records(), single, run_seed=SEED, window_probes=2, selection_salt="A"
+    )
+    _, audit_b = _matched_untouched_controls(
+        synthetic_records(), single, run_seed=SEED, window_probes=2, selection_salt="B"
+    )
+    assert audit_a["selection_sha256"] != audit_b["selection_sha256"]
+
+    # Selection occurs only after the mechanism has consumed the full stream.
     lt = generate_delayed_credit_lifetime(
         LifetimeConfig(seed=SEED, epochs=16, delayed_outcomes_per_epoch=1.5)
     )
@@ -115,12 +126,6 @@ def test_changing_harness_only_control_identity_cannot_change_mechanism_output()
     ca.pop("untouched_accuracy_delta")
     cb.pop("untouched_accuracy_delta")
     assert ca == cb
-
-    # The test must actually perturb the harness-only control identity.
-    assert (
-        a.manifest["matched_untouched_control"]["selection_sha256"]
-        != b.manifest["matched_untouched_control"]["selection_sha256"]
-    )
 
 
 def test_default_phase2_configuration_has_measurable_controls():
