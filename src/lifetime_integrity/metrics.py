@@ -11,11 +11,17 @@ records only.
 
 from __future__ import annotations
 
+import hashlib
+import json
+from collections import Counter
 from collections.abc import Sequence
 from dataclasses import asdict, dataclass
 from itertools import pairwise
 
 import numpy as np
+
+SCORING_PROTOCOL_VERSION = "LIS-SCORE-v0.2.0"
+MATCHED_UNTOUCHED_CONTROL_VERSION = "matched-contemporaneous-v1"
 
 
 @dataclass(frozen=True)
@@ -95,7 +101,10 @@ def _safe_mean(xs: Sequence[float]) -> float:
     return float(np.mean(xs)) if len(xs) else 0.0
 
 
-def _self_contradiction_rate(records: Sequence[ProbeRecord], assertion_times: dict[tuple[str, str], list[int]]) -> float:
+def _self_contradiction_rate(
+    records: Sequence[ProbeRecord],
+    assertion_times: dict[tuple[str, str], list[int]],
+) -> float:
     """Rate of answer flips unjustified by intervening evidence.
 
     Consecutive probes on one slot with no assertion about that slot in between
@@ -277,6 +286,40 @@ class ConsolidationMetrics:
         return asdict(self)
 
 
+@dataclass(frozen=True)
+class ConsolidationScore:
+    metrics: ConsolidationMetrics
+    matched_untouched_control: dict
+
+
+def scoring_protocol(window_probes: int) -> dict:
+    """Canonical description of the post-hoc scoring protocol."""
+    return {
+        "version": SCORING_PROTOCOL_VERSION,
+        "window_probes": int(window_probes),
+        "untouched_control": MATCHED_UNTOUCHED_CONTROL_VERSION,
+        "matching_rule": "one control per consulted decoy, capped by eligible slots",
+        "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    }
+
+
+def scoring_protocol_sha256(window_probes: int) -> str:
+    blob = json.dumps(scoring_protocol(window_probes), sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(blob.encode("utf-8")).hexdigest()
+
+
+def _window_records(
+    records: Sequence[ProbeRecord],
+    slot: tuple[str, str],
+    t: int,
+    k: int,
+) -> tuple[list[ProbeRecord], list[ProbeRecord]]:
+    rs = sorted([r for r in records if r.slot == slot], key=lambda r: r.t)
+    before = [r for r in rs if r.t < t][-k:]
+    after = [r for r in rs if r.t >= t][:k]
+    return before, after
+
+
 def _windowed_delta(
     records: Sequence[ProbeRecord],
     slot: tuple[str, str],
@@ -284,9 +327,7 @@ def _windowed_delta(
     k: int,
 ) -> float | None:
     """Accuracy on `slot` over the k probes after `t` minus the k probes before."""
-    rs = sorted([r for r in records if r.slot == slot], key=lambda r: r.t)
-    before = [r for r in rs if r.t < t][-k:]
-    after = [r for r in rs if r.t >= t][:k]
+    before, after = _window_records(records, slot, t, k)
     if not before or not after:
         return None
     b = _safe_mean([1.0 if r.correct else 0.0 for r in before])
@@ -294,16 +335,138 @@ def _windowed_delta(
     return a - b
 
 
+def _slot_rank(
+    run_seed: int,
+    outcome_event_id: int,
+    selection_salt: str,
+    slot: tuple[str, str],
+) -> tuple[str, tuple[str, str]]:
+    token = (
+        f"{run_seed}:{outcome_event_id}:{selection_salt}:{slot[0]}:{slot[1]}"
+    ).encode("utf-8")
+    return hashlib.sha256(token).hexdigest(), slot
+
+
+def _matched_untouched_controls(
+    records: Sequence[ProbeRecord],
+    outcomes: Sequence[dict],
+    *,
+    run_seed: int,
+    window_probes: int,
+    selection_salt: str = "",
+) -> tuple[dict[int, list[tuple[str, str]]], dict]:
+    """Select deterministic contemporaneous controls using audit-side data only.
+
+    For each delayed outcome, candidates must be outside that outcome's consulted
+    set, have measurable pre/post probe windows, and not be implicated by another
+    delayed outcome whose consolidation time falls inside that candidate's
+    pre/post window. Control identity is selected by a stable SHA-256 rank and is
+    never exposed to the mechanism.
+
+    All current Class-B consolidators can revise only consulted slots. Excluding
+    every slot implicated by an overlapping outcome therefore also excludes every
+    slot that another admissible consolidator could revise, while keeping control
+    identity independent of which arm is being scored.
+    """
+    all_slots = sorted({r.slot for r in records})
+    selected_by_outcome: dict[int, list[tuple[str, str]]] = {}
+    per_outcome: list[dict] = []
+    aggregate_exclusions: Counter[str] = Counter()
+    selection_fingerprint_rows: list[dict] = []
+
+    for outcome in outcomes:
+        event_id = int(outcome["event_id"])
+        consulted = {tuple(s) for s in outcome["consulted"]}
+        target_count = max(1, len(consulted) - 1)
+        eligible: list[tuple[str, str]] = []
+        exclusions: Counter[str] = Counter()
+
+        for slot in all_slots:
+            if slot in consulted:
+                exclusions["target_consulted"] += 1
+                continue
+
+            before, after = _window_records(records, slot, outcome["t"], window_probes)
+            if not before or not after:
+                exclusions["insufficient_probe_window"] += 1
+                continue
+
+            window_start = before[0].t
+            window_end = after[-1].t
+            implicated_by_overlap = False
+            for other in outcomes:
+                if int(other["event_id"]) == event_id:
+                    continue
+                if not (window_start <= int(other["t"]) <= window_end):
+                    continue
+                if slot in {tuple(s) for s in other["consulted"]}:
+                    implicated_by_overlap = True
+                    break
+            if implicated_by_overlap:
+                exclusions["overlapping_outcome_implication"] += 1
+                continue
+
+            eligible.append(slot)
+
+        selected = sorted(
+            eligible,
+            key=lambda slot: _slot_rank(run_seed, event_id, selection_salt, slot),
+        )[:target_count]
+        selected_by_outcome[event_id] = selected
+        aggregate_exclusions.update(exclusions)
+
+        row = {
+            "outcome_event_id": event_id,
+            "target_control_count": target_count,
+            "eligible_count": len(eligible),
+            "selected_count": len(selected),
+            "selected_slots": [list(s) for s in selected],
+            "exclusion_counts": dict(sorted(exclusions.items())),
+        }
+        per_outcome.append(row)
+        selection_fingerprint_rows.append(
+            {
+                "outcome_event_id": event_id,
+                "selected_slots": row["selected_slots"],
+            }
+        )
+
+    selection_blob = json.dumps(
+        selection_fingerprint_rows,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    audit = {
+        "version": MATCHED_UNTOUCHED_CONTROL_VERSION,
+        "outcomes": len(outcomes),
+        "outcomes_with_controls": sum(1 for slots in selected_by_outcome.values() if slots),
+        "eligible_total": sum(row["eligible_count"] for row in per_outcome),
+        "selected_total": sum(row["selected_count"] for row in per_outcome),
+        "measured_outcome_deltas": 0,
+        "aggregate_exclusion_counts": dict(sorted(aggregate_exclusions.items())),
+        "selection_sha256": hashlib.sha256(selection_blob.encode("utf-8")).hexdigest(),
+        "per_outcome": per_outcome,
+    }
+    return selected_by_outcome, audit
+
+
 def score_consolidation(
     records: Sequence[ProbeRecord],
     reports: Sequence,
     outcomes: Sequence[dict],
     window_probes: int = 3,
-) -> ConsolidationMetrics:
-    """Score delayed-credit consolidation.
+    *,
+    run_seed: int = 0,
+    control_selection_salt: str = "",
+) -> ConsolidationScore:
+    """Score delayed-credit consolidation with matched untouched controls.
 
     `outcomes` carries the audit view of each delayed outcome: `event_id`, `t`,
     `responsible_slot`, and `consulted`.
+
+    The untouched control is selected post hoc by the harness from
+    contemporaneously measurable slots that were not implicated by the target
+    outcome or by overlapping delayed outcomes.
     """
     by_id = {o["event_id"]: o for o in outcomes}
     hits = 0
@@ -313,9 +476,13 @@ def score_consolidation(
     culprit_deltas: list[float] = []
     decoy_deltas: list[float] = []
 
-    touched: set[tuple[str, str]] = set()
-    for o in outcomes:
-        touched.update(tuple(s) for s in o["consulted"])
+    selected_controls, control_audit = _matched_untouched_controls(
+        records,
+        outcomes,
+        run_seed=run_seed,
+        window_probes=window_probes,
+        selection_salt=control_selection_salt,
+    )
 
     for rep in reports:
         o = by_id.get(rep.outcome_event_id)
@@ -339,16 +506,21 @@ def score_consolidation(
             if d is not None:
                 decoy_deltas.append(d)
 
-    untouched_deltas: list[float] = []
+    untouched_outcome_deltas: list[float] = []
     for o in outcomes:
-        for slot in {r.slot for r in records} - touched:
-            d = _windowed_delta(records, slot, o["t"], window_probes)
-            if d is not None:
-                untouched_deltas.append(d)
+        deltas = [
+            _windowed_delta(records, slot, o["t"], window_probes)
+            for slot in selected_controls.get(int(o["event_id"]), [])
+        ]
+        measurable = [d for d in deltas if d is not None]
+        if measurable:
+            untouched_outcome_deltas.append(_safe_mean(measurable))
+
+    control_audit["measured_outcome_deltas"] = len(untouched_outcome_deltas)
 
     culprit = _safe_mean(culprit_deltas)
     decoy = _safe_mean(decoy_deltas)
-    return ConsolidationMetrics(
+    metrics = ConsolidationMetrics(
         outcomes=len(reports),
         revisions=revisions,
         attribution_precision=(hits / revisions) if revisions else 0.0,
@@ -356,7 +528,11 @@ def score_consolidation(
         collateral_revision_rate=(collateral / revisions) if revisions else 0.0,
         culprit_accuracy_delta=culprit,
         decoy_accuracy_delta=decoy,
-        untouched_accuracy_delta=_safe_mean(untouched_deltas),
+        untouched_accuracy_delta=_safe_mean(untouched_outcome_deltas),
         net_repair=culprit + decoy,
         consolidation_reads=reads,
+    )
+    return ConsolidationScore(
+        metrics=metrics,
+        matched_untouched_control=control_audit,
     )
