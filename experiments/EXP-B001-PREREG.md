@@ -78,7 +78,8 @@ expected to work here, and showing that cleanly is part of the point.
 - `culprit_accuracy_delta` — windowed accuracy change on the culprit slot;
 - `decoy_accuracy_delta` — windowed accuracy change on consulted-but-innocent
   slots; **the collateral-damage measure**;
-- `untouched_accuracy_delta` — change on slots no outcome consulted;
+- `untouched_accuracy_delta` — per-outcome change on a deterministic matched set
+  of contemporaneously measurable slots outside the implicated decision;
 - `net_repair` = culprit delta + decoy delta; **primary**;
 - `consolidation_reads` — evidence reads spent on consolidation;
 - all EXP-A001 integrity metrics, since consolidation can itself induce drift.
@@ -94,13 +95,38 @@ EXP-B001: every arm shares an evidence-derived substrate that cannot produce a
 belief nothing asserted, so the metric is structurally zero and the validator
 must not demand it.
 
-### Known calibration item
+### Measurement amendment 001 — matched contemporaneously untouched control
 
-In the default configuration, outcomes consult nearly every slot, so the
-untouched-slot set is empty and `untouched_accuracy_delta` is degenerate at 0.
-Development phase must either enlarge the slot set or reduce outcome coverage
-so that a genuine untouched control exists. This is recorded before lock as a
-mechanical defect, not a result-driven adjustment.
+**Pre-development, score-independent amendment.** The engineering pilot showed
+that the original global untouched set was structurally degenerate: over a long
+lifetime, delayed outcomes collectively consult nearly every slot. This defect
+was identified before development seeds and is repaired without changing the
+stream or corruption process. The corruption lock therefore remains the lock
+established at `eb8547c4c9577d318901ce84e94c62972c9c2f37`.
+
+For each delayed outcome, the harness selects a matched control set that:
+
+1. excludes every slot consulted by the target outcome;
+2. has at least one measurable probe before and after the outcome inside the
+   same k-probe scoring rule used for culprit/decoy deltas;
+3. excludes any slot implicated by another delayed outcome whose consolidation
+   time falls inside that candidate slot's pre/post evaluation window;
+4. is selected deterministically by a stable SHA-256 rank over run seed,
+   outcome event id, and slot identity, after the mechanism has consumed the
+   stream and without exposing control identity to the mechanism.
+
+The target control count is one control per consulted decoy, capped by the
+number of eligible slots. All current Class-B policies can revise only consulted
+slots, so excluding overlapping-outcome implicated slots also excludes every
+slot another admissible current policy could revise while preserving the same
+control identity across arms.
+
+The manifest records per-outcome eligible/selected counts, exclusion counts,
+and a control-selection hash. The validator fails closed if controls are absent
+or unmeasurable, if control selection differs across arms, or if the scoring
+protocol hash differs. A numerically zero `untouched_accuracy_delta` is **not**
+by itself an inert metric: zero collateral change on a live matched control is a
+valid result.
 
 ## Budget matching
 
@@ -114,7 +140,7 @@ presented on a cost frontier and never as a like-for-like win.
 Identical to EXP-A001. Pilot (complete, non-evidential) → development
 calibration on ≥3 disjoint seeds → confirmatory on ≥5 disjoint paired seeds.
 Freeze protocol, commit SHA, environment, generator version, corruption lock,
-and seed rule before the first confirmatory run.
+scoring-protocol hash, and seed rule before the first confirmatory run.
 
 ## Invalidation / kill criteria
 
@@ -125,9 +151,11 @@ and seed rule before the first confirmatory run.
    ceiling.
 5. Arms faced different corruption processes or lifetimes.
 6. A declared live metric is inert across all arms.
-7. Ceiling or floor effect on `canonical_accuracy`.
-8. Results depend on a single seed.
-9. `no-consolidation` is not dominated: if no arm beats doing nothing, say so.
+7. The matched untouched control is absent/unmeasurable or differs across arms.
+8. Arms disagree on the scoring-protocol hash.
+9. Ceiling or floor effect on `canonical_accuracy`.
+10. Results depend on a single seed.
+11. `no-consolidation` is not dominated: if no arm beats doing nothing, say so.
 
 ## Kill criterion for the class
 
