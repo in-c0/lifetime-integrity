@@ -156,8 +156,6 @@ def run_drift(
             ans = sut.answer(payload)
             value = ans.value
             if value is not None and value not in ev.options:
-                # Answering outside the offered options is a protocol violation,
-                # scored as an abstention and reported.
                 value = None
             records.append(
                 ProbeRecord(
@@ -216,6 +214,8 @@ def run_delayed_credit(
         raise ValueError(f"run_delayed_credit expects the delayed_credit stream, got {lifetime.stream!r}")
     if consolidator not in CONSOLIDATORS:
         raise KeyError(f"unknown consolidator {consolidator!r}")
+    if classification == "DEVELOPMENT" and control_selection_salt:
+        raise ValueError("DEVELOPMENT runs must use the default matched-control selection salt")
     budget = budget or default_budget(lifetime)
     log = EvidenceLog(capacity=budget.log_capacity, read_ceiling=budget.evidence_reads_ceiling)
     sut = CONSOLIDATORS[consolidator](log, budget)
@@ -290,6 +290,7 @@ def run_delayed_credit(
             "consolidation_metrics": credit.metrics.to_dict(),
             "scoring_protocol": scoring_protocol(window_probes),
             "scoring_protocol_sha256": scoring_protocol_sha256(window_probes),
+            "control_selection_salt": control_selection_salt,
             "matched_untouched_control": credit.matched_untouched_control,
             "budget_actual": {
                 **log.stats(),
