@@ -40,9 +40,36 @@ only trigger a Phase-2 calibration action permitted by issue #1.
   authorized by the matched-control repair.
 - EXP-B001 scoring uses `LIS-SCORE-v0.2.0` and
   `matched-contemporaneous-v1`.
+- With the default `window_probes=3`, the canonical scoring-protocol hash is
+  `3a7bf5eb123ce2904a99c68edcd9e97152fc6e90fc8d2167cdf79b411bbde728`.
+- Development uses the default empty matched-control selection salt. The harness
+  rejects a non-default salt in a DEVELOPMENT run and records the actual salt in
+  every EXP-B001 manifest.
 - Development manifests must record the exact git commit and are rejected by
   the validator if it is absent or differs across arms.
 - No confirmatory seed selection is made here.
+
+## Matched-control coverage rule
+
+The matched untouched control is an ancillary contemporaneous control, not a
+new event in the lifetime. For each delayed outcome the harness searches for
+eligible slots under the locked matching rule. If an outcome has zero eligible
+slots, that outcome contributes no `untouched_accuracy_delta`; it is not given a
+synthetic replacement and the stream is not changed. The manifest records
+`outcomes`, `outcomes_with_controls`, `eligible_total`, `selected_total`,
+`measured_outcome_deltas`, per-outcome counts, and exclusion reasons.
+
+`untouched_accuracy_delta` is computed by averaging selected controls within
+an outcome and then averaging over outcomes with at least one measurable
+control. There is no post-result minimum-coverage threshold. The validator
+fails closed if aggregate matched-control coverage is absent/unmeasurable or if
+control selection differs across arms. Coverage is reported as a limitation at
+any horizon where it becomes sparse.
+
+A stream-only audit performed before inspecting any development mechanism
+output found nonzero matched-control coverage in every frozen EXP-B001
+seed × horizon cell, including 128 epochs. This audit was used only to verify
+that the measurement exists; it did not inspect or compare mechanism answers.
 
 ## Interpretation discipline
 
