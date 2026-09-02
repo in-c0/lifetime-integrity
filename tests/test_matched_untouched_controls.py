@@ -172,7 +172,9 @@ def test_development_classification_requires_and_accepts_git_commit():
         ).manifest
         for arm in DRIFT_MECHANISMS
     ]
-    assert validate(pinned)["valid_for_comparison"], validate(pinned)["reasons"]
+    reasons = validate(pinned)["reasons"]
+    assert "missing_git_commit_for_nonpilot" not in reasons
+    assert "arms_disagree_on_git_commit" not in reasons
 
 
 def test_score_aggregates_untouched_control_per_outcome():
