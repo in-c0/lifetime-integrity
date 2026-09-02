@@ -28,16 +28,22 @@ from .lifetime import (
     Probe,
 )
 from .mechanisms import DRIFT_MECHANISMS, Budget, EvidenceLog
-from .metrics import ProbeRecord, evaluate, score_consolidation
+from .metrics import (
+    ProbeRecord,
+    evaluate,
+    score_consolidation,
+    scoring_protocol,
+    scoring_protocol_sha256,
+)
 
-MANIFEST_VERSION = "1.0"
+MANIFEST_VERSION = "1.1"
 
 
 def source_tree_sha256(root: Path | None = None) -> str:
     """Deterministic fingerprint of the package source.
 
-    A pilot provenance fallback only. Confirmatory runs must additionally record
-    a real git commit SHA; see the preregistrations.
+    A pilot provenance fallback only. Development and confirmatory runs should
+    additionally record a real git commit SHA.
     """
     root = root or Path(__file__).resolve().parent
     h = hashlib.sha256()
@@ -84,7 +90,13 @@ def _environment() -> dict:
     }
 
 
-def _base_manifest(lifetime: Lifetime, name: str, budget: Budget, classification: str) -> dict:
+def _base_manifest(
+    lifetime: Lifetime,
+    name: str,
+    budget: Budget,
+    classification: str,
+    git_commit: str | None,
+) -> dict:
     return {
         "manifest_version": MANIFEST_VERSION,
         "classification": classification,
@@ -97,7 +109,7 @@ def _base_manifest(lifetime: Lifetime, name: str, budget: Budget, classification
         "lifetime_config": asdict(lifetime.config),
         "lifetime_summary": lifetime.summary(),
         "source_tree_sha256": source_tree_sha256(),
-        "git_commit": None,
+        "git_commit": git_commit,
         "environment": _environment(),
         "budget_ceiling": asdict(budget),
         "invalidation_reasons": [],
@@ -109,6 +121,7 @@ def run_drift(
     mechanism: str,
     budget: Budget | None = None,
     classification: str = "PILOT",
+    git_commit: str | None = None,
 ) -> RunResult:
     """Class A: score one integrity mechanism over one lifetime."""
     if lifetime.stream != "drift":
@@ -167,7 +180,7 @@ def run_drift(
     elapsed = time.perf_counter() - started
     metrics = evaluate(records, support_index, assertion_times)
 
-    manifest = _base_manifest(lifetime, mechanism, budget, classification)
+    manifest = _base_manifest(lifetime, mechanism, budget, classification, git_commit)
     manifest.update(
         {
             "experiment": "EXP-A001",
@@ -195,6 +208,8 @@ def run_delayed_credit(
     budget: Budget | None = None,
     classification: str = "PILOT",
     window_probes: int = 3,
+    git_commit: str | None = None,
+    control_selection_salt: str = "",
 ) -> RunResult:
     """Class B: score one delayed-credit rule over one lifetime."""
     if lifetime.stream != "delayed_credit":
@@ -258,14 +273,24 @@ def run_delayed_credit(
 
     elapsed = time.perf_counter() - started
     integrity = evaluate(records, support_index, assertion_times)
-    credit = score_consolidation(records, reports, outcomes, window_probes=window_probes)
+    credit = score_consolidation(
+        records,
+        reports,
+        outcomes,
+        window_probes=window_probes,
+        run_seed=lifetime.config.seed,
+        control_selection_salt=control_selection_salt,
+    )
 
-    manifest = _base_manifest(lifetime, consolidator, budget, classification)
+    manifest = _base_manifest(lifetime, consolidator, budget, classification, git_commit)
     manifest.update(
         {
             "experiment": "EXP-B001",
             "metrics": integrity.to_dict(),
-            "consolidation_metrics": credit.to_dict(),
+            "consolidation_metrics": credit.metrics.to_dict(),
+            "scoring_protocol": scoring_protocol(window_probes),
+            "scoring_protocol_sha256": scoring_protocol_sha256(window_probes),
+            "matched_untouched_control": credit.matched_untouched_control,
             "budget_actual": {
                 **log.stats(),
                 "maintenance_ops": sut.maintenance_ops,
