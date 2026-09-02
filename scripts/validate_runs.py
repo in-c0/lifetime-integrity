@@ -159,6 +159,14 @@ def validate(runs: list[dict], tolerance: float = 0.02) -> dict:
         elif len(protocol_hashes) > 1:
             reasons.append("arms_disagree_on_scoring_protocol_sha256")
 
+        salts = {r.get("control_selection_salt") for r in runs}
+        if None in salts:
+            reasons.append("missing_control_selection_salt")
+        elif len(salts) > 1:
+            reasons.append("arms_disagree_on_control_selection_salt")
+        elif classification == "DEVELOPMENT" and next(iter(salts)) != "":
+            reasons.append("nondefault_control_selection_salt_in_development")
+
         controls = [r.get("matched_untouched_control") for r in runs]
         if any(not isinstance(c, dict) for c in controls):
             reasons.append("missing_matched_untouched_control")
