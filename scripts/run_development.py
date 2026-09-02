@@ -138,22 +138,25 @@ def _run_a(seed: int, epochs: int, commit: str, root: Path) -> dict:
 
     validity = validate(runs)
     (out / "validation.json").write_text(json.dumps(validity, indent=2, sort_keys=True))
+    cost_diagnostics = [_cost_row(run) for run in runs]
     rows = []
-    for run in runs:
-        row = _cost_row(run)
-        row.update(
-            {
-                "integrity_violation_rate": float(run["metrics"]["integrity_violation_rate"]),
-                "canonical_accuracy": float(run["metrics"]["canonical_accuracy"]),
-            }
-        )
-        rows.append(row)
+    if validity["valid_for_comparison"]:
+        for run in runs:
+            row = _cost_row(run)
+            row.update(
+                {
+                    "integrity_violation_rate": float(run["metrics"]["integrity_violation_rate"]),
+                    "canonical_accuracy": float(run["metrics"]["canonical_accuracy"]),
+                }
+            )
+            rows.append(row)
 
     return {
         "experiment": "EXP-A001",
         "seed": seed,
         "epochs": epochs,
         "validity": validity,
+        "cost_diagnostics": cost_diagnostics,
         "rows": rows,
         "integrity_cost_frontier": (
             _frontier(rows, value_key="integrity_violation_rate", lower_is_better=True)
@@ -184,29 +187,32 @@ def _run_b(seed: int, epochs: int, commit: str, root: Path) -> dict:
 
     validity = validate(runs)
     (out / "validation.json").write_text(json.dumps(validity, indent=2, sort_keys=True))
+    cost_diagnostics = [_cost_row(run) for run in runs]
     rows = []
-    for run in runs:
-        row = _cost_row(run)
-        control = run["matched_untouched_control"]
-        row.update(
-            {
-                "net_repair": float(run["consolidation_metrics"]["net_repair"]),
-                "attribution_recall": float(run["consolidation_metrics"]["attribution_recall"]),
-                "untouched_accuracy_delta": float(
-                    run["consolidation_metrics"]["untouched_accuracy_delta"]
-                ),
-                "canonical_accuracy": float(run["metrics"]["canonical_accuracy"]),
-                "matched_control_selected": int(control["selected_total"]),
-                "matched_control_measured_outcomes": int(control["measured_outcome_deltas"]),
-            }
-        )
-        rows.append(row)
+    if validity["valid_for_comparison"]:
+        for run in runs:
+            row = _cost_row(run)
+            control = run["matched_untouched_control"]
+            row.update(
+                {
+                    "net_repair": float(run["consolidation_metrics"]["net_repair"]),
+                    "attribution_recall": float(run["consolidation_metrics"]["attribution_recall"]),
+                    "untouched_accuracy_delta": float(
+                        run["consolidation_metrics"]["untouched_accuracy_delta"]
+                    ),
+                    "canonical_accuracy": float(run["metrics"]["canonical_accuracy"]),
+                    "matched_control_selected": int(control["selected_total"]),
+                    "matched_control_measured_outcomes": int(control["measured_outcome_deltas"]),
+                }
+            )
+            rows.append(row)
 
     return {
         "experiment": "EXP-B001",
         "seed": seed,
         "epochs": epochs,
         "validity": validity,
+        "cost_diagnostics": cost_diagnostics,
         "rows": rows,
         "repair_cost_frontier": (
             _frontier(rows, value_key="net_repair", lower_is_better=False)
@@ -249,15 +255,15 @@ def _a_h2(comparisons: list[dict]) -> list[dict]:
 
 
 def _read_ceiling_summary(comparisons: list[dict]) -> dict:
-    rows = [row for c in comparisons for row in c["rows"]]
+    rows = [row for c in comparisons for row in c["cost_diagnostics"]]
     if not rows:
-        return {"max_utilization": 0.0, "ceiling_bound_arms": []}
+        return {"max_utilization": 0.0, "ceiling_bound_or_near_bound": []}
     max_utilization = max(r["read_ceiling_utilization"] for r in rows)
     bound = sorted(
         {
             f"{c['experiment']}:{c['seed']}:{c['epochs']}:{r['arm']}"
             for c in comparisons
-            for r in c["rows"]
+            for r in c["cost_diagnostics"]
             if r["exhausted_reads"] > 0 or r["read_ceiling_utilization"] >= 0.95
         }
     )
@@ -302,7 +308,7 @@ def main() -> None:
             "H2_spearman_8_vs_128": _a_h2(a_comparisons),
         },
         "EXP-B001": {"comparisons": b_comparisons},
-        "note": "Development calibration only; not confirmatory evidence.",
+        "note": "Development calibration only; invalid cells redact performance rows.",
     }
     summary_path = root / "summary.json"
     summary_path.write_text(json.dumps(summary, indent=2, sort_keys=True))
