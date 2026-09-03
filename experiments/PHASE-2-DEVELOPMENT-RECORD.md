@@ -1,6 +1,11 @@
 # Phase-2 development record
 
 **Status: DEVELOPMENT CALIBRATION. NOT CONFIRMATORY EVIDENCE.**
+
+> **Interpretation superseded by `PHASE-2-DEVELOPMENT-RECORD-AMENDED-001.md`.**
+> This document is preserved unchanged as the pre-amendment record. Its raw
+> measurements remain correct; its validity and endpoint *interpretations* were
+> revised by `PHASE-2-AMENDMENT-001.md`. No mechanism was re-run.
 Nothing here supports or refutes H1/H2/H3. Development seeds are permanently
 reserved and may never become confirmatory seeds.
 
