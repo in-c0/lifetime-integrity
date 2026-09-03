@@ -343,7 +343,7 @@ def _slot_rank(
 ) -> tuple[str, tuple[str, str]]:
     token = (
         f"{run_seed}:{outcome_event_id}:{selection_salt}:{slot[0]}:{slot[1]}"
-    ).encode("utf-8")
+    ).encode()
     return hashlib.sha256(token).hexdigest(), slot
 
 

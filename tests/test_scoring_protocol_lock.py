@@ -1,6 +1,5 @@
 from lifetime_integrity.metrics import scoring_protocol_sha256
 
-
 DEFAULT_PHASE2_SCORING_SHA256 = "3a7bf5eb123ce2904a99c68edcd9e97152fc6e90fc8d2167cdf79b411bbde728"
 
 

@@ -16,7 +16,7 @@ lifetimes:
 	PYTHONPATH=src python scripts/generate_lifetimes.py --seed 20260902
 
 lint:
-	ruff check src scripts tests
+	ruff check .
 
 bundle:
 	git archive --format=zip --output=../lifetime-integrity-repo.zip HEAD

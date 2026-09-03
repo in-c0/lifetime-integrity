@@ -115,9 +115,47 @@ def test_regrounding_arm_is_required(drift_runs):
 
 
 def test_nonpilot_claim_is_rejected(drift_runs):
+    """A uniform confirmatory claim is rejected outright.
+
+    Narrowed in Phase 2. The original test mutated a single arm and asserted
+    this reason, which passed only because the pre-Phase-2 validator collapsed
+    "some arm is not PILOT" and "the set claims a disallowed classification"
+    into one check. DEVELOPMENT is now an allowed classification, so the two
+    conditions are distinguished and each is asserted separately here and in
+    `test_mixed_classifications_are_rejected`. Both still fail closed.
+    """
+    runs = copy.deepcopy(drift_runs)
+    for r in runs:
+        r["classification"] = "CONFIRMATORY"
+    report = validate(runs)
+    assert not report["valid_for_comparison"]
+    assert "input_run_already_claims_nonpilot_status" in report["reasons"]
+
+
+def test_mixed_classifications_are_rejected(drift_runs):
     runs = copy.deepcopy(drift_runs)
     runs[0]["classification"] = "CONFIRMATORY"
-    assert "input_run_already_claims_nonpilot_status" in validate(runs)["reasons"]
+    report = validate(runs)
+    assert not report["valid_for_comparison"]
+    assert any(r.startswith("mixed_classifications") for r in report["reasons"])
+
+
+def test_missing_classification_is_rejected(drift_runs):
+    runs = copy.deepcopy(drift_runs)
+    del runs[0]["classification"]
+    report = validate(runs)
+    assert not report["valid_for_comparison"]
+    assert "missing_classification" in report["reasons"]
+
+
+def test_development_runs_require_a_pinned_commit(drift_runs):
+    """DEVELOPMENT is allowed, but only with provenance a reader can check."""
+    runs = copy.deepcopy(drift_runs)
+    for r in runs:
+        r["classification"] = "DEVELOPMENT"
+    report = validate(runs)
+    assert not report["valid_for_comparison"]
+    assert "missing_git_commit_for_nonpilot" in report["reasons"]
 
 
 def test_mixed_experiments_are_rejected(drift_runs, credit_runs):

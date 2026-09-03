@@ -111,21 +111,42 @@ def test_harness_only_control_identity_can_change_without_changing_mechanism_out
     assert audit_a["selection_sha256"] != audit_b["selection_sha256"]
 
     # Selection occurs only after the mechanism has consumed the full stream.
+    #
+    # Exercised across *every* consolidator, not just `no-consolidation`.
+    # `no-consolidation` ignores outcomes entirely, so invariance holds there
+    # even if control identity leaked into a revising arm; the arms that call
+    # `demote` are the ones where such a leak could actually surface.
     lt = generate_delayed_credit_lifetime(
         LifetimeConfig(seed=SEED, epochs=16, delayed_outcomes_per_epoch=1.5)
     )
     budget = default_budget(lt)
-    a = run_delayed_credit(lt, "no-consolidation", budget, control_selection_salt="A")
-    b = run_delayed_credit(lt, "no-consolidation", budget, control_selection_salt="B")
+    revised_somewhere = 0
+    for arm in CONSOLIDATORS:
+        a = run_delayed_credit(lt, arm, budget, control_selection_salt="A")
+        b = run_delayed_credit(lt, arm, budget, control_selection_salt="B")
 
-    assert a.records == b.records
-    assert a.manifest["metrics"] == b.manifest["metrics"]
+        assert a.records == b.records, arm
+        assert a.manifest["metrics"] == b.manifest["metrics"], arm
 
-    ca = copy.deepcopy(a.manifest["consolidation_metrics"])
-    cb = copy.deepcopy(b.manifest["consolidation_metrics"])
-    ca.pop("untouched_accuracy_delta")
-    cb.pop("untouched_accuracy_delta")
-    assert ca == cb
+        # Resource spend must also be salt-invariant: a control identity that
+        # changed what an arm read or wrote would be a leak. `wall_seconds` is
+        # excluded because it is wall-clock noise, not a behavioural property.
+        spend_a = {k: v for k, v in a.manifest["budget_actual"].items() if k != "wall_seconds"}
+        spend_b = {k: v for k, v in b.manifest["budget_actual"].items() if k != "wall_seconds"}
+        assert spend_a == spend_b, arm
+
+        ca = copy.deepcopy(a.manifest["consolidation_metrics"])
+        cb = copy.deepcopy(b.manifest["consolidation_metrics"])
+        # The untouched delta is *computed from* the controls, so it is the one
+        # figure allowed to move with the salt. Everything else must not.
+        ca.pop("untouched_accuracy_delta")
+        cb.pop("untouched_accuracy_delta")
+        assert ca == cb, arm
+        revised_somewhere += int(ca["revisions"])
+
+    # Guard against the whole assertion being vacuous: at least one arm must
+    # actually have revised state under both salts.
+    assert revised_somewhere > 0
 
 
 def test_default_phase2_configuration_has_measurable_controls():
