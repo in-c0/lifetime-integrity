@@ -80,7 +80,10 @@ expected to work here, and showing that cleanly is part of the point.
   slots; **the collateral-damage measure**;
 - `untouched_accuracy_delta` — per-outcome change on a deterministic matched set
   of contemporaneously measurable slots outside the implicated decision;
-- `net_repair` = culprit delta + decoy delta; **primary**;
+- `net_repair` = culprit delta + decoy delta; descriptive, retained for
+  transparency and auditability;
+- `excess_net_repair` = `net_repair` − `net_repair(no-consolidation)` on the
+  identical paired lifetime; **primary causal endpoint** (amendment 001, M2);
 - `consolidation_reads` — evidence reads spent on consolidation;
 - all EXP-A001 integrity metrics, since consolidation can itself induce drift.
 
@@ -159,11 +162,25 @@ scoring-protocol hash, and seed rule before the first confirmatory run.
 
 ## Kill criterion for the class
 
-**If no rule achieves positive `net_repair` across development seeds**, the
-finding is that ambiguous delayed blame cannot be localized safely by any of
-these policies on this benchmark — a negative result worth publishing, and the
-correct trigger to either redesign the signal (richer outcome information) or
-abandon class B rather than iterate until something wins.
+**Amended by `PHASE-2-AMENDMENT-001.md` (M2), post-development and
+pre-confirmatory.** The original wording used absolute `net_repair`, which the
+development matrix showed to be satisfiable by `no-consolidation` — an arm that
+performs zero revisions. The motivation is that observed non-zero inaction
+baseline, not a preference for any active mechanism.
+
+> If no active delayed-credit policy achieves positive `excess_net_repair` with
+> adequate consistency across development seeds — that is, no active policy has
+> a positive per-seed mean at a common horizon for all three development seeds —
+> then the tested policies have failed to demonstrate beneficial localization
+> beyond the `no-consolidation` baseline. That is a publishable negative result
+> and the correct trigger to redesign the outcome signal or abandon class B, not
+> to iterate until a policy wins.
+
+Confirmatory standard: per horizon, across at least 5 disjoint paired seeds,
+mean `excess_net_repair` > 0 with a paired bootstrap 95% CI excluding zero, and
+every seed reported including unfavourable ones.
+
+A count of favourable cells is explicitly **not** sufficient evidence.
 
 ## Novelty boundary
 

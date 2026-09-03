@@ -62,7 +62,8 @@ knows it is unsure, and only calibration captures that.
 | `culprit_accuracy_delta` | windowed accuracy change on the culprit |
 | `decoy_accuracy_delta` | windowed accuracy change on consulted-but-correct slots |
 | `untouched_accuracy_delta` | change on slots no outcome consulted |
-| `net_repair` | culprit delta + decoy delta; **primary endpoint for EXP-B001** |
+| `net_repair` | culprit delta + decoy delta; descriptive pre/post state change |
+| `excess_net_repair` | `net_repair` minus `net_repair(no-consolidation)` on the identical paired lifetime; **causal endpoint for EXP-B001** |
 
 Windowed deltas compare the k probes before an outcome against the k probes
 after it, per slot (default k=3), averaged over outcomes. Recall alone is
@@ -76,3 +77,44 @@ configuration. Each experiment declares its live metrics and the validator
 rejects a comparison in which a declared metric is inert. `unsupported_belief_rate`
 is declared for EXP-A001 and explicitly **not** for EXP-B001, whose arms share
 an evidence-derived substrate that cannot confabulate.
+
+
+## Amendment 001 — two definitions that are easy to misread
+
+### `net_repair` is descriptive; `excess_net_repair` is causal
+
+`no-consolidation` performs zero revisions by construction, yet posts *positive*
+absolute `net_repair` at short horizons (+0.126 at E8, +0.089 at E16 in the
+Phase-2 development matrix). `net_repair` therefore carries a non-zero,
+horizon-dependent baseline produced by ordinary benchmark dynamics rather than
+by any repair.
+
+`net_repair` is not wrong and is retained in every manifest. It simply cannot
+answer the causal question alone. For that, subtract the inaction baseline:
+
+```
+excess_net_repair(policy) = net_repair(policy) - net_repair(no-consolidation)
+```
+
+computed on the identical paired lifetime. `no-consolidation` is exactly zero by
+construction. An active policy succeeds on the causal question only when its
+paired excess repair is positive.
+
+### `untouched_accuracy_delta` — what "untouched" does and does not mean
+
+> **Matched-control identity is arm-invariant; matched-control response is not.**
+
+A matched control is causally and contemporaneously untouched *with respect to
+the target outcome's assignment*: it was not consulted by that outcome, and no
+other outcome implicating it falls inside its scoring window. It is **not**
+guaranteed to remain numerically unchanged under every arm — a control slot may
+have been revised by an earlier outcome outside that window.
+
+So `untouched_accuracy_delta` legitimately differs across arms within a cell
+(−0.064 to +0.067 at seed 231368116, E128) even though the control selection
+hash is byte-identical across all arms. **Arm-dependent change in matched
+controls is itself evidence of collateral state modification**, and must not be
+read as a global, arm-independent drift baseline.
+
+The name is retained deliberately: renaming would create provenance noise across
+210 existing manifests for no mechanical gain.

@@ -89,11 +89,56 @@ def test_floor_effect_invalidates_the_configuration(drift_runs):
     assert "benchmark_at_floor" in validate(runs)["reasons"]
 
 
-def test_inert_metric_is_reported(drift_runs):
+def test_inert_metric_invalidates_only_dependent_claims(drift_runs):
+    """Narrowed by Phase-2 amendment 001 (M1).
+
+    An inert declared metric used to invalidate the whole cell, which meant a
+    metric a claim never consumes could suppress that claim. It must still be
+    reported and must still kill the analyses that depend on it, but it may not
+    kill the ones that do not.
+    """
     runs = copy.deepcopy(drift_runs)
     for r in runs:
         r["metrics"]["unsupported_belief_rate"] = 0.0
-    assert any(r.startswith("inert_metrics") for r in validate(runs)["reasons"])
+    report = validate(runs)
+
+    assert "unsupported_belief_rate" in report["inert_metrics"]
+    assert report["metric_status"]["unsupported_belief_rate"]["live"] is False
+    assert report["structurally_valid"] is True
+
+    claims = report["claims"]
+    # Dependent claims die.
+    assert claims["unsupported_belief_analysis"]["valid"] is False
+    assert claims["H3_integrity_not_accuracy"]["valid"] is False
+    # Independent claims survive.
+    assert claims["H2_horizon_rank_stability"]["valid"] is True
+    assert claims["stale_state_analysis"]["valid"] is True
+
+
+def test_structural_failure_invalidates_every_claim(drift_runs):
+    runs = copy.deepcopy(drift_runs)
+    runs[0]["audit_leak_count"] = 2
+    report = validate(runs)
+    assert report["structurally_valid"] is False
+    assert all(not c["valid"] for c in report["claims"].values())
+
+
+def test_metrics_meaningful_at_zero_are_never_called_inert(credit_runs):
+    """A zero net repair is a finding, not a dead instrument."""
+    runs = copy.deepcopy(credit_runs)
+    for r in runs:
+        r["consolidation_metrics"]["net_repair"] = 0.0
+    report = validate(runs)
+    assert report["metric_status"]["net_repair"]["live"] is True
+    assert report["claims"]["causal_excess_repair"]["valid"] is True
+
+
+def test_causal_claim_requires_the_inaction_baseline_arm(credit_runs):
+    runs = [copy.deepcopy(r) for r in credit_runs if r["arm"] != "no-consolidation"]
+    report = validate(runs)
+    claim = report["claims"]["causal_excess_repair"]
+    assert claim["valid"] is False
+    assert "missing_required_arm:no-consolidation" in claim["reasons"]
 
 
 def test_unsupported_belief_is_out_of_scope_for_class_b(credit_runs):

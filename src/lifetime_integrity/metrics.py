@@ -20,7 +20,14 @@ from itertools import pairwise
 
 import numpy as np
 
-SCORING_PROTOCOL_VERSION = "LIS-SCORE-v0.2.0"
+SCORING_PROTOCOL_VERSION = "LIS-SCORE-v0.3.0"
+# v0.2.0 (hash 3a7bf5eb123ce2904a99c68edcd9e97152fc6e90fc8d2167cdf79b411bbde728)
+# is the version the Phase-2 development matrix was executed under. Amendment
+# 001 (M2) adds the paired causal endpoint, which changes derived endpoint
+# semantics and therefore the protocol hash. The corruption lock is untouched.
+PREVIOUS_SCORING_PROTOCOL_VERSION = "LIS-SCORE-v0.2.0"
+CAUSAL_ENDPOINT_VERSION = "excess-net-repair-v1"
+INACTION_BASELINE_ARM = "no-consolidation"
 MATCHED_UNTOUCHED_CONTROL_VERSION = "matched-contemporaneous-v1"
 
 
@@ -300,6 +307,8 @@ def scoring_protocol(window_probes: int) -> dict:
         "untouched_control": MATCHED_UNTOUCHED_CONTROL_VERSION,
         "matching_rule": "one control per consulted decoy, capped by eligible slots",
         "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+        "causal_endpoint": CAUSAL_ENDPOINT_VERSION,
+        "inaction_baseline_arm": INACTION_BASELINE_ARM,
     }
 
 
@@ -536,3 +545,32 @@ def score_consolidation(
         metrics=metrics,
         matched_untouched_control=control_audit,
     )
+
+
+def excess_net_repair(runs: Sequence[dict]) -> dict[str, float | None]:
+    """Amendment 001 (M2): paired causal endpoint for EXP-B001.
+
+    `excess_net_repair(policy) = net_repair(policy) - net_repair(no-consolidation)`
+    on the identical paired lifetime.
+
+    Raw `net_repair` is not wrong and is retained in every manifest as a
+    descriptive measure of pre/post state change. It simply cannot serve as the
+    causal endpoint on its own: `no-consolidation` performs zero revisions yet
+    posts positive absolute net repair at short horizons, so the metric carries
+    a non-zero, horizon-dependent inaction baseline.
+
+    `runs` are the manifests of one comparison cell (one seed, one horizon).
+    Returns `None` for every arm when the baseline arm is absent, because the
+    causal question is unanswerable without it.
+    """
+    baseline = None
+    for r in runs:
+        if r.get("arm") == INACTION_BASELINE_ARM:
+            baseline = float(r["consolidation_metrics"]["net_repair"])
+            break
+    if baseline is None:
+        return {r.get("arm"): None for r in runs}
+    return {
+        r.get("arm"): float(r["consolidation_metrics"]["net_repair"]) - baseline
+        for r in runs
+    }

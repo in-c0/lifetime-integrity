@@ -38,6 +38,13 @@ from .metrics import (
 
 MANIFEST_VERSION = "1.1"
 
+# Amendment 001 (M3): confirmatory runs raise the derived evidence-read
+# ceiling by this factor. Triggered solely by aggregate development
+# utilisation (peak 0.962, zero exhausted reads), identical across all arms,
+# and never derived from any arm's measured appetite. Verified across all 210
+# development arm-cells that ceiling magnitude is inert before exhaustion.
+CONFIRMATORY_READ_CEILING_MULTIPLIER = 1.25
+
 
 def source_tree_sha256(root: Path | None = None) -> str:
     """Deterministic fingerprint of the package source.
@@ -53,16 +60,24 @@ def source_tree_sha256(root: Path | None = None) -> str:
     return h.hexdigest()
 
 
-def default_budget(lifetime: Lifetime, reads_per_probe: int = 200) -> Budget:
+def default_budget(
+    lifetime: Lifetime,
+    reads_per_probe: int = 200,
+    ceiling_multiplier: float = 1.0,
+) -> Budget:
     """A ceiling generous enough for the hungriest reference mechanism.
 
     Sized from the lifetime, not from any mechanism's measured appetite, so the
     ceiling cannot be quietly tuned to favour one arm.
+
+    `ceiling_multiplier` scales only the evidence-read ceiling. `log_capacity`
+    is deliberately left alone: it governs eviction and therefore behaviour.
+    Confirmatory runs pass `CONFIRMATORY_READ_CEILING_MULTIPLIER`.
     """
     n_probes = sum(1 for e in lifetime.events if isinstance(e, Probe))
     n_asserts = sum(1 for e in lifetime.events if isinstance(e, Assertion))
     return Budget(
-        evidence_reads_ceiling=n_probes * reads_per_probe,
+        evidence_reads_ceiling=round(n_probes * reads_per_probe * ceiling_multiplier),
         maintenance_ops_ceiling=n_asserts,
         log_capacity=max(256, n_asserts),
     )

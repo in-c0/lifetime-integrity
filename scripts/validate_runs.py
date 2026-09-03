@@ -27,6 +27,7 @@ B_REQUIRED = {"no-consolidation", "uniform-blame"}
 CEILING_ACCURACY = 0.95
 FLOOR_ACCURACY = 0.40
 ALLOWED_CLASSIFICATIONS = {"PILOT", "DEVELOPMENT"}
+PROTOCOL_VERSION = "phase2-amendment-001"
 
 # Metrics each experiment claims to measure. Liveness is enforced only on these:
 # a metric that is structurally zero for an experiment's substrate is not a
@@ -38,6 +39,98 @@ LIVE_METRICS = {
     "EXP-B001": ("stale_state_rate",),
 }
 LIVE_CONSOLIDATION = ("attribution_precision", "attribution_recall", "collateral_revision_rate")
+
+# --- Phase-2 amendment 001 (M1): claim-scoped metric validity -----------------
+#
+# A metric may invalidate only the claims that actually depend on it. Structural
+# and provenance failures still invalidate the whole cell. This exists because
+# an inert `self_contradiction_rate` at 8 epochs suppressed the H2 diagnostic,
+# which consumes `integrity_violation_rate` and never touches it.
+#
+# Where each metric is read from in a manifest.
+METRIC_SOURCE = {
+    "integrity_violation_rate": "metrics",
+    "canonical_accuracy": "metrics",
+    "unsupported_belief_rate": "metrics",
+    "self_contradiction_rate": "metrics",
+    "stale_state_rate": "metrics",
+    "net_repair": "consolidation_metrics",
+    "decoy_accuracy_delta": "consolidation_metrics",
+    "attribution_precision": "consolidation_metrics",
+    "attribution_recall": "consolidation_metrics",
+    "collateral_revision_rate": "consolidation_metrics",
+}
+
+# Metrics that are meaningful at zero and must never be called inert: a zero
+# here is a finding, not a dead instrument.
+ALWAYS_LIVE = frozenset({"canonical_accuracy", "net_repair", "decoy_accuracy_delta"})
+
+CLAIM_DEPENDENCIES = {
+    "EXP-A001": {
+        "H1_cost_matched_separation": ("integrity_violation_rate",),
+        "H2_horizon_rank_stability": ("integrity_violation_rate",),
+        "H3_integrity_not_accuracy": (
+            "unsupported_belief_rate",
+            "self_contradiction_rate",
+            "canonical_accuracy",
+        ),
+        "unsupported_belief_analysis": ("unsupported_belief_rate",),
+        "self_contradiction_analysis": ("self_contradiction_rate",),
+        "stale_state_analysis": ("stale_state_rate",),
+    },
+    "EXP-B001": {
+        "causal_excess_repair": ("net_repair",),
+        "attribution_analysis": ("attribution_precision", "attribution_recall"),
+        "collateral_analysis": ("decoy_accuracy_delta",),
+        "stale_state_analysis": ("stale_state_rate",),
+    },
+}
+
+# Claims with a precondition beyond metric liveness.
+CLAIM_REQUIRED_ARMS = {"causal_excess_repair": ("no-consolidation",)}
+
+
+def _metric_value(run: dict, metric: str) -> float:
+    return float(run.get(METRIC_SOURCE[metric], {}).get(metric, 0.0))
+
+
+def assess_metrics(runs: list[dict], experiment: str | None) -> dict:
+    """Per-metric liveness for every metric any declared claim depends on."""
+    status: dict[str, dict] = {}
+    for metric in sorted({m for deps in CLAIM_DEPENDENCIES.get(experiment or "", {}).values() for m in deps}):
+        if metric in ALWAYS_LIVE:
+            status[metric] = {"live": True, "reason": "meaningful_at_zero"}
+            continue
+        inert = all(_metric_value(r, metric) == 0.0 for r in runs)
+        status[metric] = {
+            "live": not inert,
+            "reason": "inert_across_all_arms" if inert else "live",
+        }
+    return status
+
+
+def assess_claims(
+    runs: list[dict],
+    experiment: str | None,
+    metric_status: dict,
+    structurally_valid: bool,
+    structural_reasons: list[str],
+) -> dict:
+    """Per-claim validity. A structural failure invalidates every claim."""
+    arms = {r.get("arm") for r in runs}
+    claims: dict[str, dict] = {}
+    for claim, deps in CLAIM_DEPENDENCIES.get(experiment or "", {}).items():
+        reasons: list[str] = []
+        if not structurally_valid:
+            reasons.append(f"structurally_invalid:{sorted(structural_reasons)}")
+        for metric in deps:
+            if not metric_status.get(metric, {}).get("live", False):
+                reasons.append(f"inert_dependency:{metric}")
+        for required in CLAIM_REQUIRED_ARMS.get(claim, ()):
+            if required not in arms:
+                reasons.append(f"missing_required_arm:{required}")
+        claims[claim] = {"valid": not reasons, "depends_on": list(deps), "reasons": reasons}
+    return claims
 
 
 def rel_spread(values: list[float]) -> float:
@@ -134,8 +227,9 @@ def validate(runs: list[dict], tolerance: float = 0.02) -> dict:
         for metric in LIVE_CONSOLIDATION:
             if all(float(r.get("consolidation_metrics", {}).get(metric, 0.0)) == 0.0 for r in runs):
                 inert.append(metric)
-    if inert:
-        reasons.append(f"inert_metrics:{sorted(inert)}")
+    # Amendment 001 (M1): inert declared metrics no longer invalidate the whole
+    # cell. They are reported here and consumed by the per-claim assessment
+    # below, so they invalidate exactly the claims that depend on them.
 
     if experiment == "EXP-A001":
         missing = A_REQUIRED - arms
@@ -192,14 +286,30 @@ def validate(runs: list[dict], tolerance: float = 0.02) -> dict:
             if any(not c.get("selection_sha256") for c in controls):
                 reasons.append("missing_matched_untouched_control_selection_hash")
 
+    structurally_valid = not reasons
+    metric_status = assess_metrics(runs, experiment)
+    claims = assess_claims(runs, experiment, metric_status, structurally_valid, reasons)
+
     return {
         "experiment": experiment,
         "classification": classification,
         "arms": sorted(a for a in arms if a),
         "n_runs": len(runs),
-        "valid_for_comparison": not reasons,
+        "protocol_version": PROTOCOL_VERSION,
+        # Structural/provenance validity. A failure here invalidates every claim.
+        "structurally_valid": structurally_valid,
+        "structural_reasons": reasons,
+        # Retained: since amendment 001 this is defined as structural validity,
+        # not as a single boolean standing in for every scientific claim.
+        "valid_for_comparison": structurally_valid,
         "reasons": reasons,
-        "note": "Validity only. This says nothing about which arm performed better.",
+        "inert_metrics": sorted(inert),
+        "metric_status": metric_status,
+        "claims": claims,
+        "note": (
+            "Validity only. This says nothing about which arm performed better. "
+            "Read `claims` for per-claim validity; `valid_for_comparison` is structural only."
+        ),
     }
 
 

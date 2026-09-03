@@ -3,7 +3,12 @@ import sys
 from pathlib import Path
 
 from lifetime_integrity.consolidation import CONSOLIDATORS, ConsolidationReport
-from lifetime_integrity.harness import default_budget, run_delayed_credit, run_drift
+from lifetime_integrity.harness import (
+    CONFIRMATORY_READ_CEILING_MULTIPLIER,
+    default_budget,
+    run_delayed_credit,
+    run_drift,
+)
 from lifetime_integrity.lifetime import (
     LifetimeConfig,
     generate_delayed_credit_lifetime,
@@ -13,6 +18,7 @@ from lifetime_integrity.mechanisms import DRIFT_MECHANISMS
 from lifetime_integrity.metrics import (
     ProbeRecord,
     _matched_untouched_controls,
+    excess_net_repair,
     score_consolidation,
 )
 
@@ -214,3 +220,60 @@ def test_score_aggregates_untouched_control_per_outcome():
     )
     assert scored.matched_untouched_control["measured_outcome_deltas"] > 0
     assert scored.metrics.untouched_accuracy_delta == 0.0
+
+
+def test_excess_net_repair_is_paired_against_inaction():
+    """Amendment 001 (M2): the causal endpoint subtracts the inaction baseline."""
+    lt = generate_delayed_credit_lifetime(
+        LifetimeConfig(seed=SEED, epochs=16, delayed_outcomes_per_epoch=1.5)
+    )
+    budget = default_budget(lt)
+    runs = [run_delayed_credit(lt, arm, budget).manifest for arm in CONSOLIDATORS]
+    excess = excess_net_repair(runs)
+
+    # The baseline arm is exactly zero by construction.
+    assert excess["no-consolidation"] == 0.0
+    baseline = next(
+        r["consolidation_metrics"]["net_repair"] for r in runs if r["arm"] == "no-consolidation"
+    )
+    for r in runs:
+        assert excess[r["arm"]] == r["consolidation_metrics"]["net_repair"] - baseline
+    # Raw net_repair is retained, not replaced.
+    assert all("net_repair" in r["consolidation_metrics"] for r in runs)
+
+
+def test_excess_net_repair_is_unanswerable_without_the_baseline():
+    lt = generate_delayed_credit_lifetime(
+        LifetimeConfig(seed=SEED, epochs=16, delayed_outcomes_per_epoch=1.5)
+    )
+    budget = default_budget(lt)
+    runs = [
+        run_delayed_credit(lt, arm, budget).manifest
+        for arm in CONSOLIDATORS
+        if arm != "no-consolidation"
+    ]
+    assert set(excess_net_repair(runs).values()) == {None}
+
+
+def test_read_ceiling_magnitude_is_inert_before_exhaustion():
+    """Amendment 001 (M3) safety property.
+
+    Raising the evidence-read ceiling must not change behaviour when the old
+    ceiling was never reached, or the confirmatory ceiling change would silently
+    become a performance amendment.
+    """
+    lt = generate_drift_lifetime(LifetimeConfig(seed=SEED, epochs=32))
+    base = default_budget(lt)
+    raised = default_budget(lt, ceiling_multiplier=CONFIRMATORY_READ_CEILING_MULTIPLIER)
+    assert raised.evidence_reads_ceiling > base.evidence_reads_ceiling
+    # Only the read ceiling moves: log capacity governs eviction, and therefore
+    # behaviour, so it must not.
+    assert raised.log_capacity == base.log_capacity
+    assert raised.maintenance_ops_ceiling == base.maintenance_ops_ceiling
+
+    for arm in DRIFT_MECHANISMS:
+        a = run_drift(lt, arm, base).manifest
+        b = run_drift(lt, arm, raised).manifest
+        assert a["budget_actual"]["exhausted_reads"] == 0, arm
+        assert a["metrics"] == b["metrics"], arm
+        assert a["budget_actual"]["evidence_reads"] == b["budget_actual"]["evidence_reads"], arm

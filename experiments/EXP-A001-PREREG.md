@@ -111,6 +111,9 @@ Before a run counts as confirmatory:
 
 - identical `evidence_reads_ceiling`, `maintenance_ops_ceiling`, and
   `log_capacity` across arms, within 2%;
+- confirmatory runs use `evidence_reads_ceiling = round(1.25 × derived ceiling)`
+  per amendment 001 (M3), applied uniformly to every arm; `log_capacity` and
+  `maintenance_ops_ceiling` are unchanged;
 - ceilings derived from the lifetime (probe and assertion counts), never from a
   mechanism's measured appetite;
 - reads charged per record **scanned**, not per record returned;
@@ -144,7 +147,16 @@ Integrity, independent of task accuracy:
 Accuracy (`canonical_accuracy`, `abstention_rate`) is reported but is **not** the
 primary endpoint.
 
-### Metric-liveness rule
+### Metric-liveness rule (amended)
+
+**Amended by `PHASE-2-AMENDMENT-001.md` (M1).** Liveness is now claim-scoped: a
+metric may invalidate only the claims that actually depend on it, while
+structural and provenance failures still invalidate the entire cell. H2 depends
+on `integrity_violation_rate` and is unaffected by an inert
+`self_contradiction_rate`; `H3_integrity_not_accuracy` and
+`self_contradiction_analysis` remain invalid wherever that metric is inert.
+
+### Metric-liveness rule (original)
 
 Each experiment declares which metrics it claims to measure. The validator
 rejects a comparison in which a declared metric is identically zero across all
