@@ -28,16 +28,29 @@ from .lifetime import (
     Probe,
 )
 from .mechanisms import DRIFT_MECHANISMS, Budget, EvidenceLog
-from .metrics import ProbeRecord, evaluate, score_consolidation
+from .metrics import (
+    ProbeRecord,
+    evaluate,
+    score_consolidation,
+    scoring_protocol,
+    scoring_protocol_sha256,
+)
 
-MANIFEST_VERSION = "1.0"
+MANIFEST_VERSION = "1.1"
+
+# Amendment 001 (M3): confirmatory runs raise the derived evidence-read
+# ceiling by this factor. Triggered solely by aggregate development
+# utilisation (peak 0.962, zero exhausted reads), identical across all arms,
+# and never derived from any arm's measured appetite. Verified across all 210
+# development arm-cells that ceiling magnitude is inert before exhaustion.
+CONFIRMATORY_READ_CEILING_MULTIPLIER = 1.25
 
 
 def source_tree_sha256(root: Path | None = None) -> str:
     """Deterministic fingerprint of the package source.
 
-    A pilot provenance fallback only. Confirmatory runs must additionally record
-    a real git commit SHA; see the preregistrations.
+    A pilot provenance fallback only. Development and confirmatory runs should
+    additionally record a real git commit SHA.
     """
     root = root or Path(__file__).resolve().parent
     h = hashlib.sha256()
@@ -47,16 +60,24 @@ def source_tree_sha256(root: Path | None = None) -> str:
     return h.hexdigest()
 
 
-def default_budget(lifetime: Lifetime, reads_per_probe: int = 200) -> Budget:
+def default_budget(
+    lifetime: Lifetime,
+    reads_per_probe: int = 200,
+    ceiling_multiplier: float = 1.0,
+) -> Budget:
     """A ceiling generous enough for the hungriest reference mechanism.
 
     Sized from the lifetime, not from any mechanism's measured appetite, so the
     ceiling cannot be quietly tuned to favour one arm.
+
+    `ceiling_multiplier` scales only the evidence-read ceiling. `log_capacity`
+    is deliberately left alone: it governs eviction and therefore behaviour.
+    Confirmatory runs pass `CONFIRMATORY_READ_CEILING_MULTIPLIER`.
     """
     n_probes = sum(1 for e in lifetime.events if isinstance(e, Probe))
     n_asserts = sum(1 for e in lifetime.events if isinstance(e, Assertion))
     return Budget(
-        evidence_reads_ceiling=n_probes * reads_per_probe,
+        evidence_reads_ceiling=round(n_probes * reads_per_probe * ceiling_multiplier),
         maintenance_ops_ceiling=n_asserts,
         log_capacity=max(256, n_asserts),
     )
@@ -84,10 +105,18 @@ def _environment() -> dict:
     }
 
 
-def _base_manifest(lifetime: Lifetime, name: str, budget: Budget, classification: str) -> dict:
+def _base_manifest(
+    lifetime: Lifetime,
+    name: str,
+    budget: Budget,
+    classification: str,
+    git_commit: str | None,
+    protocol_version: str | None = None,
+) -> dict:
     return {
         "manifest_version": MANIFEST_VERSION,
         "classification": classification,
+        "protocol_version": protocol_version,
         "arm": name,
         "stream": lifetime.stream,
         "seed": lifetime.config.seed,
@@ -97,7 +126,7 @@ def _base_manifest(lifetime: Lifetime, name: str, budget: Budget, classification
         "lifetime_config": asdict(lifetime.config),
         "lifetime_summary": lifetime.summary(),
         "source_tree_sha256": source_tree_sha256(),
-        "git_commit": None,
+        "git_commit": git_commit,
         "environment": _environment(),
         "budget_ceiling": asdict(budget),
         "invalidation_reasons": [],
@@ -109,6 +138,8 @@ def run_drift(
     mechanism: str,
     budget: Budget | None = None,
     classification: str = "PILOT",
+    git_commit: str | None = None,
+    protocol_version: str | None = None,
 ) -> RunResult:
     """Class A: score one integrity mechanism over one lifetime."""
     if lifetime.stream != "drift":
@@ -143,8 +174,6 @@ def run_drift(
             ans = sut.answer(payload)
             value = ans.value
             if value is not None and value not in ev.options:
-                # Answering outside the offered options is a protocol violation,
-                # scored as an abstention and reported.
                 value = None
             records.append(
                 ProbeRecord(
@@ -167,7 +196,7 @@ def run_drift(
     elapsed = time.perf_counter() - started
     metrics = evaluate(records, support_index, assertion_times)
 
-    manifest = _base_manifest(lifetime, mechanism, budget, classification)
+    manifest = _base_manifest(lifetime, mechanism, budget, classification, git_commit, protocol_version)
     manifest.update(
         {
             "experiment": "EXP-A001",
@@ -195,12 +224,17 @@ def run_delayed_credit(
     budget: Budget | None = None,
     classification: str = "PILOT",
     window_probes: int = 3,
+    git_commit: str | None = None,
+    control_selection_salt: str = "",
+    protocol_version: str | None = None,
 ) -> RunResult:
     """Class B: score one delayed-credit rule over one lifetime."""
     if lifetime.stream != "delayed_credit":
         raise ValueError(f"run_delayed_credit expects the delayed_credit stream, got {lifetime.stream!r}")
     if consolidator not in CONSOLIDATORS:
         raise KeyError(f"unknown consolidator {consolidator!r}")
+    if classification == "DEVELOPMENT" and control_selection_salt:
+        raise ValueError("DEVELOPMENT runs must use the default matched-control selection salt")
     budget = budget or default_budget(lifetime)
     log = EvidenceLog(capacity=budget.log_capacity, read_ceiling=budget.evidence_reads_ceiling)
     sut = CONSOLIDATORS[consolidator](log, budget)
@@ -258,14 +292,25 @@ def run_delayed_credit(
 
     elapsed = time.perf_counter() - started
     integrity = evaluate(records, support_index, assertion_times)
-    credit = score_consolidation(records, reports, outcomes, window_probes=window_probes)
+    credit = score_consolidation(
+        records,
+        reports,
+        outcomes,
+        window_probes=window_probes,
+        run_seed=lifetime.config.seed,
+        control_selection_salt=control_selection_salt,
+    )
 
-    manifest = _base_manifest(lifetime, consolidator, budget, classification)
+    manifest = _base_manifest(lifetime, consolidator, budget, classification, git_commit, protocol_version)
     manifest.update(
         {
             "experiment": "EXP-B001",
             "metrics": integrity.to_dict(),
-            "consolidation_metrics": credit.to_dict(),
+            "consolidation_metrics": credit.metrics.to_dict(),
+            "scoring_protocol": scoring_protocol(window_probes),
+            "scoring_protocol_sha256": scoring_protocol_sha256(window_probes),
+            "control_selection_salt": control_selection_salt,
+            "matched_untouched_control": credit.matched_untouched_control,
             "budget_actual": {
                 **log.stats(),
                 "maintenance_ops": sut.maintenance_ops,
