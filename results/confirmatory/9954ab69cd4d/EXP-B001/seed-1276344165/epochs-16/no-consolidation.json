@@ -1,0 +1,717 @@
+{
+  "arm": "no-consolidation",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 0,
+    "exhausted_reads": 0,
+    "log_capacity": 294,
+    "log_evictions": 0,
+    "log_size": 294,
+    "maintenance_ops": 0,
+    "maintenance_ops_ceiling": 294,
+    "read_ceiling": 40000,
+    "state_bytes": 2573,
+    "wall_seconds": 0.0014637499989476055
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 40000,
+    "log_capacity": 294,
+    "maintenance_ops_ceiling": 294
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "0882911fd4a964db4dbad0986855c16407b4ab6d0634950ed3d7ba83ab508ad8",
+  "consolidation_metrics": {
+    "attribution_precision": 0.0,
+    "attribution_recall": 0.0,
+    "collateral_revision_rate": 0.0,
+    "consolidation_reads": 0,
+    "culprit_accuracy_delta": -0.125,
+    "decoy_accuracy_delta": -0.14545454545454545,
+    "net_repair": -0.27045454545454545,
+    "outcomes": 21,
+    "revisions": 0,
+    "untouched_accuracy_delta": 0.5065789473684209
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 21,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 16,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 1276344165,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "e4678e627027dfa54968b9b3fc2866c1cfbcedafa0302c6688a913af252ebd23",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 123,
+      "contradiction": 38,
+      "misinformation": 30,
+      "misleading_repeat": 33,
+      "world_change": 70
+    },
+    "event_counts": {
+      "assert": 294,
+      "context_shift": 5,
+      "delayed_outcome": 21,
+      "gap": 1,
+      "probe": 160
+    },
+    "events": 481,
+    "final_t": 5440,
+    "probe_classes": {
+      "contradiction": 15,
+      "fresh": 37,
+      "misinfo_target": 20,
+      "post_gap": 1,
+      "quiet_change": 3,
+      "settled": 31,
+      "stale_risk": 12,
+      "untouched": 41
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 144,
+      "overlapping_outcome_implication": 254,
+      "target_consulted": 105
+    },
+    "eligible_total": 64,
+    "measured_outcome_deltas": 19,
+    "outcomes": 21,
+    "outcomes_with_controls": 19,
+    "per_outcome": [
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 115,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "VOLOR",
+            "TULOR"
+          ],
+          [
+            "SALOR",
+            "NEMOS746"
+          ],
+          [
+            "VOLOR",
+            "SALOR12"
+          ],
+          [
+            "VOLOR",
+            "VOFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 116,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POLOR",
+            "ZYPAX500"
+          ],
+          [
+            "VOLOR",
+            "SALOR12"
+          ],
+          [
+            "VOLOR",
+            "TULOR"
+          ],
+          [
+            "SALOR",
+            "NEMOS746"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 142,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "VOLOR",
+            "VOFEN"
+          ],
+          [
+            "SALOR",
+            "NEMOS746"
+          ],
+          [
+            "VOLOR",
+            "TURIN120"
+          ],
+          [
+            "VOLOR",
+            "TULOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 143,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "VOLOR",
+            "TURIN120"
+          ],
+          [
+            "POLOR",
+            "TULOR642"
+          ],
+          [
+            "VOLOR",
+            "TULOR"
+          ],
+          [
+            "SALOR",
+            "NEMOS746"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 179,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "POLOR793"
+          ],
+          [
+            "VOLOR",
+            "TULOR"
+          ],
+          [
+            "VOLOR",
+            "VOFEN"
+          ],
+          [
+            "VOLOR",
+            "TURIN120"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 15,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 209,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "VOLOR",
+            "VOFEN"
+          ],
+          [
+            "SALOR",
+            "ZYPAX255"
+          ],
+          [
+            "VOLOR",
+            "TULOR"
+          ],
+          [
+            "GLOBAL",
+            "POLOR793"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 238,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "POLOR793"
+          ],
+          [
+            "SALOR",
+            "FALOR"
+          ],
+          [
+            "VOLOR",
+            "VOFEN"
+          ],
+          [
+            "VOLOR",
+            "TULOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 13,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 267,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "VOLOR",
+            "TULOR"
+          ],
+          [
+            "GLOBAL",
+            "POLOR793"
+          ],
+          [
+            "SALOR",
+            "ZYPAX255"
+          ],
+          [
+            "VOLOR",
+            "VOFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 268,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "SALOR",
+            "FALOR"
+          ],
+          [
+            "SALOR",
+            "ZYPAX255"
+          ],
+          [
+            "VOLOR",
+            "TULOR"
+          ],
+          [
+            "GLOBAL",
+            "POLOR793"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 16,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 295,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "SALOR",
+            "FALOR"
+          ],
+          [
+            "SALOR",
+            "ZYPAX255"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 15,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 296,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "SALOR",
+            "ZYPAX255"
+          ],
+          [
+            "SALOR",
+            "FALOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 19,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 327,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "SALOR",
+            "FALOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 15,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 358,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "SALOR",
+            "FALOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 15,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 359,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "SALOR",
+            "FALOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 15,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 387,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "VOLOR",
+            "NEPAX"
+          ],
+          [
+            "SALOR",
+            "FALOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 13,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 388,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "SALOR",
+            "FALOR"
+          ],
+          [
+            "VOLOR",
+            "NEPAX"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 417,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "SALOR",
+            "FALOR"
+          ],
+          [
+            "VOLOR",
+            "NEPAX"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 418,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "SALOR",
+            "FALOR"
+          ],
+          [
+            "VOLOR",
+            "NEPAX"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 10,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 445,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "SALOR",
+            "FALOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "insufficient_probe_window": 16,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 470,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "insufficient_probe_window": 16,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 471,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 52,
+    "selection_sha256": "8071a4b8ab6e1b7a1e892e960b880bd9475b375b6259180e8f627b68001b9bfd",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.13125,
+    "accuracy_when_answered": 0.7050359712230215,
+    "brier_score": 0.16754455564050333,
+    "canonical_accuracy": 0.6125,
+    "drift_late_minus_early": 0.3400000000000001,
+    "drift_slope_per_epoch": 0.03176470588235294,
+    "expected_calibration_error": 0.11027116253109373,
+    "integrity_violation_rate": 0.225,
+    "mean_recovery_probes": 0.2222222222222222,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.7333333333333333,
+        "n": 15.0,
+        "stale_state_rate": 0.2,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8648648648648649,
+        "n": 37.0,
+        "stale_state_rate": 0.16216216216216217,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.7,
+        "n": 20.0,
+        "stale_state_rate": 0.1,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.0,
+        "n": 1.0,
+        "stale_state_rate": 1.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.3333333333333333,
+        "canonical_accuracy": 0.0,
+        "n": 3.0,
+        "stale_state_rate": 0.6666666666666666,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.7741935483870968,
+        "n": 31.0,
+        "stale_state_rate": 0.22580645161290322,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.6666666666666666,
+        "n": 12.0,
+        "stale_state_rate": 0.3333333333333333,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 0.4878048780487805,
+        "canonical_accuracy": 0.21951219512195122,
+        "n": 41.0,
+        "stale_state_rate": 0.2682926829268293,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.1,
+      0.2,
+      0.2,
+      0.1,
+      0.1,
+      0.2,
+      0.2,
+      0.1,
+      0.2,
+      0.4,
+      0.4,
+      0.3,
+      0.4,
+      0.7
+    ],
+    "probes": 160,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.0,
+    "stale_state_rate": 0.225,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 9,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 1276344165,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

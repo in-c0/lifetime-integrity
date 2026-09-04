@@ -163,3 +163,21 @@ claim-scoped validity → only then performance metrics.
 - freeze commit: recorded on merge (see issue #1 / PR #2)
 - execution commit: `git_commit` in every confirmatory manifest
 - gate at freeze: **143 passed**, `ruff check .` clean, working tree clean
+
+## 11. Erratum E3 — P2 arm pinned (resolved before any confirmatory value was inspected)
+
+§7 specified P2 as "best re-grounding arm vs `unconstrained-accumulator` at
+E128" without naming the arm. Selecting "best" from confirmatory data would be a
+forking path and would inflate the test.
+
+**Resolution:** P2's arm is pinned to **`confidence-decay`**, the arm with the
+lowest `integrity_violation_rate` at E128 on *development* data (0.516).
+Development exists to fix exactly this kind of choice. Every re-grounding arm is
+reported regardless, under the secondary tier.
+
+Recorded before any confirmatory metric was read: the analysis script
+`scripts/analyze_confirmatory.py` was written with this constant fixed, and the
+only confirmatory outputs consulted beforehand were structural-validity counts.
+
+P3's arm (`counterfactual-recheck`) and horizon (E64) were already named in §7
+from the development standard, so they need no resolution.

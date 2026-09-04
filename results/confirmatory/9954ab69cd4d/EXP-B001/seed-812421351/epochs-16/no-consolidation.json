@@ -1,0 +1,742 @@
+{
+  "arm": "no-consolidation",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 0,
+    "exhausted_reads": 0,
+    "log_capacity": 278,
+    "log_evictions": 0,
+    "log_size": 278,
+    "maintenance_ops": 0,
+    "maintenance_ops_ceiling": 278,
+    "read_ceiling": 40000,
+    "state_bytes": 2414,
+    "wall_seconds": 0.0014203329919837415
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 40000,
+    "log_capacity": 278,
+    "maintenance_ops_ceiling": 278
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "24e35b13b5f7938252e21ec81e3995d7f209ad06ddab2eedd3763daa37ead3fe",
+  "consolidation_metrics": {
+    "attribution_precision": 0.0,
+    "attribution_recall": 0.0,
+    "collateral_revision_rate": 0.0,
+    "consolidation_reads": 0,
+    "culprit_accuracy_delta": 0.20833333333333334,
+    "decoy_accuracy_delta": -0.1056910569105691,
+    "net_repair": 0.10264227642276424,
+    "outcomes": 20,
+    "revisions": 0,
+    "untouched_accuracy_delta": 0.037499999999999964
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 20,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 16,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 812421351,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "4bc37d4e77450cc15dd5bb4e62e7242f283c00e47df376c793a66970f4da0f67",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 118,
+      "contradiction": 40,
+      "misinformation": 24,
+      "misleading_repeat": 42,
+      "world_change": 54
+    },
+    "event_counts": {
+      "assert": 278,
+      "context_shift": 3,
+      "delayed_outcome": 20,
+      "gap": 6,
+      "probe": 160
+    },
+    "events": 467,
+    "final_t": 25383,
+    "probe_classes": {
+      "contradiction": 14,
+      "fresh": 49,
+      "misinfo_target": 10,
+      "post_gap": 5,
+      "quiet_change": 3,
+      "settled": 42,
+      "stale_risk": 8,
+      "untouched": 29
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 163,
+      "overlapping_outcome_implication": 178,
+      "target_consulted": 93
+    },
+    "eligible_total": 66,
+    "measured_outcome_deltas": 20,
+    "outcomes": 20,
+    "outcomes_with_controls": 20,
+    "per_outcome": [
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 13,
+          "overlapping_outcome_implication": 5,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 96,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "ZYTAL",
+            "VOLOR"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "ZYTAL",
+            "RIGUR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 13,
+          "overlapping_outcome_implication": 5,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 97,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "ZYTAL",
+            "VOLOR"
+          ],
+          [
+            "ZYTAL",
+            "RIGUR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 7,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 124,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "NEQEN",
+            "DIFEN"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "ZYTAL",
+            "RIGUR"
+          ],
+          [
+            "NEQEN",
+            "POZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 8,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 156,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "NEQEN",
+            "DIFEN"
+          ],
+          [
+            "ZYTAL",
+            "RIGUR"
+          ],
+          [
+            "ZYTAL",
+            "VOLOR"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 13,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 184,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "NEQEN",
+            "MEFEN"
+          ],
+          [
+            "NEQEN",
+            "DIFEN"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "ZYTAL",
+            "VOLOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 216,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "NEQEN",
+            "DIFEN"
+          ],
+          [
+            "SASIV",
+            "ZYVOK"
+          ],
+          [
+            "NEQEN",
+            "MEFEN"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 217,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "SASIV",
+            "ZYVOK"
+          ],
+          [
+            "NEQEN",
+            "DIFEN"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "NEQEN",
+            "MEFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 14,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 247,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "NEQEN",
+            "DIFEN"
+          ],
+          [
+            "SASIV",
+            "ZYVOK"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 272,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "SASIV",
+            "RIFEN628"
+          ],
+          [
+            "SASIV",
+            "ZYVOK"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "NEQEN",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 8,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 308,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "SASIV",
+            "MEVOK"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "SASIV",
+            "ZYVOK"
+          ],
+          [
+            "SASIV",
+            "RIFEN628"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 309,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "SASIV",
+            "MEVOK"
+          ],
+          [
+            "GLOBAL",
+            "POSIV"
+          ],
+          [
+            "SASIV",
+            "RIFEN628"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 336,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "SASIV",
+            "MEVOK"
+          ],
+          [
+            "SASIV",
+            "RIFEN628"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "GLOBAL",
+            "POSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 365,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "POSIV"
+          ],
+          [
+            "SASIV",
+            "RIFEN628"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 366,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "POSIV"
+          ],
+          [
+            "SASIV",
+            "RIFEN628"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 399,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "SASIV",
+            "RIFEN628"
+          ],
+          [
+            "GLOBAL",
+            "POSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 10,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 400,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "SASIV",
+            "RIFEN628"
+          ],
+          [
+            "GLOBAL",
+            "POSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 427,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "POSIV"
+          ],
+          [
+            "SASIV",
+            "RIFEN628"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 10,
+          "overlapping_outcome_implication": 8,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 428,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "SASIV",
+            "RIFEN628"
+          ],
+          [
+            "GLOBAL",
+            "POSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 13,
+          "overlapping_outcome_implication": 5,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 455,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYTAL",
+            "NEFEN"
+          ],
+          [
+            "SASIV",
+            "RIFEN628"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 12,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 456,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "SASIV",
+            "RIFEN628"
+          ],
+          [
+            "ZYTAL",
+            "NEFEN"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 61,
+    "selection_sha256": "373b37d8e7317728f05a241422aca522be81736fc07e42a50bd3ab48e247e533",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.09375,
+    "accuracy_when_answered": 0.7310344827586207,
+    "brier_score": 0.1954205827278154,
+    "canonical_accuracy": 0.6625,
+    "drift_late_minus_early": 0.33999999999999997,
+    "drift_slope_per_epoch": 0.030882352941176472,
+    "expected_calibration_error": 0.12791224083587655,
+    "integrity_violation_rate": 0.1875,
+    "mean_recovery_probes": 0.7272727272727273,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.7142857142857143,
+        "n": 14.0,
+        "stale_state_rate": 0.2857142857142857,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8571428571428571,
+        "n": 49.0,
+        "stale_state_rate": 0.061224489795918366,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.5,
+        "n": 10.0,
+        "stale_state_rate": 0.1,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.4,
+        "n": 5.0,
+        "stale_state_rate": 0.4,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.0,
+        "n": 3.0,
+        "stale_state_rate": 1.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.7857142857142857,
+        "n": 42.0,
+        "stale_state_rate": 0.19047619047619047,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.625,
+        "n": 8.0,
+        "stale_state_rate": 0.5,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 0.5172413793103449,
+        "canonical_accuracy": 0.3103448275862069,
+        "n": 29.0,
+        "stale_state_rate": 0.1724137931034483,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.2,
+      0.2,
+      0.2,
+      0.3,
+      0.1,
+      0.1,
+      0.0,
+      0.2,
+      0.5,
+      0.7,
+      0.4
+    ],
+    "probes": 160,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.0,
+    "stale_state_rate": 0.1875,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 8,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 812421351,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

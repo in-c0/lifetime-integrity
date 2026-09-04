@@ -1,0 +1,1385 @@
+{
+  "arm": "provenance-restricted-blame",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 0,
+    "exhausted_reads": 0,
+    "log_capacity": 546,
+    "log_evictions": 0,
+    "log_size": 546,
+    "maintenance_ops": 34,
+    "maintenance_ops_ceiling": 546,
+    "read_ceiling": 80000,
+    "state_bytes": 3079,
+    "wall_seconds": 0.002861042012227699
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 80000,
+    "log_capacity": 546,
+    "maintenance_ops_ceiling": 546
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "f54d41c9896fbf4f26b2e7bc3d0849abd6fe505e1bd9b3cfd03a1b230cd7085a",
+  "consolidation_metrics": {
+    "attribution_precision": 0.23529411764705882,
+    "attribution_recall": 0.18604651162790697,
+    "collateral_revision_rate": 0.7647058823529411,
+    "consolidation_reads": 0,
+    "culprit_accuracy_delta": 0.06097560975609756,
+    "decoy_accuracy_delta": -0.08912037037037036,
+    "net_repair": -0.028144760614272804,
+    "outcomes": 43,
+    "revisions": 34,
+    "untouched_accuracy_delta": 0.4195736434108527
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 43,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 32,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 2140240615,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "36f3d4f21226d75298cf2a720b9bada7694eb3a8266e80ebc9662956d869de09",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 254,
+      "contradiction": 70,
+      "misinformation": 60,
+      "misleading_repeat": 64,
+      "world_change": 98
+    },
+    "event_counts": {
+      "assert": 546,
+      "context_shift": 10,
+      "delayed_outcome": 43,
+      "gap": 11,
+      "probe": 320
+    },
+    "events": 930,
+    "final_t": 46757,
+    "probe_classes": {
+      "contradiction": 23,
+      "fresh": 90,
+      "misinfo_target": 29,
+      "post_gap": 10,
+      "quiet_change": 9,
+      "settled": 72,
+      "stale_risk": 16,
+      "untouched": 71
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 195,
+      "overlapping_outcome_implication": 599,
+      "target_consulted": 215
+    },
+    "eligible_total": 152,
+    "measured_outcome_deltas": 43,
+    "outcomes": 43,
+    "outcomes_with_controls": 43,
+    "per_outcome": [
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 12,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 100,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "RIZIM",
+            "FAPAX745"
+          ],
+          [
+            "DIPAX",
+            "DILOR"
+          ],
+          [
+            "TULOR",
+            "PORIN"
+          ],
+          [
+            "DIDUL",
+            "MEVOK641"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 8,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 125,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "TULOR",
+            "PORIN"
+          ],
+          [
+            "DIDUL",
+            "MEVOK641"
+          ],
+          [
+            "TULOR",
+            "TUQEN537"
+          ],
+          [
+            "DIPAX",
+            "DILOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 161,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "DIPAX",
+            "DILOR"
+          ],
+          [
+            "DIDUL",
+            "MEVOK641"
+          ],
+          [
+            "TULOR",
+            "PORIN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 188,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "TULOR",
+            "PORIN"
+          ],
+          [
+            "TULOR",
+            "TUPAX"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 189,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "TULOR",
+            "TUPAX"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "TULOR",
+            "PORIN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 13,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 216,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "TULOR",
+            "TUPAX"
+          ],
+          [
+            "TULOR",
+            "PORIN"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 13,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 217,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "MEVOK641"
+          ],
+          [
+            "TULOR",
+            "TUPAX"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 16,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 244,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "DIDUL",
+            "MEVOK641"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 16,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 245,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "DIDUL",
+            "MEVOK641"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 270,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "DIDUL618"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 299,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "GLOBAL",
+            "DIDUL618"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 300,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "GLOBAL",
+            "DIDUL618"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 18,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 325,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 18,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 354,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 18,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 355,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 18,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 384,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 414,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "RIZIM",
+            "TUQEN"
+          ],
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 440,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "TULOR",
+            "MEDUL"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 18,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 469,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "TULOR",
+            "MEDUL"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 18,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 470,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "TULOR",
+            "MEDUL"
+          ],
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 498,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "TULOR",
+            "TUQEN537"
+          ],
+          [
+            "TULOR",
+            "MEDUL"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 499,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "TULOR",
+            "MEDUL"
+          ],
+          [
+            "TULOR",
+            "TUQEN537"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 528,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "TULOR",
+            "TUQEN537"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "TULOR",
+            "MEDUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 15,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 555,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "TULOR",
+            "MEDUL"
+          ],
+          [
+            "GLOBAL",
+            "VODUL601"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "TULOR",
+            "TUQEN537"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 18,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 585,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "TULOR",
+            "TUQEN537"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 613,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "TULOR",
+            "TUQEN537"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 16,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 640,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "TULOR",
+            "TUQEN537"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 16,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 641,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "TULOR",
+            "TUQEN537"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 16,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 668,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "TULOR",
+            "TUQEN537"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 14,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 695,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "TULOR",
+            "POPAX"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 696,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "TULOR",
+            "POPAX"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 14,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 725,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "TULOR",
+            "POPAX"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 14,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 726,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "TULOR",
+            "POPAX"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 763,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "VODUL601"
+          ],
+          [
+            "TULOR",
+            "POPAX"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 13,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 764,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "GLOBAL",
+            "VODUL601"
+          ],
+          [
+            "DIDUL",
+            "VOSIV"
+          ],
+          [
+            "TULOR",
+            "POPAX"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 796,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "TULOR",
+            "POPAX"
+          ],
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "GLOBAL",
+            "VODUL601"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 828,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "TULOR",
+            "ZYMOS"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 855,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "DIPAX",
+            "ZYQEN"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 856,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIPAX",
+            "ZYQEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 10,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 889,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "DIPAX",
+            "ZYQEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 10,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 890,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "FATAL"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "DIPAX",
+            "ZYQEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 16,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 918,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "VODUL601"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "GLOBAL",
+            "FATAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 15,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 919,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "VODUL601"
+          ],
+          [
+            "DIPAX",
+            "DIFEN"
+          ],
+          [
+            "GLOBAL",
+            "FATAL"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 144,
+    "selection_sha256": "ce071cc83d9f5ed4bf8001f73fb9e729b02bb8b975d795033c0a5f6ee2ede642",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.203125,
+    "accuracy_when_answered": 0.6784313725490196,
+    "brier_score": 0.20901002505125615,
+    "canonical_accuracy": 0.540625,
+    "drift_late_minus_early": 0.21,
+    "drift_slope_per_epoch": 0.0092925219941349,
+    "expected_calibration_error": 0.1547023967512441,
+    "integrity_violation_rate": 0.271875,
+    "mean_recovery_probes": 0.5,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.08695652173913043,
+        "canonical_accuracy": 0.6086956521739131,
+        "n": 23.0,
+        "stale_state_rate": 0.391304347826087,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.05555555555555555,
+        "canonical_accuracy": 0.7222222222222222,
+        "n": 90.0,
+        "stale_state_rate": 0.2111111111111111,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.13793103448275862,
+        "canonical_accuracy": 0.6206896551724138,
+        "n": 29.0,
+        "stale_state_rate": 0.1724137931034483,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.1,
+        "canonical_accuracy": 0.5,
+        "n": 10.0,
+        "stale_state_rate": 0.5,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.1111111111111111,
+        "canonical_accuracy": 0.2222222222222222,
+        "n": 9.0,
+        "stale_state_rate": 0.6666666666666666,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.125,
+        "canonical_accuracy": 0.5555555555555556,
+        "n": 72.0,
+        "stale_state_rate": 0.4027777777777778,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0625,
+        "canonical_accuracy": 0.5625,
+        "n": 16.0,
+        "stale_state_rate": 0.3125,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 0.5915492957746479,
+        "canonical_accuracy": 0.28169014084507044,
+        "n": 71.0,
+        "stale_state_rate": 0.1267605633802817,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.1,
+      0.0,
+      0.2,
+      0.1,
+      0.2,
+      0.0,
+      0.1,
+      0.1,
+      0.3,
+      0.2,
+      0.3,
+      0.3,
+      0.6,
+      0.7,
+      0.4,
+      0.4,
+      0.5,
+      0.3,
+      0.3,
+      0.1,
+      0.3,
+      0.4,
+      0.2,
+      0.2,
+      0.2,
+      0.3,
+      0.2,
+      0.1,
+      0.6,
+      0.5,
+      0.5
+    ],
+    "probes": 320,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.0,
+    "stale_state_rate": 0.271875,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 30,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 2140240615,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

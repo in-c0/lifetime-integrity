@@ -1,0 +1,1857 @@
+{
+  "cells": [
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 1792867178,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1792867178,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1792867178,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1792867178,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1792867178,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 2140240615,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 2140240615,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 2140240615,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 2140240615,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 2140240615,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 238245273,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 238245273,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 238245273,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 238245273,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 238245273,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 47376287,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 47376287,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 47376287,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 47376287,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 47376287,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 1175348042,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1175348042,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1175348042,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1175348042,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1175348042,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 1276344165,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1276344165,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1276344165,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1276344165,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1276344165,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 141418605,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 141418605,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 141418605,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 141418605,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 141418605,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 225668972,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 225668972,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 225668972,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 225668972,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 225668972,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 1257774472,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1257774472,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1257774472,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1257774472,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1257774472,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 1717315326,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1717315326,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1717315326,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1717315326,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 1717315326,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 812421351,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 812421351,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 812421351,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 812421351,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 812421351,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 58640242,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": false,
+        "self_contradiction_analysis": false,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-A001",
+      "inert_metrics": [
+        "self_contradiction_rate"
+      ],
+      "seed": 58640242,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 58640242,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 58640242,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "H1_cost_matched_separation": true,
+        "H2_horizon_rank_stability": true,
+        "H3_integrity_not_accuracy": true,
+        "self_contradiction_analysis": true,
+        "stale_state_analysis": true,
+        "unsupported_belief_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-A001",
+      "inert_metrics": [],
+      "seed": 58640242,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1792867178,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1792867178,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1792867178,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1792867178,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1792867178,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 2140240615,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 2140240615,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 2140240615,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 2140240615,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 2140240615,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 238245273,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 238245273,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 238245273,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 238245273,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": false,
+        "causal_excess_repair": false,
+        "collateral_analysis": false,
+        "stale_state_analysis": false
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 238245273,
+      "structural_reasons": [
+        "benchmark_at_floor"
+      ],
+      "structurally_valid": false
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 47376287,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 47376287,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 47376287,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 47376287,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 47376287,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1175348042,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1175348042,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1175348042,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1175348042,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1175348042,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1276344165,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1276344165,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1276344165,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1276344165,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1276344165,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 141418605,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 141418605,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 141418605,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 141418605,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 141418605,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 225668972,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 225668972,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 225668972,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 225668972,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 225668972,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1257774472,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1257774472,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1257774472,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1257774472,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": false,
+        "causal_excess_repair": false,
+        "collateral_analysis": false,
+        "stale_state_analysis": false
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1257774472,
+      "structural_reasons": [
+        "benchmark_at_floor"
+      ],
+      "structurally_valid": false
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1717315326,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1717315326,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1717315326,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1717315326,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 1717315326,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 812421351,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 812421351,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 812421351,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 812421351,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 812421351,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 8,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 58640242,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 16,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 58640242,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 32,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 58640242,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 64,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 58640242,
+      "structural_reasons": [],
+      "structurally_valid": true
+    },
+    {
+      "claims": {
+        "attribution_analysis": true,
+        "causal_excess_repair": true,
+        "collateral_analysis": true,
+        "stale_state_analysis": true
+      },
+      "epochs": 128,
+      "experiment": "EXP-B001",
+      "inert_metrics": [],
+      "seed": 58640242,
+      "structural_reasons": [],
+      "structurally_valid": true
+    }
+  ],
+  "classification": "CONFIRMATORY",
+  "confirmatory_seeds": [
+    1792867178,
+    2140240615,
+    238245273,
+    47376287,
+    1175348042,
+    1276344165,
+    141418605,
+    225668972,
+    1257774472,
+    1717315326,
+    812421351,
+    58640242
+  ],
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "horizons": [
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "n_cells": 120,
+  "n_structurally_valid": 118,
+  "protocol_version": "phase3-confirmatory-lock",
+  "read_ceiling_multiplier": 1.25
+}

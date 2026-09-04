@@ -1,0 +1,1081 @@
+{
+  "arm": "no-consolidation",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 0,
+    "exhausted_reads": 0,
+    "log_capacity": 542,
+    "log_evictions": 0,
+    "log_size": 542,
+    "maintenance_ops": 0,
+    "maintenance_ops_ceiling": 542,
+    "read_ceiling": 80000,
+    "state_bytes": 3035,
+    "wall_seconds": 0.0026290839887224138
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 80000,
+    "log_capacity": 542,
+    "maintenance_ops_ceiling": 542
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "43d31854ae8e2638d05be0fb349dc3d4bd409921dbf8adb7a77ba9dd771334c1",
+  "consolidation_metrics": {
+    "attribution_precision": 0.0,
+    "attribution_recall": 0.0,
+    "collateral_revision_rate": 0.0,
+    "consolidation_reads": 0,
+    "culprit_accuracy_delta": 0.008130081300813006,
+    "decoy_accuracy_delta": -0.10416666666666667,
+    "net_repair": -0.09603658536585366,
+    "outcomes": 46,
+    "revisions": 0,
+    "untouched_accuracy_delta": -0.030864197530864206
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 46,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 32,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 58640242,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "1547c9d1393e644c47f22ee9bfdd20c40da57998d3e898808b481598d7c07551",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 254,
+      "contradiction": 74,
+      "misinformation": 57,
+      "misleading_repeat": 63,
+      "world_change": 94
+    },
+    "event_counts": {
+      "assert": 542,
+      "context_shift": 17,
+      "delayed_outcome": 46,
+      "gap": 8,
+      "probe": 320
+    },
+    "events": 933,
+    "final_t": 34775,
+    "probe_classes": {
+      "contradiction": 23,
+      "fresh": 75,
+      "misinfo_target": 44,
+      "post_gap": 8,
+      "quiet_change": 8,
+      "settled": 75,
+      "stale_risk": 13,
+      "untouched": 74
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 132,
+      "overlapping_outcome_implication": 814,
+      "target_consulted": 230
+    },
+    "eligible_total": 66,
+    "measured_outcome_deltas": 36,
+    "outcomes": 46,
+    "outcomes_with_controls": 36,
+    "per_outcome": [
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 105,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "TUTAL"
+          ],
+          [
+            "POVOK",
+            "LUQEN"
+          ],
+          [
+            "ZYRIN",
+            "RIDUL407"
+          ],
+          [
+            "ZYRIN",
+            "DILOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 106,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "ZYRIN",
+            "DILOR"
+          ],
+          [
+            "POVOK",
+            "LUQEN"
+          ],
+          [
+            "NEMOS",
+            "NELOR"
+          ],
+          [
+            "GLOBAL",
+            "TUTAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 131,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POVOK",
+            "LUQEN"
+          ],
+          [
+            "ZYRIN",
+            "DILOR"
+          ],
+          [
+            "NEMOS",
+            "NELOR"
+          ],
+          [
+            "ZYRIN",
+            "RIDUL407"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 14,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 161,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "ZYRIN",
+            "RIDUL407"
+          ],
+          [
+            "NEMOS",
+            "NELOR"
+          ],
+          [
+            "ZYRIN",
+            "DILOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 187,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "MEGUR"
+          ],
+          [
+            "NEMOS",
+            "NELOR"
+          ],
+          [
+            "ZYRIN",
+            "DILOR"
+          ],
+          [
+            "ZYGUR",
+            "MEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 19,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 218,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "MEZIM"
+          ],
+          [
+            "ZYRIN",
+            "DILOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 19,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 219,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "MEZIM"
+          ],
+          [
+            "ZYRIN",
+            "DILOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 19,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 246,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "MEZIM"
+          ],
+          [
+            "ZYRIN",
+            "DILOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 20,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 247,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYRIN",
+            "DILOR"
+          ],
+          [
+            "ZYGUR",
+            "MEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 21,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 277,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "MEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 21,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 306,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "MEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 22,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 332,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 22,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 333,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 22,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 364,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 22,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 365,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 22,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 393,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 21,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 419,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "NEMOS",
+            "NELOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 22,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 448,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 22,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 477,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 22,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 478,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 22,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 504,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 0,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 22,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 505,
+        "selected_count": 0,
+        "selected_slots": [],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 21,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 531,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 21,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 532,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 20,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 561,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 20,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 562,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 20,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 587,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "overlapping_outcome_implication": 21,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 588,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 20,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 617,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 20,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 618,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 19,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 649,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 19,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 650,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 19,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 682,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "NEMOS",
+            "TUDUL166"
+          ],
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 18,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 683,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "LUSIV546"
+          ],
+          [
+            "NEMOS",
+            "TUDUL166"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 18,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 711,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "NEMOS",
+            "TUDUL166"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 19,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 712,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "NEMOS",
+            "TUDUL166"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 18,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 743,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "NEMOS",
+            "TUDUL166"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 744,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "NEMOS",
+            "TUDUL166"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 17,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 774,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "NEMOS",
+            "TUDUL166"
+          ],
+          [
+            "ZYGUR",
+            "NESIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 14,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 801,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "MEZIM"
+          ],
+          [
+            "ZYGUR",
+            "NESIV"
+          ],
+          [
+            "NEMOS",
+            "TUDUL166"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 13,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 831,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "MEZIM"
+          ],
+          [
+            "ZYGUR",
+            "NESIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 861,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "NESIV"
+          ],
+          [
+            "ZYGUR",
+            "MEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 10,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 862,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "NESIV"
+          ],
+          [
+            "ZYGUR",
+            "MEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 13,
+          "overlapping_outcome_implication": 7,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 891,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "NESIV"
+          ],
+          [
+            "ZYGUR",
+            "MEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 14,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 892,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "MEZIM"
+          ],
+          [
+            "ZYGUR",
+            "NESIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 16,
+          "overlapping_outcome_implication": 5,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 923,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "ZYGUR",
+            "NESIV"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 64,
+    "selection_sha256": "ec582f4ab67b178a262f2e845d3d485cf2812a7248e9630d2e8853b22454b21a",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.05625,
+    "accuracy_when_answered": 0.6556291390728477,
+    "brier_score": 0.2011814268115801,
+    "canonical_accuracy": 0.61875,
+    "drift_late_minus_early": 0.58,
+    "drift_slope_per_epoch": 0.025146627565982405,
+    "expected_calibration_error": 0.09801814670683136,
+    "integrity_violation_rate": 0.28125,
+    "mean_recovery_probes": 0.0,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8695652173913043,
+        "n": 23.0,
+        "stale_state_rate": 0.17391304347826086,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8,
+        "n": 75.0,
+        "stale_state_rate": 0.2,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.5909090909090909,
+        "n": 44.0,
+        "stale_state_rate": 0.18181818181818182,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.5,
+        "n": 8.0,
+        "stale_state_rate": 0.375,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.125,
+        "n": 8.0,
+        "stale_state_rate": 0.875,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.6,
+        "n": 75.0,
+        "stale_state_rate": 0.25333333333333335,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.6923076923076923,
+        "n": 13.0,
+        "stale_state_rate": 0.6153846153846154,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 0.24324324324324326,
+        "canonical_accuracy": 0.44594594594594594,
+        "n": 74.0,
+        "stale_state_rate": 0.35135135135135137,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.1,
+      0.0,
+      0.2,
+      0.2,
+      0.1,
+      0.0,
+      0.5,
+      0.5,
+      0.3,
+      0.2,
+      0.1,
+      0.2,
+      0.3,
+      0.7,
+      0.5,
+      0.3,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.5,
+      0.7,
+      0.8
+    ],
+    "probes": 320,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.0,
+    "stale_state_rate": 0.28125,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 24,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 58640242,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

@@ -1,0 +1,84 @@
+{
+  "arms": [
+    "counterfactual-recheck",
+    "eligibility-trace",
+    "no-consolidation",
+    "provenance-restricted-blame",
+    "uniform-blame"
+  ],
+  "claims": {
+    "attribution_analysis": {
+      "depends_on": [
+        "attribution_precision",
+        "attribution_recall"
+      ],
+      "reasons": [
+        "structurally_invalid:['benchmark_at_floor']"
+      ],
+      "valid": false
+    },
+    "causal_excess_repair": {
+      "depends_on": [
+        "net_repair"
+      ],
+      "reasons": [
+        "structurally_invalid:['benchmark_at_floor']"
+      ],
+      "valid": false
+    },
+    "collateral_analysis": {
+      "depends_on": [
+        "decoy_accuracy_delta"
+      ],
+      "reasons": [
+        "structurally_invalid:['benchmark_at_floor']"
+      ],
+      "valid": false
+    },
+    "stale_state_analysis": {
+      "depends_on": [
+        "stale_state_rate"
+      ],
+      "reasons": [
+        "structurally_invalid:['benchmark_at_floor']"
+      ],
+      "valid": false
+    }
+  },
+  "classification": "CONFIRMATORY",
+  "experiment": "EXP-B001",
+  "inert_metrics": [],
+  "metric_status": {
+    "attribution_precision": {
+      "live": true,
+      "reason": "live"
+    },
+    "attribution_recall": {
+      "live": true,
+      "reason": "live"
+    },
+    "decoy_accuracy_delta": {
+      "live": true,
+      "reason": "meaningful_at_zero"
+    },
+    "net_repair": {
+      "live": true,
+      "reason": "meaningful_at_zero"
+    },
+    "stale_state_rate": {
+      "live": true,
+      "reason": "live"
+    }
+  },
+  "n_runs": 5,
+  "note": "Validity only. This says nothing about which arm performed better. Read `claims` for per-claim validity; `valid_for_comparison` is structural only.",
+  "protocol_version": "phase3-confirmatory-lock",
+  "reasons": [
+    "benchmark_at_floor"
+  ],
+  "structural_reasons": [
+    "benchmark_at_floor"
+  ],
+  "structurally_valid": false,
+  "valid_for_comparison": false
+}
