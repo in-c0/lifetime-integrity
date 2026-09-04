@@ -148,7 +148,9 @@ Minimal adaptation to the paired endpoint:
   positive for **every one of the three development seeds**. Per-seed sign
   consistency is required so the result cannot rest on a single seed. A count of
   favourable cells is explicitly **not** sufficient.
-- **Confirmatory standard.** Per horizon, across ≥5 disjoint paired seeds: mean
+- **Confirmatory standard.** *(Sample size superseded by erratum E2, 2026-09-03:
+  exactly 12 frozen seeds, no optional stopping.)* Per horizon, across the
+  confirmatory seeds: mean
   `excess_net_repair` > 0 with a paired bootstrap 95% CI excluding zero, and
   per-seed values reported in full including unfavourable seeds.
 

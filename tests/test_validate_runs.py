@@ -16,6 +16,7 @@ from lifetime_integrity.lifetime import (
     generate_drift_lifetime,
 )
 from lifetime_integrity.mechanisms import DRIFT_MECHANISMS
+from lifetime_integrity.seeds import CONFIRMATORY_SEEDS
 
 SEED = 20260902
 
@@ -159,22 +160,50 @@ def test_regrounding_arm_is_required(drift_runs):
     assert "no_regrounding_arm_present" in validate(runs)["reasons"]
 
 
-def test_nonpilot_claim_is_rejected(drift_runs):
-    """A uniform confirmatory claim is rejected outright.
+def test_unknown_classification_is_rejected(drift_runs):
+    runs = copy.deepcopy(drift_runs)
+    for r in runs:
+        r["classification"] = "PRODUCTION"
+    report = validate(runs)
+    assert not report["valid_for_comparison"]
+    assert "input_run_already_claims_nonpilot_status" in report["reasons"]
 
-    Narrowed in Phase 2. The original test mutated a single arm and asserted
-    this reason, which passed only because the pre-Phase-2 validator collapsed
-    "some arm is not PILOT" and "the set claims a disallowed classification"
-    into one check. DEVELOPMENT is now an allowed classification, so the two
-    conditions are distinguished and each is asserted separately here and in
-    `test_mixed_classifications_are_rejected`. Both still fail closed.
+
+def test_confirmatory_run_must_sit_on_a_frozen_seed(drift_runs):
+    """Phase-3 freeze contract, replacing the pre-freeze blanket ban.
+
+    CONFIRMATORY became admissible at the freeze. Banning the label outright
+    afterwards would be theatre — it is bypassed by relabelling — so the
+    validator instead pins a confirmatory run to the frozen 12-seed list, a
+    pinned commit, and the frozen protocol version.
     """
     runs = copy.deepcopy(drift_runs)
     for r in runs:
         r["classification"] = "CONFIRMATORY"
+        r["git_commit"] = "0123456789abcdef"
+        r["protocol_version"] = "phase3-confirmatory-lock"
     report = validate(runs)
     assert not report["valid_for_comparison"]
-    assert "input_run_already_claims_nonpilot_status" in report["reasons"]
+    assert any(x.startswith("confirmatory_run_on_unfrozen_seed") for x in report["reasons"])
+
+
+def test_confirmatory_run_requires_the_frozen_protocol_version(drift_runs):
+    runs = copy.deepcopy(drift_runs)
+    for r in runs:
+        r["classification"] = "CONFIRMATORY"
+        r["git_commit"] = "0123456789abcdef"
+        r["seed"] = CONFIRMATORY_SEEDS[0]
+    report = validate(runs)
+    assert "confirmatory_run_missing_frozen_protocol_version" in report["reasons"]
+
+
+def test_confirmatory_seeds_are_reserved_from_other_phases(drift_runs):
+    """A pilot/development run may not squat on a confirmatory seed."""
+    runs = copy.deepcopy(drift_runs)
+    for r in runs:
+        r["seed"] = CONFIRMATORY_SEEDS[0]
+    report = validate(runs)
+    assert "nonconfirmatory_run_squatting_on_confirmatory_seed" in report["reasons"]
 
 
 def test_mixed_classifications_are_rejected(drift_runs):

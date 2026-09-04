@@ -9,7 +9,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
+from lifetime_integrity.seeds import CONFIRMATORY_SEEDS
 
 # An EXP-A001 comparison is meaningless without a drift reference to improve on
 # and at least one re-grounding mechanism to test.
@@ -26,8 +31,14 @@ B_REQUIRED = {"no-consolidation", "uniform-blame"}
 
 CEILING_ACCURACY = 0.95
 FLOOR_ACCURACY = 0.40
-ALLOWED_CLASSIFICATIONS = {"PILOT", "DEVELOPMENT"}
-PROTOCOL_VERSION = "phase2-amendment-001"
+# CONFIRMATORY became admissible at the Phase-3 freeze (2026-09-03). Before the
+# freeze it was banned outright to stop premature confirmatory claims. A blanket
+# ban after the freeze would be theatre — it is bypassed by relabelling — so it
+# is replaced by a stricter, checkable contract: a CONFIRMATORY run must carry a
+# pinned commit and must sit on a seed from the frozen 12-seed list, and no
+# non-confirmatory run may squat on a confirmatory seed.
+ALLOWED_CLASSIFICATIONS = {"PILOT", "DEVELOPMENT", "CONFIRMATORY"}
+PROTOCOL_VERSION = "phase3-confirmatory-lock"
 
 # Metrics each experiment claims to measure. Liveness is enforced only on these:
 # a metric that is structurally zero for an experiment's substrate is not a
@@ -177,12 +188,22 @@ def validate(runs: list[dict], tolerance: float = 0.02) -> dict:
         elif len(values) > 1:
             reasons.append(f"arms_disagree_on_{field}")
 
-    if classification == "DEVELOPMENT":
+    if classification in {"DEVELOPMENT", "CONFIRMATORY"}:
         commits = {r.get("git_commit") for r in runs}
         if None in commits or "" in commits:
             reasons.append("missing_git_commit_for_nonpilot")
         elif len(commits) > 1:
             reasons.append("arms_disagree_on_git_commit")
+
+    seeds = {r.get("seed") for r in runs}
+    if classification == "CONFIRMATORY":
+        stray = sorted(x for x in seeds if x not in CONFIRMATORY_SEEDS)
+        if stray:
+            reasons.append(f"confirmatory_run_on_unfrozen_seed:{stray}")
+        if any(r.get("protocol_version") != PROTOCOL_VERSION for r in runs):
+            reasons.append("confirmatory_run_missing_frozen_protocol_version")
+    elif seeds & set(CONFIRMATORY_SEEDS):
+        reasons.append("nonconfirmatory_run_squatting_on_confirmatory_seed")
 
     # Corruption process must be identical across arms. This is the guard
     # against tuning the benchmark to a preferred winner.

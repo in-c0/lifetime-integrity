@@ -111,10 +111,12 @@ def _base_manifest(
     budget: Budget,
     classification: str,
     git_commit: str | None,
+    protocol_version: str | None = None,
 ) -> dict:
     return {
         "manifest_version": MANIFEST_VERSION,
         "classification": classification,
+        "protocol_version": protocol_version,
         "arm": name,
         "stream": lifetime.stream,
         "seed": lifetime.config.seed,
@@ -137,6 +139,7 @@ def run_drift(
     budget: Budget | None = None,
     classification: str = "PILOT",
     git_commit: str | None = None,
+    protocol_version: str | None = None,
 ) -> RunResult:
     """Class A: score one integrity mechanism over one lifetime."""
     if lifetime.stream != "drift":
@@ -193,7 +196,7 @@ def run_drift(
     elapsed = time.perf_counter() - started
     metrics = evaluate(records, support_index, assertion_times)
 
-    manifest = _base_manifest(lifetime, mechanism, budget, classification, git_commit)
+    manifest = _base_manifest(lifetime, mechanism, budget, classification, git_commit, protocol_version)
     manifest.update(
         {
             "experiment": "EXP-A001",
@@ -223,6 +226,7 @@ def run_delayed_credit(
     window_probes: int = 3,
     git_commit: str | None = None,
     control_selection_salt: str = "",
+    protocol_version: str | None = None,
 ) -> RunResult:
     """Class B: score one delayed-credit rule over one lifetime."""
     if lifetime.stream != "delayed_credit":
@@ -297,7 +301,7 @@ def run_delayed_credit(
         control_selection_salt=control_selection_salt,
     )
 
-    manifest = _base_manifest(lifetime, consolidator, budget, classification, git_commit)
+    manifest = _base_manifest(lifetime, consolidator, budget, classification, git_commit, protocol_version)
     manifest.update(
         {
             "experiment": "EXP-B001",

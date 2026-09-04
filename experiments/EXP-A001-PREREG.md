@@ -36,11 +36,14 @@ accumulator, and the advantage is not explained by simply spending more.
 `integrity_violation_rate` at short lifetimes does not predict the ranking at
 long lifetimes.
 
-*Success:* Spearman correlation between short-horizon (8 epochs) and
-long-horizon (128 epochs) mechanism rankings is below 0.6, with the CI over
-seeds excluding 1.0. This is the methodological claim the track most wants to
-support, and it is falsifiable: if rankings are stable across horizons, then
-short-horizon evaluation is adequate and this track loses its main premise.
+*Success:* mean Spearman correlation between the nine-mechanism rankings at
+E8 and at E128 is below 0.6, and the preregistered 95% CI excludes 1.0. The
+exact estimator, tie treatment, bootstrap and RNG derivation are frozen in
+**Statistics, erratum E2**; no other horizon pair may be substituted.
+
+This is the methodological claim the track most wants to support, and it is
+falsifiable: if rankings are stable across horizons, then short-horizon
+evaluation is adequate and this track loses its main premise.
 
 **H3 (integrity is not accuracy).** `unsupported_belief_rate` and
 `self_contradiction_rate` separate mechanisms that `canonical_accuracy` does
@@ -174,16 +177,102 @@ at ceiling nor at floor; confirm declared metrics are live; fix the horizon
 ladder; fix the read ceiling; and repair mechanical defects. May **not** be used
 to tune corruption rates toward a preferred ranking. Freeze at the end.
 
-**Phase 3 — confirmatory.** Minimum 5 paired seeds, disjoint from development,
+**Phase 3 — confirmatory.** **12 paired seeds, frozen before execution**
+(erratum E2; the earlier "minimum 5" rule is revoked), disjoint from development,
 across the full horizon ladder {8, 16, 32, 64, 128} epochs. Before the first
 confirmatory run, freeze: protocol version, code commit SHA, environment lock,
 generator version, corruption lock, seed list or committed selection rule.
 
-## Statistics
+## Statistics (frozen 2026-09-03, erratum E2)
 
-Paired seeds across arms. Bootstrap 95% CIs on paired differences. Report effect
-sizes, not only p-values. Report every seed, including valid runs that failed to
-show an effect. Scale to ≥12 seeds if intervals are inconclusive.
+> **Erratum E2 (pre-confirmatory statistical specification).** The original
+> statistics sections named the estimators but left the exact procedure
+> underspecified. Fixed here **before any confirmatory data exists**. No
+> substantive hypothesis is changed; only underspecified operations are made
+> reproducible. Development values are calibration observations and must never
+> enter a confirmatory estimate.
+
+### Resampling unit and pairing
+
+- **Resampling unit: the lifetime seed.** Seeds are the independent units.
+- Arms stay **paired inside** each resampled seed: a bootstrap replicate draws
+  seeds with replacement and carries every arm's value for that seed together.
+- Horizons are **not** resampled; each horizon is analysed separately.
+
+### Bootstrap procedure
+
+- **Replicates: 10,000**, fixed.
+- **Interval: percentile** (not BCa, not basic), two-sided 95%.
+- **RNG derivation, deterministic:**
+  `seed_int = int.from_bytes(sha256(f"lifetime-integrity/bootstrap/v1/{experiment}/{claim}/{horizon}".encode()).digest()[:4], "big")`
+  passed to `numpy.random.default_rng`. The same claim at the same horizon
+  therefore always yields the identical interval.
+- **Degenerate replicates:** a replicate in which every resampled seed is
+  identical is retained, not discarded. If the statistic is undefined for a
+  replicate (e.g. zero rank variance in a Spearman computation), that replicate
+  is dropped and the number dropped is reported; if more than 5% are dropped the
+  interval is reported as unreliable rather than silently narrowed.
+- **Ties:** the already-frozen average-rank treatment, unchanged.
+
+### A001 H2 — exact estimator
+
+1. For each confirmatory seed *s*, compute one Spearman `rho_s` between the
+   **nine** mechanism rankings by `integrity_violation_rate` at **E8** and at
+   **E128**, using the frozen average-rank tie treatment.
+2. Primary confirmatory estimate = **arithmetic mean of `rho_s`** over the
+   confirmatory seeds.
+3. Bootstrap seeds as paired units under the procedure above.
+4. Report a percentile 95% CI for the mean.
+5. **H2 succeeds iff mean `rho` < 0.6 AND the 95% CI excludes 1.0.**
+6. Every per-seed `rho_s` is reported.
+
+No other horizon pair may be substituted, and no additional H2 statistic may be
+introduced. The development values 0.330 / 0.395 / 0.580 are calibration
+observations only and do not enter this estimate.
+
+### Multiplicity
+
+The arm × horizon matrix must not become a garden of significance tests. Tests
+are predeclared into exactly three tiers:
+
+**Primary confirmatory** (the only tests that can support a headline claim):
+
+| # | experiment | claim | test |
+|---|---|---|---|
+| P1 | A001 | H2 | mean Spearman rho over seeds, CI as above |
+| P2 | A001 | H1 | paired `integrity_violation_rate` difference, best re-grounding arm vs `unconstrained-accumulator`, at **E128** |
+| P3 | B001 | H1 | paired `excess_net_repair` for `counterfactual-recheck` at **E64** |
+
+Three primary tests. Holm–Bonferroni correction across P1–P3 at family-wise
+α = 0.05. P2's arm and P3's arm/horizon are fixed here, before confirmatory
+data exists, from the preregistered structure — not chosen post hoc.
+
+**Secondary confirmatory** (reported with CIs, Holm-corrected within the family,
+never headline on their own): H3 for both experiments; `excess_net_repair` for
+the remaining active B001 policies; H1 at horizons other than E128.
+
+**Descriptive / exploratory** (no inferential claim, no p-values): everything
+else — per-class breakdowns, calibration, recovery, provenance consistency,
+`untouched_accuracy_delta`, matched-control coverage, raw `net_repair`,
+attribution precision/recall, resource counters.
+
+**Integrity/cost and repair/cost frontiers remain the headline outputs.** A
+mechanism is never described as "winning" because one uncorrected pairwise test
+at one horizon crossed 0.05.
+
+### Confirmatory sample size — frozen, no optional stopping
+
+**12 paired seeds, fixed before the first confirmatory run.** The earlier
+"minimum 5, scale to >=12 if inconclusive" rule permitted optional stopping and
+is **revoked**. Given a marginal development H2 value (0.580 at one seed), the
+sample size is committed up front:
+
+- generated by the committed deterministic seed rule;
+- disjoint from all pilot and development seeds;
+- an exact list, fixed before execution;
+- identical for A001 and B001;
+- run across the full {8, 16, 32, 64, 128} ladder;
+- **never replaced because a seed produces an inconvenient result.**
 
 ## Invalidation / kill criteria
 
