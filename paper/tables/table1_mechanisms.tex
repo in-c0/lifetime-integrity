@@ -1,0 +1,15 @@
+\begin{tabular}{llll}
+\toprule
+Mechanism & Strategy & Evidence reads & Persistent state \\
+\midrule
+last-write-wins & adopt the most recent assertion & none & per-slot value \\
+unconstrained-accumulator & accrete evidence counts, never expire & none & unbounded counts \\
+lossy-latent & bounded state with cross-slot interference & none & fixed-width cells \\
+periodic-reset & wipe and rebuild from a recent window & periodic, bounded & counts + window \\
+evidence-reconstruction & hold no belief; re-derive at query time & per query & none \\
+provenance-regrounding & reliability-weighted re-derivation & per query & source reliabilities \\
+confidence-decay & time-decayed confidence, abstain when unsure & none & decayed counts \\
+contradiction-regrounding & re-read only when a conflict is detected & on conflict & counts + support \\
+hybrid-symbolic-latent & corroboration-gated symbolic store over latent & none & symbolic + counts \\
+\bottomrule
+\end{tabular}

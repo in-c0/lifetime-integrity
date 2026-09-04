@@ -1,0 +1,15 @@
+\begin{tabular}{lrrrrrc}
+\toprule
+Mechanism & IVR & Accuracy & Evid. reads & Maint. ops & State bytes & Pareto \\
+\midrule
+periodic-reset & 0.5457 & 0.662 & 4,290 & 36 & 869 & $\bullet$ \\
+confidence-decay & 0.5479 & 0.686 & 0 & 0 & 2,088 & $\bullet$ \\
+evidence-reconstruction & 0.5487 & 0.672 & 245,347 & 0 & 0 &  \\
+provenance-regrounding & 0.5721 & 0.711 & 245,347 & 0 & 268 &  \\
+last-write-wins & 0.5882 & 0.708 & 0 & 0 & 656 &  \\
+hybrid-symbolic-latent & 0.6103 & 0.749 & 0 & 0 & 3,214 &  \\
+contradiction-regrounding & 0.6204 & 0.736 & 223,261 & 1,151 & 1,377 &  \\
+lossy-latent & 0.7694 & 0.439 & 0 & 0 & 1,432 &  \\
+unconstrained-accumulator & 0.7713 & 0.441 & 0 & 0 & 2,088 &  \\
+\bottomrule
+\end{tabular}

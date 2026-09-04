@@ -155,11 +155,15 @@ def main() -> None:
                             "lower_is_better": True, "bootstrap_p": p2_p}
 
     # ---- P3: B001 H1 ------------------------------------------------------
-    ex = [excess[(s, P3_HORIZON)][P3_ARM] for s in CONFIRMATORY_SEEDS]
+    p3_seeds = [s for s in CONFIRMATORY_SEEDS
+                if validity[("EXP-B001", s, P3_HORIZON)]["structurally_valid"]]
+    ex = [excess[(s, P3_HORIZON)][P3_ARM] for s in p3_seeds]
     b3 = bootstrap_mean(ex, rng_for("EXP-B001", "H1", P3_HORIZON))
     d3 = b3.pop("_draws")
     p3_p = float(max(2 * min((d3 >= 0).mean(), (d3 <= 0).mean()), 1.0 / REPLICATES))
     report["P3_B001_H1"] = {**b3, "arm": P3_ARM, "horizon": P3_HORIZON, "per_seed": ex,
+                            "seeds_used": p3_seeds,
+                            "seeds_excluded_invalid": [s for s in CONFIRMATORY_SEEDS if s not in p3_seeds],
                             "ci_excludes_zero": bool(b3["ci_low"] > 0 or b3["ci_high"] < 0),
                             "bootstrap_p": p3_p}
 
@@ -179,27 +183,37 @@ def main() -> None:
                        "reading_arms_on_frontier": sorted(a for a in front if agg[a][1] > 0)}
     report["A001_frontier"] = frontier
 
+    # Manuscript-audit correction: a structurally invalid cell cannot contribute
+    # to an inferential claim (frozen validity rule). Two EXP-B001 E128 cells
+    # failed `benchmark_at_floor`; including them silently contaminated the E128
+    # secondary estimates. This applies the existing rule, it does not change it.
+    def valid_seeds(exp: str, E: int) -> list[int]:
+        return [s for s in CONFIRMATORY_SEEDS if validity[(exp, s, E)]["structurally_valid"]]
+
     sec = {}
     for a in sorted(excess[(CONFIRMATORY_SEEDS[0], HORIZONS[0])]):
         if a == BASELINE_ARM:
             continue
         per_h = {}
         for E in HORIZONS:
-            vals = [excess[(s, E)][a] for s in CONFIRMATORY_SEEDS]
+            seeds_E = valid_seeds("EXP-B001", E)
+            vals = [excess[(s, E)][a] for s in seeds_E]
             bb = bootstrap_mean(vals, rng_for("EXP-B001", f"excess/{a}", E)); bb.pop("_draws")
             per_h[E] = {**bb, "positive_in_every_seed": all(v > 0 for v in vals),
-                        "n_seeds_positive": sum(1 for v in vals if v > 0)}
+                        "n_seeds_positive": sum(1 for v in vals if v > 0),
+                        "excluded_seeds": [s for s in CONFIRMATORY_SEEDS if s not in seeds_E]}
         sec[a] = per_h
     report["B001_excess_by_horizon"] = sec
 
     report["B001_descriptive"] = {
-        str(E): {a: {k: float(np.mean([raw[(s, E)][a][k] for s in CONFIRMATORY_SEEDS]))
+        str(E): {a: {k: float(np.mean([raw[(s, E)][a][k] for s in valid_seeds("EXP-B001", E)]))
                      for k in ("net_repair", "attribution_precision", "attribution_recall",
                                "collateral_revision_rate", "culprit_accuracy_delta",
                                "decoy_accuracy_delta", "untouched_accuracy_delta",
                                "consolidation_reads")}
                  for a in sorted(raw[(CONFIRMATORY_SEEDS[0], E)])}
         for E in HORIZONS}
+    report["B001_descriptive_n_seeds"] = {str(E): len(valid_seeds("EXP-B001", E)) for E in HORIZONS}
 
     out = args.out or (root / "analysis.json")
     out.write_text(json.dumps(report, indent=2, sort_keys=True, default=str))

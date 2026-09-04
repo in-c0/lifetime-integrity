@@ -1,0 +1,10 @@
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+Policy & Raw net & Inaction & Excess & 95\% CI & Culprit $\Delta$ & Decoy $\Delta$ & Recall & Prec. & Reads \\
+\midrule
+counterfactual-recheck & -0.093 & -0.140 & +0.0469 & [+0.003,+0.094] & -0.033 & -0.060 & 0.16 & 0.18 & 77,766 \\
+provenance-restricted-blame & -0.162 & -0.140 & -0.0214 & [-0.073,+0.031] & -0.053 & -0.109 & 0.10 & 0.24 & 0 \\
+eligibility-trace & -0.194 & -0.140 & -0.0535 & [-0.120,+0.012] & -0.093 & -0.101 & 0.20 & 0.26 & 0 \\
+uniform-blame & -0.248 & -0.140 & -0.1075 & [-0.180,-0.047] & -0.103 & -0.145 & 0.29 & 0.22 & 0 \\
+\bottomrule
+\end{tabular}

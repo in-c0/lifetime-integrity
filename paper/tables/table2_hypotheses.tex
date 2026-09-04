@@ -1,0 +1,11 @@
+\begin{tabular}{llllll}
+\toprule
+Hypothesis & Estimand & Estimate & 95\% CI & Multiplicity & Outcome \\
+\midrule
+A001 H2 (P1) & mean Spearman $\rho$(E8,E128) & 0.3354 & [0.252, 0.415] & Holm, p=0.0001 & supported \\
+A001 H1 (P2) & paired $\Delta$IVR, conf.-decay $-$ unconstrained @E128 & -0.2234 & [-0.238, -0.209] & Holm, p=0.0001 & supported \\
+B001 H1 (P3) & paired excess net repair, ctf.-recheck @E64 & +0.0469 & [+0.0026, +0.0939] & Holm, p=0.0360 & supported \emph{as relative mitigation} \\
+A001 H3 & accuracy-matched pair differing on integrity @E128 & +0.0160 & [+0.0051, +0.0270] & secondary & supported (1 pair) \\
+B001 H2 & highest-recall arm $\neq$ highest-excess arm @E64 & uniform-blame vs ctf.-recheck & --- & secondary & supported \\
+\bottomrule
+\end{tabular}

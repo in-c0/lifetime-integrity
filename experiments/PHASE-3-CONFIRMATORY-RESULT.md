@@ -197,3 +197,79 @@ with H2.
   remains separate.
 - The narrowed novelty positions of G1–G3 as originally phrased (see
   `docs/LITERATURE-AUDIT-2026-09-03.md`).
+
+---
+
+## 8. Errata from the manuscript provenance audit (2026-09-04)
+
+Found while reconciling every quantity against the manifests for the paper. No
+sealed artifact was altered; no seed was rerun; no threshold changed.
+
+### E4 — run-count miscount (documentation only)
+
+This document and the Phase-3 lock stated "**1,680 runs**". The correct figure is
+**840 logical arm-runs**.
+
+`12 seeds × 5 horizons × (9 A001 + 5 B001 arms) = 840`. The erroneous 1,680 came
+from computing `120 cells × 14 arms`, which double-counts: the 120-cell figure
+already spans both experiments, and so does the 9+5 arm count.
+
+Verified on disk: **840** arm manifests, each of the 14 arm names appearing
+exactly 60 times (= 12 × 5). There was no duplicated or secondary execution
+pass. Full file accounting: 840 arm manifests + 120 `validation.json` +
+`summary.json` + `analysis.json` = **962** files.
+
+Denominators to keep distinct:
+
+| unit | count |
+|---|---|
+| seed × horizon × experiment comparison cells | **120** |
+| logical arm-runs | **840** (A001 540, B001 300) |
+| stored JSON artifacts | 962 |
+| secondary execution passes | **0** |
+
+### E5 — inferential estimates must exclude structurally invalid cells
+
+The original `analysis.json` computed the B001 **E128** secondary estimates over
+all 12 seeds, including the two `benchmark_at_floor` cells. The frozen rule bars
+an invalid cell from contributing to an inferential claim. Corrected in
+`analysis-audited.json` (originals preserved):
+
+| arm | E128 contaminated (n=12) | E128 corrected (n=10) |
+|---|---|---|
+| `counterfactual-recheck` | +0.0172 [−0.0267, +0.0631] | +0.0113 [−0.0397, +0.0661] |
+| `eligibility-trace` | +0.0029 [−0.0462, +0.0535] | +0.0029 [−0.0561, +0.0613] |
+| `provenance-restricted-blame` | +0.0172 [−0.0186, +0.0520] | +0.0088 [−0.0296, +0.0437] |
+| `uniform-blame` | −0.0002 [−0.0573, +0.0483] | −0.0087 [−0.0718, +0.0451] |
+
+**All three primary tests are unaffected** (P1/P2 are A001; P3 is at E64, which
+has no invalid cell). Every qualitative conclusion at E128 is unchanged: all CIs
+still span zero.
+
+### E6 — "no policy demonstrably repairs a culprit belief" was overstated
+
+§4 above, and the verdict derived from it, generalised an **E64** observation to
+all horizons. That is wrong. Culprit-specific delta for `counterfactual-recheck`,
+by horizon:
+
+| horizon | culprit Δ | 95% CI | reading |
+|---|---|---|---|
+| E8 | +0.109 | [−0.116, +0.316] | inconclusive |
+| E16 | +0.078 | [−0.044, +0.190] | inconclusive |
+| **E32** | **+0.066** | **[+0.015, +0.120]** | **absolute culprit repair** |
+| E64 | −0.033 | [−0.085, +0.017] | no repair (preregistered endpoint) |
+| E128 | −0.038 | [−0.067, −0.004] | significant **deterioration** |
+
+**Corrected statement.** At the preregistered E64 endpoint there is no absolute
+culprit repair — only reduced damage relative to inaction. But at E32 there *is*
+absolute culprit repair with a CI excluding zero, and at E128 the same policy
+significantly *degrades* the culprit. Repair is **horizon-dependent and
+reverses**, rather than being uniformly absent.
+
+Status: culprit/decoy deltas are **descriptive/exploratory** under the frozen
+claim tiers, so the E32 repair result cannot carry a headline confirmatory
+claim. It is reported because suppressing it would misstate the evidence, and
+because it is uncorrected across 5 horizons × 4 arms.
+
+This finding strengthens rather than weakens the paper's thesis: whether a
+maintenance or repair policy "works" is itself horizon-dependent.

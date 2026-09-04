@@ -1,0 +1,209 @@
+{
+  "denominators": {
+    "comparison_cells_seed_x_horizon_x_experiment": 120,
+    "logical_arm_runs_A001": 540,
+    "logical_arm_runs_B001": 300,
+    "logical_arm_runs_total": 840,
+    "note": "12 seeds x 5 horizons x (9 A001 + 5 B001) = 840. The figure 1680 reported at freeze was an arithmetic error (120 cells x 14 arms double-counts, since both factors already span the two experiments).",
+    "secondary_execution_passes": 0,
+    "stored_json_artifacts": 963
+  },
+  "denominators_per_estimate": {
+    "B001_E128_secondary_seeds": 10,
+    "P1_A001_H2_seeds": 12,
+    "P2_A001_H1_seeds": 12,
+    "P3_B001_H1_seeds": 12
+  },
+  "document_hashes": {
+    "docs/LITERATURE-AUDIT-2026-09-03.md": "e05b2f14d00010181327f4eec640f429ca6ad7f0c039864ac0c595f0a3ec35ed",
+    "experiments/EXP-A001-PREREG.md": "424f47d7bfa8b283cfe5871606c5c68cad02e99a32fed7d5944e1ea65c93ea31",
+    "experiments/EXP-B001-PREREG.md": "d37b8361004a1e238f7d949b0f579b32b5b26d5484e158999009af1127fba919",
+    "experiments/PHASE-2-AMENDMENT-001.md": "649a9cb01331ae27bf1a3ed79bb2c4e88453949e34a9bed0d27f139a57541089",
+    "experiments/PHASE-3-CONFIRMATORY-LOCK.md": "874374198bddfb37df1f4edcda0455357daab2899dfd3b9bae62a3340d24bece",
+    "scripts/validate_runs.py": "88987c40ee6a604bb1f8e01b8a9655b87ddbaf2131b2b756230a272692a2fc68",
+    "src/lifetime_integrity/lifetime.py": "bb10769464129976fadab51c80815e049768a0e6c6f468e4535208f58f563e8d",
+    "src/lifetime_integrity/seeds.py": "03f6a19da1484f100a714813e1ff26d63efb59bde50df6774ca4c8f19aeb9368"
+  },
+  "holm_family": {
+    "alpha_family_wise": 0.05,
+    "detail": {
+      "P1_A001_H2": {
+        "holm_threshold": 0.016666666666666666,
+        "p": 0.0001,
+        "reject_null": true
+      },
+      "P2_A001_H1": {
+        "holm_threshold": 0.025,
+        "p": 0.0001,
+        "reject_null": true
+      },
+      "P3_B001_H1": {
+        "holm_threshold": 0.05,
+        "p": 0.036,
+        "reject_null": true
+      }
+    },
+    "members": [
+      "P1_A001_H2",
+      "P2_A001_H1",
+      "P3_B001_H1"
+    ]
+  },
+  "identity": {
+    "causal_endpoint_version": "excess-net-repair-v1",
+    "confirmatory_seeds": [
+      1792867178,
+      2140240615,
+      238245273,
+      47376287,
+      1175348042,
+      1276344165,
+      141418605,
+      225668972,
+      1257774472,
+      1717315326,
+      812421351,
+      58640242
+    ],
+    "corruption_process_sha256": "0ebb3e60633de4a4e748c2a474c210927d8026265c86e0786555836bfb4201f4",
+    "execution_sha": "16931192764c26b162fdea1a340f7cb52f02bfd6",
+    "freeze_sha": "5b9435afd68ec55c05a3f0f4bcc4ffdd4d0b0e79",
+    "generator_version": "LIS-v0.1.0",
+    "horizons": [
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "matched_control_version": "matched-contemporaneous-v1",
+    "merge_sha": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+    "read_ceiling_formula": "round(1.25 * n_probes * 200) = 2500 * epochs",
+    "scoring_protocol_sha256_k3": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+    "scoring_protocol_version": "LIS-SCORE-v0.3.0",
+    "window_k": 3
+  },
+  "validity": {
+    "claim_invalid_cells": 11,
+    "claim_invalid_detail": [
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 8,
+        "experiment": "EXP-A001",
+        "seed": 1792867178
+      },
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 8,
+        "experiment": "EXP-A001",
+        "seed": 2140240615
+      },
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 8,
+        "experiment": "EXP-A001",
+        "seed": 1175348042
+      },
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 8,
+        "experiment": "EXP-A001",
+        "seed": 1276344165
+      },
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 8,
+        "experiment": "EXP-A001",
+        "seed": 141418605
+      },
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 8,
+        "experiment": "EXP-A001",
+        "seed": 225668972
+      },
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 8,
+        "experiment": "EXP-A001",
+        "seed": 1257774472
+      },
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 8,
+        "experiment": "EXP-A001",
+        "seed": 1717315326
+      },
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 8,
+        "experiment": "EXP-A001",
+        "seed": 812421351
+      },
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 8,
+        "experiment": "EXP-A001",
+        "seed": 58640242
+      },
+      {
+        "claims": [
+          "H3_integrity_not_accuracy",
+          "self_contradiction_analysis"
+        ],
+        "epochs": 16,
+        "experiment": "EXP-A001",
+        "seed": 58640242
+      }
+    ],
+    "structurally_invalid_cells": [
+      {
+        "epochs": 128,
+        "experiment": "EXP-B001",
+        "reasons": [
+          "benchmark_at_floor"
+        ],
+        "seed": 238245273
+      },
+      {
+        "epochs": 128,
+        "experiment": "EXP-B001",
+        "reasons": [
+          "benchmark_at_floor"
+        ],
+        "seed": 1257774472
+      }
+    ],
+    "structurally_valid_cells": 118
+  }
+}
