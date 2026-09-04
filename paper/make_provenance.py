@@ -1,15 +1,25 @@
 #!/usr/bin/env python3
 """Emit the manuscript provenance table: every denominator and hash, from disk."""
 from __future__ import annotations
-import glob, hashlib, json, subprocess, sys
+
+import glob
+import hashlib
+import json
+import subprocess
+import sys
+from dataclasses import asdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
 from lifetime_integrity.lifetime import GENERATOR_VERSION, LifetimeConfig
-from lifetime_integrity.metrics import (CAUSAL_ENDPOINT_VERSION, MATCHED_UNTOUCHED_CONTROL_VERSION,
-                                        SCORING_PROTOCOL_VERSION, scoring_protocol_sha256)
+from lifetime_integrity.metrics import (
+    CAUSAL_ENDPOINT_VERSION,
+    MATCHED_UNTOUCHED_CONTROL_VERSION,
+    SCORING_PROTOCOL_VERSION,
+    scoring_protocol_sha256,
+)
 from lifetime_integrity.seeds import CONFIRMATORY_SEEDS
-from dataclasses import asdict
 
 R = Path("results/confirmatory/9954ab69cd4d")
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()

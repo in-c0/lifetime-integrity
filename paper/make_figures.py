@@ -7,14 +7,15 @@ No value is hand-copied. Run from the repository root:
 
 from __future__ import annotations
 
-import glob
 import hashlib
 import json
 import sys
 from pathlib import Path
 
 import matplotlib
+
 matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
@@ -147,12 +148,11 @@ def fig2_horizon():
 
 # ---------------------------------------------------------------- Figure 3
 def fig3_rank_instability():
-    from run_development import _rank  # noqa: E402
+    from run_development import _rank
     arms = sorted(COLORS)
     fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.6),
                              gridspec_kw={"width_ratios": [1.25, 1]})
     ax = axes[0]
-    rng = np.random.default_rng(7)
     for s in CONFIRMATORY_SEEDS:
         r8 = _rank({r["arm"]: r["metrics"]["integrity_violation_rate"]
                     for r in cell("EXP-A001", s, 8)}, lower_is_better=True)
@@ -263,7 +263,7 @@ def fig5_accuracy_vs_integrity():
     ax.annotate("H3 pair: accuracy indistinguishable,\nintegrity differs (CI excludes 0)",
                 xy=((xy[0][0] + xy[1][0]) / 2, (xy[0][1] + xy[1][1]) / 2),
                 textcoords="offset points", xytext=(-30, -34), fontsize=7, color="#8B0000",
-                arrowprops=dict(arrowstyle="->", color="#8B0000", lw=0.8))
+                arrowprops={"arrowstyle": "->", "color": "#8B0000", "lw": 0.8})
     ax.set_xlabel("canonical accuracy (E128)")
     ax.set_ylabel("integrity violation rate (E128)")
     ax.set_title("Correctness and integrity are not interchangeable", fontsize=8.8, loc="left")

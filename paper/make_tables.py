@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Regenerate every paper table (LaTeX) from the sealed confirmatory manifests."""
 from __future__ import annotations
-import glob, hashlib, json, sys
+
+import glob
+import hashlib
+import json
+import sys
 from pathlib import Path
+
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
@@ -90,12 +95,14 @@ E = 128; seeds = vseeds("EXP-A001", E)
 front = AN["A001_frontier"][str(E)]["pareto"]
 rows = []
 for a in sorted(AN["A001_frontier"][str(E)]["aggregate"]):
-    g = lambda k, sub: np.mean([{r["arm"]: r[sub][k] for r in cell("EXP-A001", s, E)}[a] for s in seeds])
+    def g(k, sub, a=a):
+        return np.mean([{r["arm"]: r[sub][k] for r in cell("EXP-A001", s, E)}[a] for s in seeds])
     rows.append((a, g("integrity_violation_rate", "metrics"), g("canonical_accuracy", "metrics"),
                  g("evidence_reads", "budget_actual"), g("maintenance_ops", "budget_actual"),
                  g("state_bytes", "budget_actual"), a in front))
 rows.sort(key=lambda r: r[1])
-body = "\n".join(rf"{esc(a)} & {iv:.4f} & {acc:.3f} & {rd:,.0f} & {ops:,.0f} & {sb:,.0f} & {'$\\bullet$' if p else ''} \\"
+BULLET = r"$\bullet$"
+body = "\n".join(rf"{esc(a)} & {iv:.4f} & {acc:.3f} & {rd:,.0f} & {ops:,.0f} & {sb:,.0f} & {BULLET if p else ''} \\"
                  for a, iv, acc, rd, ops, sb, p in rows)
 write("table3_frontier_e128.tex", rf"""\begin{{tabular}}{{lrrrrrc}}
 \toprule
@@ -112,7 +119,8 @@ rows = []
 for a in sorted({r["arm"] for r in cell("EXP-B001", seeds[0], E)}):
     if a == "no-consolidation":
         continue
-    g = lambda k: [{r["arm"]: r["consolidation_metrics"] for r in cell("EXP-B001", s, E)}[a][k] for s in seeds]
+    def g(k, a=a):
+        return [{r["arm"]: r["consolidation_metrics"] for r in cell("EXP-B001", s, E)}[a][k] for s in seeds]
     ex = AN["B001_excess_by_horizon"][a][str(E)]
     rows.append((a, np.mean(g("net_repair")), base, ex["mean"], ex["ci_low"], ex["ci_high"],
                  np.mean(g("culprit_accuracy_delta")), np.mean(g("decoy_accuracy_delta")),
