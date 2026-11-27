@@ -1,0 +1,433 @@
+{
+  "arm": "uniform-blame",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 0,
+    "exhausted_reads": 0,
+    "log_capacity": 256,
+    "log_evictions": 0,
+    "log_size": 140,
+    "maintenance_ops": 23,
+    "maintenance_ops_ceiling": 140,
+    "read_ceiling": 20000,
+    "state_bytes": 1769,
+    "wall_seconds": 0.0006327920127660036
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 20000,
+    "log_capacity": 256,
+    "maintenance_ops_ceiling": 140
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "ab9e640b18ee93dfdede6ec6fd96ecbccbc22fa60e26f33442985eda68b6184c",
+  "consolidation_metrics": {
+    "attribution_precision": 0.2608695652173913,
+    "attribution_recall": 0.8571428571428571,
+    "collateral_revision_rate": 0.7391304347826086,
+    "consolidation_reads": 0,
+    "culprit_accuracy_delta": -0.5238095238095238,
+    "decoy_accuracy_delta": -0.5,
+    "net_repair": -1.0238095238095237,
+    "outcomes": 7,
+    "revisions": 23,
+    "untouched_accuracy_delta": 0.25
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 7,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 8,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 1175348042,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "38789797591842652e681cbac7e7a60ac9741b173bcedeeeb2480ecf952645c2",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 54,
+      "contradiction": 19,
+      "misinformation": 18,
+      "misleading_repeat": 21,
+      "world_change": 28
+    },
+    "event_counts": {
+      "assert": 140,
+      "context_shift": 5,
+      "delayed_outcome": 7,
+      "gap": 3,
+      "probe": 80
+    },
+    "events": 235,
+    "final_t": 12696,
+    "probe_classes": {
+      "contradiction": 6,
+      "fresh": 20,
+      "misinfo_target": 15,
+      "post_gap": 2,
+      "quiet_change": 2,
+      "settled": 15,
+      "stale_risk": 5,
+      "untouched": 15
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 100,
+      "overlapping_outcome_implication": 19,
+      "target_consulted": 35
+    },
+    "eligible_total": 35,
+    "measured_outcome_deltas": 7,
+    "outcomes": 7,
+    "outcomes_with_controls": 7,
+    "per_outcome": [
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 14,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 103,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POTAL",
+            "NEDUL"
+          ],
+          [
+            "POTAL",
+            "ZYMOS279"
+          ],
+          [
+            "LUVOK",
+            "POFEN"
+          ],
+          [
+            "POZIM",
+            "LUSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 15,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 104,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POZIM",
+            "LUSIV"
+          ],
+          [
+            "POTAL",
+            "ZYMOS279"
+          ],
+          [
+            "LUVOK",
+            "POFEN"
+          ],
+          [
+            "POTAL",
+            "NEDUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 14,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 130,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "MELOR"
+          ],
+          [
+            "POTAL",
+            "ZYMOS279"
+          ],
+          [
+            "POZIM",
+            "LUSIV"
+          ],
+          [
+            "POTAL",
+            "NEDUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 14,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 131,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "LUVOK",
+            "POFEN"
+          ],
+          [
+            "POTAL",
+            "NEDUL"
+          ],
+          [
+            "GLOBAL",
+            "MELOR"
+          ],
+          [
+            "POZIM",
+            "LUSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 13,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 164,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POTAL",
+            "ZYMOS279"
+          ],
+          [
+            "POTAL",
+            "NEDUL"
+          ],
+          [
+            "GLOBAL",
+            "MELOR"
+          ],
+          [
+            "POZIM",
+            "LUSIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 14,
+          "overlapping_outcome_implication": 1,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 195,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POTAL",
+            "ZYMOS279"
+          ],
+          [
+            "POZIM",
+            "ZYSIV"
+          ],
+          [
+            "POZIM",
+            "LUSIV"
+          ],
+          [
+            "POTAL",
+            "VOFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 16,
+          "overlapping_outcome_implication": 2,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 224,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POZIM",
+            "LUSIV"
+          ],
+          [
+            "LUVOK",
+            "POFEN"
+          ],
+          [
+            "GLOBAL",
+            "ZYQEN950"
+          ],
+          [
+            "POTAL",
+            "VOFEN"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 28,
+    "selection_sha256": "14f19f475b8181ea5f9d57294dcad8702caadc55208f7a3e8099fa2a0a5069ae",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.325,
+    "accuracy_when_answered": 0.6111111111111112,
+    "brier_score": 0.25624947509868146,
+    "canonical_accuracy": 0.4125,
+    "drift_late_minus_early": 0.05,
+    "drift_slope_per_epoch": 0.0119047619047619,
+    "expected_calibration_error": 0.2720458553791887,
+    "integrity_violation_rate": 0.05,
+    "mean_recovery_probes": 0.0,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8333333333333334,
+        "n": 6.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.3,
+        "canonical_accuracy": 0.55,
+        "n": 20.0,
+        "stale_state_rate": 0.05,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.06666666666666667,
+        "canonical_accuracy": 0.13333333333333333,
+        "n": 15.0,
+        "stale_state_rate": 0.13333333333333333,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.5,
+        "canonical_accuracy": 0.5,
+        "n": 2.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.5,
+        "canonical_accuracy": 0.5,
+        "n": 2.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.13333333333333333,
+        "canonical_accuracy": 0.5333333333333333,
+        "n": 15.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 1.0,
+        "n": 5.0,
+        "stale_state_rate": 0.2,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 1.0,
+        "canonical_accuracy": 0.0,
+        "n": 15.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.1,
+      0.1,
+      0.0,
+      0.1
+    ],
+    "probes": 80,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.047619047619047616,
+    "stale_state_rate": 0.05,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 1,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 1175348042,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

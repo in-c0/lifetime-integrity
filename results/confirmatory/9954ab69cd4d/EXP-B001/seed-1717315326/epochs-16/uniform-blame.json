@@ -1,0 +1,704 @@
+{
+  "arm": "uniform-blame",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 0,
+    "exhausted_reads": 0,
+    "log_capacity": 286,
+    "log_evictions": 0,
+    "log_size": 286,
+    "maintenance_ops": 52,
+    "maintenance_ops_ceiling": 286,
+    "read_ceiling": 40000,
+    "state_bytes": 2230,
+    "wall_seconds": 0.001302749995375052
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 40000,
+    "log_capacity": 286,
+    "maintenance_ops_ceiling": 286
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "bb4b279dbc19e7c2096faf0538338363087bf5c65f0cf1a0c26ba75cc18506f9",
+  "consolidation_metrics": {
+    "attribution_precision": 0.3076923076923077,
+    "attribution_recall": 0.8888888888888888,
+    "collateral_revision_rate": 0.6923076923076923,
+    "consolidation_reads": 0,
+    "culprit_accuracy_delta": -0.6777777777777778,
+    "decoy_accuracy_delta": -0.6166666666666668,
+    "net_repair": -1.2944444444444447,
+    "outcomes": 18,
+    "revisions": 52,
+    "untouched_accuracy_delta": 0.25308641975308643
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 18,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 16,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 1717315326,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "d9368e8e415469255a5669a162ea8e4b163b4f82c79924b6793f63b31d187eb4",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 137,
+      "contradiction": 38,
+      "misinformation": 27,
+      "misleading_repeat": 22,
+      "world_change": 62
+    },
+    "event_counts": {
+      "assert": 286,
+      "context_shift": 4,
+      "delayed_outcome": 18,
+      "gap": 4,
+      "probe": 160
+    },
+    "events": 472,
+    "final_t": 17404,
+    "probe_classes": {
+      "contradiction": 14,
+      "fresh": 35,
+      "misinfo_target": 18,
+      "post_gap": 4,
+      "quiet_change": 6,
+      "settled": 40,
+      "stale_risk": 11,
+      "untouched": 32
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 132,
+      "overlapping_outcome_implication": 197,
+      "target_consulted": 90
+    },
+    "eligible_total": 67,
+    "measured_outcome_deltas": 18,
+    "outcomes": 18,
+    "outcomes_with_controls": 18,
+    "per_outcome": [
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 11,
+          "overlapping_outcome_implication": 7,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 100,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "FATAL",
+            "NETAL"
+          ],
+          [
+            "MESIV",
+            "TURIN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 133,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "FATAL",
+            "NETAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 134,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "FATAL",
+            "NETAL"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 163,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "FADUL"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "FATAL",
+            "RITAL"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 190,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "RITAL"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "FATAL",
+            "NETAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 191,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "FATAL",
+            "NETAL"
+          ],
+          [
+            "FATAL",
+            "RITAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 224,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "NETAL"
+          ],
+          [
+            "RISIV",
+            "NEFEN"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "FATAL",
+            "RITAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 225,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "RISIV",
+            "NEFEN"
+          ],
+          [
+            "FATAL",
+            "NETAL"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "FATAL",
+            "RITAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 283,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "LUMOS"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "FATAL",
+            "NETAL"
+          ],
+          [
+            "RISIV",
+            "NEFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 312,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "LUMOS"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "FATAL",
+            "NETAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 313,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "NETAL"
+          ],
+          [
+            "FATAL",
+            "LUMOS"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 13,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 343,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "RISIV",
+            "KAFEN"
+          ],
+          [
+            "RISIV",
+            "NEFEN"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "GLOBAL",
+            "SASIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 374,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "NEZIM"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 375,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "GLOBAL",
+            "NEZIM"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 405,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "NEZIM"
+          ],
+          [
+            "ZYQEN",
+            "KADUL188"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 406,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "ZYQEN",
+            "KADUL188"
+          ],
+          [
+            "GLOBAL",
+            "NEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 11,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 433,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "NEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 14,
+          "overlapping_outcome_implication": 7,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 462,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "KAPAX986"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 58,
+    "selection_sha256": "a5a47d190b3ee2ff42a047630b5680ead007dfa0af1f817daa00fb3411fdb81a",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.3875,
+    "accuracy_when_answered": 0.6632653061224489,
+    "brier_score": 0.2876309661764442,
+    "canonical_accuracy": 0.40625,
+    "drift_late_minus_early": 0.11999999999999998,
+    "drift_slope_per_epoch": 0.008235294117647058,
+    "expected_calibration_error": 0.2727010584453562,
+    "integrity_violation_rate": 0.075,
+    "mean_recovery_probes": 0.3333333333333333,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.14285714285714285,
+        "canonical_accuracy": 0.35714285714285715,
+        "n": 14.0,
+        "stale_state_rate": 0.2857142857142857,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.2857142857142857,
+        "canonical_accuracy": 0.5428571428571428,
+        "n": 35.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.1111111111111111,
+        "canonical_accuracy": 0.4444444444444444,
+        "n": 18.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.5,
+        "n": 4.0,
+        "stale_state_rate": 0.25,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.5,
+        "canonical_accuracy": 0.3333333333333333,
+        "n": 6.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.35,
+        "canonical_accuracy": 0.525,
+        "n": 40.0,
+        "stale_state_rate": 0.05,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.18181818181818182,
+        "canonical_accuracy": 0.6363636363636364,
+        "n": 11.0,
+        "stale_state_rate": 0.2727272727272727,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 0.90625,
+        "canonical_accuracy": 0.03125,
+        "n": 32.0,
+        "stale_state_rate": 0.0625,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.1,
+      0.0,
+      0.1,
+      0.0,
+      0.2,
+      0.0,
+      0.3,
+      0.3,
+      0.0,
+      0.0,
+      0.1
+    ],
+    "probes": 160,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.02857142857142857,
+    "stale_state_rate": 0.075,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 12,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 1717315326,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

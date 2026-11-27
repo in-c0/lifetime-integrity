@@ -1,0 +1,758 @@
+{
+  "arm": "eligibility-trace",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 0,
+    "exhausted_reads": 0,
+    "log_capacity": 278,
+    "log_evictions": 0,
+    "log_size": 278,
+    "maintenance_ops": 19,
+    "maintenance_ops_ceiling": 278,
+    "read_ceiling": 32000,
+    "state_bytes": 2239,
+    "wall_seconds": 0.0016079999986686744
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 32000,
+    "log_capacity": 278,
+    "maintenance_ops_ceiling": 278
+  },
+  "classification": "DEVELOPMENT",
+  "config_lock_sha256": "2af846527f9b78958d6ea3da087cc411ea2f8c23e1d5327e23458802f0cdf978",
+  "consolidation_metrics": {
+    "attribution_precision": 0.3684210526315789,
+    "attribution_recall": 0.3684210526315789,
+    "collateral_revision_rate": 0.631578947368421,
+    "consolidation_reads": 0,
+    "culprit_accuracy_delta": -0.2976190476190476,
+    "decoy_accuracy_delta": -0.19827586206896552,
+    "net_repair": -0.49589490968801314,
+    "outcomes": 19,
+    "revisions": 19,
+    "untouched_accuracy_delta": 0.37938596491228066
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 19,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "0c79b2efcbf9f98e642e34c52736ee461faead38",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 16,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 1043567494,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "9a202f30ae486690c595cc6b39fd5097664081f3b463e56b8d8856c096429e85",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 111,
+      "contradiction": 46,
+      "misinformation": 37,
+      "misleading_repeat": 30,
+      "world_change": 54
+    },
+    "event_counts": {
+      "assert": 278,
+      "context_shift": 1,
+      "delayed_outcome": 19,
+      "gap": 3,
+      "probe": 160
+    },
+    "events": 461,
+    "final_t": 13374,
+    "probe_classes": {
+      "contradiction": 20,
+      "fresh": 33,
+      "misinfo_target": 18,
+      "post_gap": 3,
+      "quiet_change": 2,
+      "settled": 43,
+      "stale_risk": 10,
+      "untouched": 31
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 127,
+      "overlapping_outcome_implication": 166,
+      "target_consulted": 94
+    },
+    "eligible_total": 107,
+    "measured_outcome_deltas": 19,
+    "outcomes": 19,
+    "outcomes_with_controls": 19,
+    "per_outcome": [
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 95,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "POMOS"
+          ],
+          [
+            "MERIN",
+            "KAZIM"
+          ],
+          [
+            "KAGUR",
+            "SAQEN455"
+          ],
+          [
+            "DIQEN",
+            "VODUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 8,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 128,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "MERIN",
+            "KAZIM"
+          ],
+          [
+            "KAGUR",
+            "NEFEN"
+          ],
+          [
+            "KAGUR",
+            "VOQEN"
+          ],
+          [
+            "KAGUR",
+            "SAQEN455"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 8,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 157,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "POMOS"
+          ],
+          [
+            "KAGUR",
+            "SAQEN455"
+          ],
+          [
+            "DIQEN",
+            "MEFEN"
+          ],
+          [
+            "DIQEN",
+            "VODUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 213,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIQEN",
+            "MESIV"
+          ],
+          [
+            "DIQEN",
+            "MEFEN"
+          ],
+          [
+            "KAGUR",
+            "ZYRIN495"
+          ],
+          [
+            "DIQEN",
+            "VODUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 246,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "TUSIV",
+            "ZYQEN"
+          ],
+          [
+            "DIQEN",
+            "VODUL"
+          ],
+          [
+            "KAGUR",
+            "ZYRIN495"
+          ],
+          [
+            "KAGUR",
+            "NEFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 247,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "KAGUR",
+            "SAQEN455"
+          ],
+          [
+            "DIQEN",
+            "MEFEN"
+          ],
+          [
+            "TUSIV",
+            "ZYQEN"
+          ],
+          [
+            "DIQEN",
+            "MESIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 276,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "KAGUR",
+            "ZYRIN495"
+          ],
+          [
+            "DIQEN",
+            "VODUL"
+          ],
+          [
+            "KAGUR",
+            "NEFEN"
+          ],
+          [
+            "DIQEN",
+            "MESIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 277,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIQEN",
+            "MEFEN"
+          ],
+          [
+            "DIQEN",
+            "VODUL"
+          ],
+          [
+            "KAGUR",
+            "ZYRIN495"
+          ],
+          [
+            "KAGUR",
+            "SAQEN455"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 309,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIQEN",
+            "MESIV"
+          ],
+          [
+            "KAGUR",
+            "NEFEN"
+          ],
+          [
+            "DIQEN",
+            "MEFEN"
+          ],
+          [
+            "TUSIV",
+            "ZYQEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 310,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "KAGUR",
+            "NEFEN"
+          ],
+          [
+            "DIQEN",
+            "MEFEN"
+          ],
+          [
+            "DIQEN",
+            "VODUL"
+          ],
+          [
+            "KAGUR",
+            "ZYRIN495"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 4,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 339,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "KAGUR",
+            "NEFEN"
+          ],
+          [
+            "DIQEN",
+            "MEFEN"
+          ],
+          [
+            "TUSIV",
+            "ZYQEN"
+          ],
+          [
+            "KAGUR",
+            "ZYRIN495"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 340,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "TUSIV",
+            "ZYQEN"
+          ],
+          [
+            "DIQEN",
+            "MESIV"
+          ],
+          [
+            "MERIN",
+            "LUGUR"
+          ],
+          [
+            "KAGUR",
+            "NEFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 8,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 369,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIQEN",
+            "MEFEN"
+          ],
+          [
+            "KAGUR",
+            "NEFEN"
+          ],
+          [
+            "KAGUR",
+            "ZYRIN495"
+          ],
+          [
+            "DIQEN",
+            "MESIV"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 7,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 370,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "KAGUR",
+            "ZYRIN495"
+          ],
+          [
+            "DIQEN",
+            "MEFEN"
+          ],
+          [
+            "DIQEN",
+            "MESIV"
+          ],
+          [
+            "DIQEN",
+            "VODUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 8,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 395,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIQEN",
+            "MEFEN"
+          ],
+          [
+            "TUSIV",
+            "ZYQEN"
+          ],
+          [
+            "DIQEN",
+            "VODUL"
+          ],
+          [
+            "KAGUR",
+            "ZYRIN495"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 7,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 396,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "DIQEN",
+            "VODUL"
+          ],
+          [
+            "KAGUR",
+            "NEFEN"
+          ],
+          [
+            "TUSIV",
+            "ZYQEN"
+          ],
+          [
+            "DIQEN",
+            "MEFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 12,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 421,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "DIQEN",
+            "MESIV"
+          ],
+          [
+            "DIQEN",
+            "VODUL"
+          ],
+          [
+            "KAGUR",
+            "ZYRIN495"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 14,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 450,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "DIQEN",
+            "VODUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 1,
+        "exclusion_counts": {
+          "insufficient_probe_window": 15,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 451,
+        "selected_count": 1,
+        "selected_slots": [
+          [
+            "DIQEN",
+            "VODUL"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 69,
+    "selection_sha256": "f79b3527645f8fa8dc658317064296dc5bd82870193b2a17a377502360f7fb0b",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.18125,
+    "accuracy_when_answered": 0.6106870229007634,
+    "brier_score": 0.2294839263943776,
+    "canonical_accuracy": 0.5,
+    "drift_late_minus_early": 0.14,
+    "drift_slope_per_epoch": 0.010588235294117647,
+    "expected_calibration_error": 0.19680565405756245,
+    "integrity_violation_rate": 0.15,
+    "mean_recovery_probes": 0.15384615384615385,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.55,
+        "n": 20.0,
+        "stale_state_rate": 0.25,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.030303030303030304,
+        "canonical_accuracy": 0.6363636363636364,
+        "n": 33.0,
+        "stale_state_rate": 0.12121212121212122,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.2777777777777778,
+        "n": 18.0,
+        "stale_state_rate": 0.16666666666666666,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.3333333333333333,
+        "canonical_accuracy": 0.3333333333333333,
+        "n": 3.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.5,
+        "canonical_accuracy": 0.5,
+        "n": 2.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.046511627906976744,
+        "canonical_accuracy": 0.7209302325581395,
+        "n": 43.0,
+        "stale_state_rate": 0.11627906976744186,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.6,
+        "n": 10.0,
+        "stale_state_rate": 0.4,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 0.7741935483870968,
+        "canonical_accuracy": 0.12903225806451613,
+        "n": 31.0,
+        "stale_state_rate": 0.0967741935483871,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.2,
+      0.4,
+      0.3,
+      0.1,
+      0.3,
+      0.1,
+      0.2,
+      0.0,
+      0.2
+    ],
+    "probes": 160,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.02,
+    "stale_state_rate": 0.15,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 2,
+    "unsupported_belief_rate": 0.0
+  },
+  "scoring_protocol": {
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.2.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "3a7bf5eb123ce2904a99c68edcd9e97152fc6e90fc8d2167cdf79b411bbde728",
+  "seed": 1043567494,
+  "source_tree_sha256": "72b9f19933d681f4a3efbf11afb6431bc224e23b47450b1d54946dc1aaaa7759",
+  "stream": "delayed_credit"
+}

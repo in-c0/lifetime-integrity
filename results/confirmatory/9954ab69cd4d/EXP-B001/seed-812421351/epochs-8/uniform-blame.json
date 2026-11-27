@@ -1,0 +1,425 @@
+{
+  "arm": "uniform-blame",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 0,
+    "exhausted_reads": 0,
+    "log_capacity": 256,
+    "log_evictions": 0,
+    "log_size": 140,
+    "maintenance_ops": 23,
+    "maintenance_ops_ceiling": 140,
+    "read_ceiling": 20000,
+    "state_bytes": 1627,
+    "wall_seconds": 0.0006503750046249479
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 20000,
+    "log_capacity": 256,
+    "maintenance_ops_ceiling": 140
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "fe00ca45fad0dc4b4905392cfa90e93076f795bc0f6590c77d6a9519486ecb31",
+  "consolidation_metrics": {
+    "attribution_precision": 0.2608695652173913,
+    "attribution_recall": 0.8571428571428571,
+    "collateral_revision_rate": 0.7391304347826086,
+    "consolidation_reads": 0,
+    "culprit_accuracy_delta": 0.04166666666666666,
+    "decoy_accuracy_delta": -0.9444444444444445,
+    "net_repair": -0.9027777777777779,
+    "outcomes": 7,
+    "revisions": 23,
+    "untouched_accuracy_delta": 0.3928571428571428
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 7,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 8,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 812421351,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "ff2c59c37f1c78eb4a788cd44b10822c4399ab910b33d6bd1d77cc9dc2c30664",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 67,
+      "contradiction": 18,
+      "misinformation": 10,
+      "misleading_repeat": 17,
+      "world_change": 28
+    },
+    "event_counts": {
+      "assert": 140,
+      "context_shift": 3,
+      "delayed_outcome": 7,
+      "gap": 3,
+      "probe": 80
+    },
+    "events": 233,
+    "final_t": 12690,
+    "probe_classes": {
+      "contradiction": 6,
+      "fresh": 24,
+      "misinfo_target": 8,
+      "post_gap": 3,
+      "quiet_change": 4,
+      "settled": 15,
+      "stale_risk": 2,
+      "untouched": 18
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 83,
+      "overlapping_outcome_implication": 17,
+      "target_consulted": 30
+    },
+    "eligible_total": 31,
+    "measured_outcome_deltas": 7,
+    "outcomes": 7,
+    "outcomes_with_controls": 7,
+    "per_outcome": [
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 14,
+          "overlapping_outcome_implication": 2,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 96,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "ZYTAL",
+            "VOLOR"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "ZYTAL",
+            "DIGUR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 15,
+          "overlapping_outcome_implication": 1,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 97,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "ZYTAL",
+            "DIGUR"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "ZYTAL",
+            "VOLOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 124,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "NEQEN",
+            "LUMOS"
+          ],
+          [
+            "NEQEN",
+            "DIFEN"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "ZYTAL",
+            "DIGUR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 10,
+          "overlapping_outcome_implication": 2,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 156,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "SASIV",
+            "SAPAX"
+          ],
+          [
+            "ZYTAL",
+            "DIGUR"
+          ],
+          [
+            "NEQEN",
+            "DIFEN"
+          ],
+          [
+            "ZYTAL",
+            "VOLOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 12,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 3
+        },
+        "outcome_event_id": 188,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "SASIV",
+            "SAPAX"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ],
+          [
+            "NEQEN",
+            "MEFEN"
+          ],
+          [
+            "NEQEN",
+            "LUMOS"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 10,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 222,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "SASIV",
+            "SAPAX"
+          ],
+          [
+            "NEQEN",
+            "LUMOS"
+          ],
+          [
+            "NEQEN",
+            "RIDUL"
+          ],
+          [
+            "NEQEN",
+            "MEFEN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 13,
+          "overlapping_outcome_implication": 1,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 223,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "NEQEN",
+            "RIDUL"
+          ],
+          [
+            "NEQEN",
+            "MEFEN"
+          ],
+          [
+            "NEQEN",
+            "LUMOS"
+          ],
+          [
+            "NEQEN",
+            "POZIM526"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 26,
+    "selection_sha256": "4ce302cf34320a502d05f5dc9ecdc1e65087e7149a4b5eaafad9cd493a3439d9",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.275,
+    "accuracy_when_answered": 0.7068965517241379,
+    "brier_score": 0.23684691868445973,
+    "canonical_accuracy": 0.5125,
+    "drift_late_minus_early": 0.2,
+    "drift_slope_per_epoch": 0.030952380952380943,
+    "expected_calibration_error": 0.22824986316365622,
+    "integrity_violation_rate": 0.075,
+    "mean_recovery_probes": 0.6666666666666666,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8333333333333334,
+        "n": 6.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.08333333333333333,
+        "canonical_accuracy": 0.75,
+        "n": 24.0,
+        "stale_state_rate": 0.041666666666666664,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.25,
+        "n": 8.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.6666666666666666,
+        "n": 3.0,
+        "stale_state_rate": 0.3333333333333333,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.0,
+        "n": 4.0,
+        "stale_state_rate": 0.75,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.13333333333333333,
+        "canonical_accuracy": 0.8,
+        "n": 15.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 1.0,
+        "n": 2.0,
+        "stale_state_rate": 0.5,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 1.0,
+        "canonical_accuracy": 0.0,
+        "n": 18.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.1,
+      0.0,
+      0.1,
+      0.3
+    ],
+    "probes": 80,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.08,
+    "stale_state_rate": 0.075,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 3,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 812421351,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

@@ -1,0 +1,213 @@
+{
+  "arm": "unconstrained-accumulator",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 0,
+    "exhausted_reads": 0,
+    "log_capacity": 546,
+    "log_evictions": 0,
+    "log_size": 546,
+    "maintenance_ops": 0,
+    "maintenance_ops_ceiling": 546,
+    "read_ceiling": 80000,
+    "state_bytes": 1634,
+    "wall_seconds": 0.002530334022594616
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 80000,
+    "log_capacity": 546,
+    "maintenance_ops_ceiling": 546
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "499c4d7a1f78b4d666e3bffb299ab45d7e20adb0ac8cb6a16eedf4169d493113",
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-A001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 0.0,
+    "epochs": 32,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 2140240615,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "ed6f719aaf2d32047de2d397079f7c1175449ee1d4f81de0cc02bd305d79f03b",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 235,
+      "contradiction": 65,
+      "misinformation": 69,
+      "misleading_repeat": 79,
+      "world_change": 98
+    },
+    "event_counts": {
+      "assert": 546,
+      "context_shift": 14,
+      "gap": 7,
+      "probe": 320
+    },
+    "events": 887,
+    "final_t": 30640,
+    "probe_classes": {
+      "contradiction": 26,
+      "fresh": 83,
+      "misinfo_target": 38,
+      "post_gap": 7,
+      "quiet_change": 4,
+      "settled": 62,
+      "stale_risk": 21,
+      "untouched": 79
+    },
+    "slots": 27,
+    "stream": "drift"
+  },
+  "manifest_version": "1.1",
+  "metrics": {
+    "abstention_rate": 0.08125,
+    "accuracy_when_answered": 0.6768707482993197,
+    "brier_score": 0.18922339981148004,
+    "canonical_accuracy": 0.621875,
+    "drift_late_minus_early": 0.5399999999999999,
+    "drift_slope_per_epoch": 0.025879765395894434,
+    "expected_calibration_error": 0.13518999980831076,
+    "integrity_violation_rate": 0.29375,
+    "mean_recovery_probes": 1.2,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8076923076923077,
+        "n": 26.0,
+        "stale_state_rate": 0.2692307692307692,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8433734939759037,
+        "n": 83.0,
+        "stale_state_rate": 0.14457831325301204,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.42105263157894735,
+        "n": 38.0,
+        "stale_state_rate": 0.39473684210526316,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.5714285714285714,
+        "n": 7.0,
+        "stale_state_rate": 0.42857142857142855,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.5,
+        "n": 4.0,
+        "stale_state_rate": 0.75,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.7096774193548387,
+        "n": 62.0,
+        "stale_state_rate": 0.3709677419354839,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.3333333333333333,
+        "n": 21.0,
+        "stale_state_rate": 0.6190476190476191,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 0.3291139240506329,
+        "canonical_accuracy": 0.4430379746835443,
+        "n": 79.0,
+        "stale_state_rate": 0.22784810126582278,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.1,
+      0.2,
+      0.2,
+      0.0,
+      0.3,
+      0.2,
+      0.5,
+      0.0,
+      0.4,
+      0.3,
+      0.5,
+      0.3,
+      0.7,
+      0.4,
+      0.3,
+      0.2,
+      0.5,
+      0.5,
+      0.6,
+      0.8,
+      0.6,
+      0.9,
+      0.8
+    ],
+    "probes": 320,
+    "provenance_consistency": 0.0,
+    "self_contradiction_rate": 0.0,
+    "stale_state_rate": 0.29375,
+    "unattributed_answer_rate": 1.0,
+    "unrecovered_changes": 21,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "seed": 2140240615,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "drift"
+}

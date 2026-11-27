@@ -1,0 +1,15 @@
+{
+  "arms": [
+    "counterfactual-recheck",
+    "eligibility-trace",
+    "no-consolidation",
+    "provenance-restricted-blame",
+    "uniform-blame"
+  ],
+  "classification": "DEVELOPMENT",
+  "experiment": "EXP-B001",
+  "n_runs": 5,
+  "note": "Validity only. This says nothing about which arm performed better.",
+  "reasons": [],
+  "valid_for_comparison": true
+}

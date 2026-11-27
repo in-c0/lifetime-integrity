@@ -1,0 +1,19 @@
+{
+  "arms": [
+    "confidence-decay",
+    "contradiction-regrounding",
+    "evidence-reconstruction",
+    "hybrid-symbolic-latent",
+    "last-write-wins",
+    "lossy-latent",
+    "periodic-reset",
+    "provenance-regrounding",
+    "unconstrained-accumulator"
+  ],
+  "classification": "DEVELOPMENT",
+  "experiment": "EXP-A001",
+  "n_runs": 9,
+  "note": "Validity only. This says nothing about which arm performed better.",
+  "reasons": [],
+  "valid_for_comparison": true
+}
