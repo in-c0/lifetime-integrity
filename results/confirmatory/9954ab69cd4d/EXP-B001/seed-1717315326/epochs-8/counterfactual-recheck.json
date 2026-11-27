@@ -1,0 +1,461 @@
+{
+  "arm": "counterfactual-recheck",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 4430,
+    "exhausted_reads": 0,
+    "log_capacity": 256,
+    "log_evictions": 0,
+    "log_size": 146,
+    "maintenance_ops": 1,
+    "maintenance_ops_ceiling": 146,
+    "read_ceiling": 20000,
+    "state_bytes": 1618,
+    "wall_seconds": 0.0009882079903036356
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 20000,
+    "log_capacity": 256,
+    "maintenance_ops_ceiling": 146
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "c6c80a82b448bce9b54d3c2e9b1d754c2d8f85c5a003cc7d3e2cc15abae4ded5",
+  "consolidation_metrics": {
+    "attribution_precision": 1.0,
+    "attribution_recall": 0.125,
+    "collateral_revision_rate": 0.0,
+    "consolidation_reads": 4430,
+    "culprit_accuracy_delta": -0.16666666666666666,
+    "decoy_accuracy_delta": -0.025641025641025644,
+    "net_repair": -0.1923076923076923,
+    "outcomes": 8,
+    "revisions": 1,
+    "untouched_accuracy_delta": 0.08333333333333334
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 8,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 8,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 1717315326,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "5cd7da200d142c49ecfb35f0963c8dee1bf74326541a9accea10b7a5fc452310",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 66,
+      "contradiction": 20,
+      "misinformation": 11,
+      "misleading_repeat": 15,
+      "world_change": 34
+    },
+    "event_counts": {
+      "assert": 146,
+      "context_shift": 2,
+      "delayed_outcome": 8,
+      "gap": 2,
+      "probe": 80
+    },
+    "events": 238,
+    "final_t": 8708,
+    "probe_classes": {
+      "contradiction": 7,
+      "fresh": 24,
+      "misinfo_target": 6,
+      "post_gap": 1,
+      "quiet_change": 4,
+      "settled": 13,
+      "stale_risk": 6,
+      "untouched": 19
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 73,
+      "overlapping_outcome_implication": 20,
+      "target_consulted": 40
+    },
+    "eligible_total": 51,
+    "measured_outcome_deltas": 8,
+    "outcomes": 8,
+    "outcomes_with_controls": 8,
+    "per_outcome": [
+      {
+        "eligible_count": 8,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 1,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 100,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "ZYQEN",
+            "TUGUR611"
+          ],
+          [
+            "FATAL",
+            "NETAL"
+          ],
+          [
+            "MESIV",
+            "TURIN"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 133,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "MESIV",
+            "TURIN"
+          ],
+          [
+            "RISIV",
+            "SAVOK666"
+          ],
+          [
+            "FATAL",
+            "SALOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 134,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "SALOR"
+          ],
+          [
+            "MESIV",
+            "TURIN"
+          ],
+          [
+            "ZYQEN",
+            "POPAX"
+          ],
+          [
+            "RISIV",
+            "SAVOK666"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 163,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "MESIV",
+            "TURIN"
+          ],
+          [
+            "FATAL",
+            "SALOR"
+          ],
+          [
+            "FATAL",
+            "RITAL"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 190,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "RITAL"
+          ],
+          [
+            "RISIV",
+            "SAVOK666"
+          ],
+          [
+            "FATAL",
+            "SALOR"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 191,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "SALOR"
+          ],
+          [
+            "FATAL",
+            "RILOR"
+          ],
+          [
+            "MESIV",
+            "TURIN"
+          ],
+          [
+            "FATAL",
+            "NETAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 13,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 226,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "RITAL"
+          ],
+          [
+            "FATAL",
+            "LUMOS"
+          ],
+          [
+            "FATAL",
+            "NETAL"
+          ],
+          [
+            "FATAL",
+            "SALOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 12,
+          "overlapping_outcome_implication": 1,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 227,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FATAL",
+            "RITAL"
+          ],
+          [
+            "FATAL",
+            "SALOR"
+          ],
+          [
+            "FATAL",
+            "LUMOS"
+          ],
+          [
+            "RISIV",
+            "SAVOK666"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 32,
+    "selection_sha256": "33519b35183befffc2c42da03b98f01f7a2cbec8ca04b9e0a24ab0508a55946e",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.1875,
+    "accuracy_when_answered": 0.9230769230769231,
+    "brier_score": 0.08877845182715313,
+    "canonical_accuracy": 0.75,
+    "drift_late_minus_early": 0.1,
+    "drift_slope_per_epoch": 0.019047619047619042,
+    "expected_calibration_error": 0.18767343767343772,
+    "integrity_violation_rate": 0.05,
+    "mean_recovery_probes": 0.0,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8571428571428571,
+        "n": 7.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 1.0,
+        "n": 24.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8333333333333334,
+        "n": 6.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 1.0,
+        "n": 1.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.25,
+        "canonical_accuracy": 0.5,
+        "n": 4.0,
+        "stale_state_rate": 0.25,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.9230769230769231,
+        "n": 13.0,
+        "stale_state_rate": 0.07692307692307693,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8333333333333334,
+        "n": 6.0,
+        "stale_state_rate": 0.3333333333333333,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 0.7368421052631579,
+        "canonical_accuracy": 0.2631578947368421,
+        "n": 19.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "probes": 80,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.0,
+    "stale_state_rate": 0.05,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 3,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 1717315326,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

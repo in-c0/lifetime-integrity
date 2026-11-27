@@ -1,0 +1,416 @@
+{
+  "arm": "counterfactual-recheck",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 3820,
+    "exhausted_reads": 0,
+    "log_capacity": 256,
+    "log_evictions": 0,
+    "log_size": 152,
+    "maintenance_ops": 2,
+    "maintenance_ops_ceiling": 152,
+    "read_ceiling": 20000,
+    "state_bytes": 1792,
+    "wall_seconds": 0.0009075829875655472
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 20000,
+    "log_capacity": 256,
+    "maintenance_ops_ceiling": 152
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "b4a93623313d94e81a2ff84ab45e90588f3a709f3b8d3fc7bdce455769e0df10",
+  "consolidation_metrics": {
+    "attribution_precision": 0.5,
+    "attribution_recall": 0.14285714285714285,
+    "collateral_revision_rate": 0.5,
+    "consolidation_reads": 3820,
+    "culprit_accuracy_delta": 0.6666666666666666,
+    "decoy_accuracy_delta": -0.14285714285714285,
+    "net_repair": 0.5238095238095237,
+    "outcomes": 7,
+    "revisions": 2,
+    "untouched_accuracy_delta": 0.375
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 7,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 8,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 1276344165,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "1d00f933f032ebc989925e8a492963d95dc1bd6f2cd340fe4afe9c6fc2e96d3d",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 61,
+      "contradiction": 29,
+      "misinformation": 13,
+      "misleading_repeat": 9,
+      "world_change": 40
+    },
+    "event_counts": {
+      "assert": 152,
+      "context_shift": 5,
+      "delayed_outcome": 7,
+      "probe": 80
+    },
+    "events": 244,
+    "final_t": 732,
+    "probe_classes": {
+      "contradiction": 10,
+      "fresh": 13,
+      "misinfo_target": 7,
+      "settled": 17,
+      "stale_risk": 10,
+      "untouched": 23
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 68,
+      "overlapping_outcome_implication": 22,
+      "target_consulted": 30
+    },
+    "eligible_total": 55,
+    "measured_outcome_deltas": 7,
+    "outcomes": 7,
+    "outcomes_with_controls": 7,
+    "per_outcome": [
+      {
+        "eligible_count": 9,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 5,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 115,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "SALOR",
+            "NEMOS746"
+          ],
+          [
+            "POLOR",
+            "POQEN"
+          ],
+          [
+            "VOLOR",
+            "MEQEN"
+          ],
+          [
+            "POSIV",
+            "TUDUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 9,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 116,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POLOR",
+            "ZYPAX500"
+          ],
+          [
+            "POLOR",
+            "POQEN"
+          ],
+          [
+            "VOLOR",
+            "MEQEN"
+          ],
+          [
+            "VOLOR",
+            "SALOR12"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 10,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 142,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "VOLOR",
+            "VOFEN"
+          ],
+          [
+            "VOLOR",
+            "MEQEN"
+          ],
+          [
+            "POLOR",
+            "POQEN"
+          ],
+          [
+            "POSIV",
+            "TUDUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 10,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 143,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "VOLOR",
+            "TURIN120"
+          ],
+          [
+            "POLOR",
+            "TULOR642"
+          ],
+          [
+            "POLOR",
+            "POQEN"
+          ],
+          [
+            "SALOR",
+            "NEMOS746"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 12,
+          "overlapping_outcome_implication": 1,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 179,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "POLOR793"
+          ],
+          [
+            "VOLOR",
+            "MEQEN"
+          ],
+          [
+            "VOLOR",
+            "VOFEN"
+          ],
+          [
+            "VOLOR",
+            "SALOR12"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 13,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 3
+        },
+        "outcome_event_id": 207,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "SALOR",
+            "ZYPAX255"
+          ],
+          [
+            "VOLOR",
+            "VOFEN"
+          ],
+          [
+            "VOLOR",
+            "SALOR12"
+          ],
+          [
+            "VOLOR",
+            "TURIN120"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 13,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 234,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "VOLOR",
+            "SALOR12"
+          ],
+          [
+            "SALOR",
+            "ZYPAX255"
+          ],
+          [
+            "VOLOR",
+            "VOFEN"
+          ],
+          [
+            "GLOBAL",
+            "POLOR793"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 28,
+    "selection_sha256": "308e3e92aafc0b066caf212105c0fdf7e6d6ae9e77b00f7d94ceab6c421427fa",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.2625,
+    "accuracy_when_answered": 0.7796610169491526,
+    "brier_score": 0.11169828856466373,
+    "canonical_accuracy": 0.575,
+    "drift_late_minus_early": 0.05,
+    "drift_slope_per_epoch": 0.0071428571428571435,
+    "expected_calibration_error": 0.12953204987103295,
+    "integrity_violation_rate": 0.075,
+    "mean_recovery_probes": 0.0,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8,
+        "n": 10.0,
+        "stale_state_rate": 0.1,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 1.0,
+        "n": 13.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.42857142857142855,
+        "n": 7.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.7647058823529411,
+        "n": 17.0,
+        "stale_state_rate": 0.058823529411764705,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.7,
+        "n": 10.0,
+        "stale_state_rate": 0.4,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 0.9130434782608695,
+        "canonical_accuracy": 0.08695652173913043,
+        "n": 23.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.1,
+      0.2,
+      0.1,
+      0.1,
+      0.0,
+      0.1
+    ],
+    "probes": 80,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.047619047619047616,
+    "stale_state_rate": 0.075,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 3,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 1276344165,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

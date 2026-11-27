@@ -1,0 +1,438 @@
+{
+  "arm": "uniform-blame",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 0,
+    "exhausted_reads": 0,
+    "log_capacity": 256,
+    "log_evictions": 0,
+    "log_size": 136,
+    "maintenance_ops": 31,
+    "maintenance_ops_ceiling": 136,
+    "read_ceiling": 20000,
+    "state_bytes": 1492,
+    "wall_seconds": 0.0007550829905085266
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 20000,
+    "log_capacity": 256,
+    "maintenance_ops_ceiling": 136
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "ad2e5cfb7573452617764294d3b2d664cdde9d60406102f2171b1e7e65126cce",
+  "consolidation_metrics": {
+    "attribution_precision": 0.22580645161290322,
+    "attribution_recall": 0.875,
+    "collateral_revision_rate": 0.7741935483870968,
+    "consolidation_reads": 0,
+    "culprit_accuracy_delta": 0.0,
+    "decoy_accuracy_delta": -0.4166666666666667,
+    "net_repair": -0.4166666666666667,
+    "outcomes": 8,
+    "revisions": 31,
+    "untouched_accuracy_delta": 0.22916666666666666
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 8,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 8,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 1792867178,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "8c995daf934e1440fafad42f1d10449e140f803a3b0068372d509e20d5486215",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 60,
+      "contradiction": 24,
+      "misinformation": 16,
+      "misleading_repeat": 12,
+      "world_change": 24
+    },
+    "event_counts": {
+      "assert": 136,
+      "context_shift": 3,
+      "delayed_outcome": 8,
+      "gap": 2,
+      "probe": 80
+    },
+    "events": 229,
+    "final_t": 8681,
+    "probe_classes": {
+      "contradiction": 7,
+      "fresh": 18,
+      "misinfo_target": 5,
+      "post_gap": 2,
+      "quiet_change": 6,
+      "settled": 17,
+      "stale_risk": 3,
+      "untouched": 22
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 105,
+      "overlapping_outcome_implication": 32,
+      "target_consulted": 36
+    },
+    "eligible_total": 27,
+    "measured_outcome_deltas": 8,
+    "outcomes": 8,
+    "outcomes_with_controls": 8,
+    "per_outcome": [
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 12,
+          "overlapping_outcome_implication": 5,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 100,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "MESIV",
+            "VOLOR"
+          ],
+          [
+            "FADUL",
+            "LUFEN"
+          ],
+          [
+            "FADUL",
+            "NEVOK"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 3,
+        "exclusion_counts": {
+          "insufficient_probe_window": 12,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 101,
+        "selected_count": 3,
+        "selected_slots": [
+          [
+            "FADUL",
+            "LUFEN"
+          ],
+          [
+            "FADUL",
+            "NEVOK"
+          ],
+          [
+            "MESIV",
+            "VOLOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 15,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 128,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "MESIV",
+            "VOLOR"
+          ],
+          [
+            "FADUL",
+            "NEVOK"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 2,
+        "exclusion_counts": {
+          "insufficient_probe_window": 15,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 129,
+        "selected_count": 2,
+        "selected_slots": [
+          [
+            "FADUL",
+            "NEVOK"
+          ],
+          [
+            "MESIV",
+            "VOLOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 12,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 156,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FADUL",
+            "NEVOK"
+          ],
+          [
+            "MESIV",
+            "VOLOR"
+          ],
+          [
+            "RIZIM",
+            "VOFEN"
+          ],
+          [
+            "MESIV",
+            "POTAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 5,
+        "exclusion_counts": {
+          "insufficient_probe_window": 12,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 187,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FADUL",
+            "MEQEN"
+          ],
+          [
+            "MESIV",
+            "POTAL"
+          ],
+          [
+            "FADUL",
+            "NEVOK"
+          ],
+          [
+            "MESIV",
+            "VOLOR"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 14,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 218,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "MESIV",
+            "NEFEN"
+          ],
+          [
+            "FADUL",
+            "MEQEN"
+          ],
+          [
+            "MESIV",
+            "VOLOR"
+          ],
+          [
+            "MESIV",
+            "MEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 13,
+          "overlapping_outcome_implication": 4,
+          "target_consulted": 4
+        },
+        "outcome_event_id": 219,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "FADUL",
+            "MEQEN"
+          ],
+          [
+            "MESIV",
+            "VOLOR"
+          ],
+          [
+            "MESIV",
+            "NEFEN"
+          ],
+          [
+            "MESIV",
+            "MEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 26,
+    "selection_sha256": "0457a5c835f63a9e9f38c252b5f2b2c8e5c6b49c6b73255e5d66604a88a1fa91",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.4625,
+    "accuracy_when_answered": 0.6046511627906976,
+    "brier_score": 0.21798232989305483,
+    "canonical_accuracy": 0.325,
+    "drift_late_minus_early": 0.1,
+    "drift_slope_per_epoch": 0.013095238095238094,
+    "expected_calibration_error": 0.23113837067325443,
+    "integrity_violation_rate": 0.0375,
+    "mean_recovery_probes": 0.0,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.42857142857142855,
+        "canonical_accuracy": 0.2857142857142857,
+        "n": 7.0,
+        "stale_state_rate": 0.2857142857142857,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.05555555555555555,
+        "canonical_accuracy": 0.7777777777777778,
+        "n": 18.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.2,
+        "n": 5.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.5,
+        "canonical_accuracy": 0.0,
+        "n": 2.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.6666666666666666,
+        "canonical_accuracy": 0.0,
+        "n": 6.0,
+        "stale_state_rate": 0.16666666666666666,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.35294117647058826,
+        "canonical_accuracy": 0.4117647058823529,
+        "n": 17.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.6666666666666666,
+        "n": 3.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 1.0,
+        "canonical_accuracy": 0.0,
+        "n": 22.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.0,
+      0.2,
+      0.0
+    ],
+    "probes": 80,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.125,
+    "stale_state_rate": 0.0375,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 4,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 1792867178,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

@@ -1,0 +1,731 @@
+{
+  "arm": "counterfactual-recheck",
+  "audit_leak_count": 0,
+  "budget_actual": {
+    "evidence_reads": 13610,
+    "exhausted_reads": 0,
+    "log_capacity": 290,
+    "log_evictions": 0,
+    "log_size": 290,
+    "maintenance_ops": 6,
+    "maintenance_ops_ceiling": 290,
+    "read_ceiling": 40000,
+    "state_bytes": 2270,
+    "wall_seconds": 0.002192791987909004
+  },
+  "budget_ceiling": {
+    "evidence_reads_ceiling": 40000,
+    "log_capacity": 290,
+    "maintenance_ops_ceiling": 290
+  },
+  "classification": "CONFIRMATORY",
+  "config_lock_sha256": "6158c95f4bd3b9f901e3672550694f211f3b99df6bff8833f4c8658b88e3fa24",
+  "consolidation_metrics": {
+    "attribution_precision": 0.16666666666666666,
+    "attribution_recall": 0.058823529411764705,
+    "collateral_revision_rate": 0.8333333333333334,
+    "consolidation_reads": 13610,
+    "culprit_accuracy_delta": 0.2435897435897436,
+    "decoy_accuracy_delta": -0.006944444444444443,
+    "net_repair": 0.23664529914529916,
+    "outcomes": 17,
+    "revisions": 6,
+    "untouched_accuracy_delta": 0.3602941176470588
+  },
+  "control_selection_salt": "",
+  "delayed_outcomes_seen": 17,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-15.6-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "experiment": "EXP-B001",
+  "generator_version": "LIS-v0.1.0",
+  "git_commit": "9954ab69cd4d802ccfbffbaff23b6e4f332ad9c0",
+  "invalidation_reasons": [],
+  "lifetime_config": {
+    "asserts_per_epoch": 14,
+    "contexts": 4,
+    "delayed_outcomes_per_epoch": 1.5,
+    "epochs": 16,
+    "gap_ticks": 4000,
+    "global_keys": 3,
+    "keys_per_context": 6,
+    "outcome_decoy_slots": 4,
+    "outcome_lag_epochs": 3,
+    "p_context_shift": 0.35,
+    "p_contradiction": 0.12,
+    "p_gap": 0.25,
+    "p_misinformation": 0.18,
+    "p_misleading_repeat": 0.35,
+    "p_quiet_world_change": 0.25,
+    "p_world_change": 0.08,
+    "probes_per_epoch": 10,
+    "repeat_burst": 3,
+    "seed": 141418605,
+    "sources_per_tier": 3,
+    "tick_per_event": 3,
+    "tier_reliability": [
+      0.98,
+      0.85,
+      0.35
+    ],
+    "tier_weights": [
+      0.35,
+      0.4,
+      0.25
+    ],
+    "values_per_slot": 5,
+    "vocab_size": 24,
+    "world_change_announcements": 2
+  },
+  "lifetime_spec_sha256": "738c5b84972f3076b8db6c08256a2bc5aecc557aaef40d4c11a3a49dc75ebb36",
+  "lifetime_summary": {
+    "assertion_corruption": {
+      "clean": 119,
+      "contradiction": 46,
+      "misinformation": 28,
+      "misleading_repeat": 31,
+      "world_change": 66
+    },
+    "event_counts": {
+      "assert": 290,
+      "context_shift": 7,
+      "delayed_outcome": 17,
+      "gap": 6,
+      "probe": 160
+    },
+    "events": 480,
+    "final_t": 25422,
+    "probe_classes": {
+      "contradiction": 8,
+      "fresh": 41,
+      "misinfo_target": 20,
+      "post_gap": 5,
+      "quiet_change": 3,
+      "settled": 33,
+      "stale_risk": 19,
+      "untouched": 31
+    },
+    "slots": 27,
+    "stream": "delayed_credit"
+  },
+  "manifest_version": "1.1",
+  "matched_untouched_control": {
+    "aggregate_exclusion_counts": {
+      "insufficient_probe_window": 110,
+      "overlapping_outcome_implication": 139,
+      "target_consulted": 85
+    },
+    "eligible_total": 125,
+    "measured_outcome_deltas": 17,
+    "outcomes": 17,
+    "outcomes_with_controls": 17,
+    "per_outcome": [
+      {
+        "eligible_count": 8,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 121,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "NEZIM"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ],
+          [
+            "ZYFEN",
+            "PORIN"
+          ],
+          [
+            "MEFEN",
+            "TUZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 8,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 6,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 122,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "MEFEN",
+            "NETAL"
+          ],
+          [
+            "ZYFEN",
+            "MEPAX57"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ],
+          [
+            "POSIV",
+            "NEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 8,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 150,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "MEFEN",
+            "ZYSIV"
+          ],
+          [
+            "MEFEN",
+            "TUZIM"
+          ],
+          [
+            "MEFEN",
+            "NETAL"
+          ],
+          [
+            "POSIV",
+            "VODUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 8,
+        "exclusion_counts": {
+          "insufficient_probe_window": 5,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 151,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "SADUL"
+          ],
+          [
+            "MEFEN",
+            "ZYSIV"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ],
+          [
+            "MEFEN",
+            "TUZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 9,
+        "exclusion_counts": {
+          "insufficient_probe_window": 3,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 184,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "ZYVOK"
+          ],
+          [
+            "POSIV",
+            "VORIN"
+          ],
+          [
+            "ZYFEN",
+            "MEPAX57"
+          ],
+          [
+            "POSIV",
+            "SADUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 10,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 10,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 216,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "ZYVOK"
+          ],
+          [
+            "MEFEN",
+            "TUZIM"
+          ],
+          [
+            "POSIV",
+            "VODUL"
+          ],
+          [
+            "MEFEN",
+            "NETAL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 10,
+        "exclusion_counts": {
+          "insufficient_probe_window": 1,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 253,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "MEFEN",
+            "NETAL"
+          ],
+          [
+            "ZYFEN",
+            "MEPAX57"
+          ],
+          [
+            "MEFEN",
+            "TUZIM"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 9,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 11,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 279,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "VORIN"
+          ],
+          [
+            "MEFEN",
+            "ZYSIV"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ],
+          [
+            "POSIV",
+            "NEZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 8,
+        "exclusion_counts": {
+          "insufficient_probe_window": 2,
+          "overlapping_outcome_implication": 12,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 309,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "VODUL"
+          ],
+          [
+            "MEFEN",
+            "TUZIM"
+          ],
+          [
+            "POSIV",
+            "RIVOK"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 341,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "NEZIM"
+          ],
+          [
+            "POSIV",
+            "RIVOK"
+          ],
+          [
+            "MEFEN",
+            "TUZIM"
+          ],
+          [
+            "POSIV",
+            "VODUL"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 6,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 342,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "NEZIM"
+          ],
+          [
+            "POSIV",
+            "VODUL"
+          ],
+          [
+            "MEFEN",
+            "ZYSIV"
+          ],
+          [
+            "POSIV",
+            "RIVOK"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 7,
+        "exclusion_counts": {
+          "insufficient_probe_window": 8,
+          "overlapping_outcome_implication": 7,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 374,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "TUSIV"
+          ],
+          [
+            "POSIV",
+            "VORIN"
+          ],
+          [
+            "KAQEN",
+            "TUTAL"
+          ],
+          [
+            "POSIV",
+            "RIVOK"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 401,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "NEZIM"
+          ],
+          [
+            "MEFEN",
+            "TUZIM"
+          ],
+          [
+            "POSIV",
+            "RIVOK"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 7,
+          "overlapping_outcome_implication": 9,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 402,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "VORIN"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ],
+          [
+            "POSIV",
+            "NEZIM"
+          ],
+          [
+            "MEFEN",
+            "TUZIM"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 6,
+        "exclusion_counts": {
+          "insufficient_probe_window": 9,
+          "overlapping_outcome_implication": 7,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 436,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "MEFEN",
+            "TUZIM"
+          ],
+          [
+            "KAQEN",
+            "TUTAL"
+          ],
+          [
+            "POSIV",
+            "VORIN"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 15,
+          "overlapping_outcome_implication": 3,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 468,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "GLOBAL",
+            "NEQEN285"
+          ],
+          [
+            "POSIV",
+            "VORIN"
+          ],
+          [
+            "POSIV",
+            "NEZIM"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ]
+        ],
+        "target_control_count": 4
+      },
+      {
+        "eligible_count": 4,
+        "exclusion_counts": {
+          "insufficient_probe_window": 16,
+          "overlapping_outcome_implication": 2,
+          "target_consulted": 5
+        },
+        "outcome_event_id": 469,
+        "selected_count": 4,
+        "selected_slots": [
+          [
+            "POSIV",
+            "VORIN"
+          ],
+          [
+            "GLOBAL",
+            "NEQEN285"
+          ],
+          [
+            "POSIV",
+            "NEZIM"
+          ],
+          [
+            "POSIV",
+            "ZYVOK"
+          ]
+        ],
+        "target_control_count": 4
+      }
+    ],
+    "selected_total": 68,
+    "selection_sha256": "a20829bb6dae54ce9b3001499d8a21310ea22d7e1420b0c6b1c8c8a9e3ef7f05",
+    "version": "matched-contemporaneous-v1"
+  },
+  "metrics": {
+    "abstention_rate": 0.1375,
+    "accuracy_when_answered": 0.6956521739130435,
+    "brier_score": 0.2077923635759699,
+    "canonical_accuracy": 0.6,
+    "drift_late_minus_early": 0.27999999999999997,
+    "drift_slope_per_epoch": 0.02323529411764706,
+    "expected_calibration_error": 0.12991543938905775,
+    "integrity_violation_rate": 0.1625,
+    "mean_recovery_probes": 0.26666666666666666,
+    "per_class": {
+      "contradiction": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 1.0,
+        "n": 8.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "fresh": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.8292682926829268,
+        "n": 41.0,
+        "stale_state_rate": 0.07317073170731707,
+        "unsupported_belief_rate": 0.0
+      },
+      "misinfo_target": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.3,
+        "n": 20.0,
+        "stale_state_rate": 0.1,
+        "unsupported_belief_rate": 0.0
+      },
+      "post_gap": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 1.0,
+        "n": 5.0,
+        "stale_state_rate": 0.0,
+        "unsupported_belief_rate": 0.0
+      },
+      "quiet_change": {
+        "abstention_rate": 0.3333333333333333,
+        "canonical_accuracy": 0.0,
+        "n": 3.0,
+        "stale_state_rate": 0.6666666666666666,
+        "unsupported_belief_rate": 0.0
+      },
+      "settled": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.7878787878787878,
+        "n": 33.0,
+        "stale_state_rate": 0.18181818181818182,
+        "unsupported_belief_rate": 0.0
+      },
+      "stale_risk": {
+        "abstention_rate": 0.0,
+        "canonical_accuracy": 0.5263157894736842,
+        "n": 19.0,
+        "stale_state_rate": 0.5263157894736842,
+        "unsupported_belief_rate": 0.0
+      },
+      "untouched": {
+        "abstention_rate": 0.6774193548387096,
+        "canonical_accuracy": 0.22580645161290322,
+        "n": 31.0,
+        "stale_state_rate": 0.0967741935483871,
+        "unsupported_belief_rate": 0.0
+      }
+    },
+    "per_epoch_integrity": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.0,
+      0.2,
+      0.3,
+      0.1,
+      0.2,
+      0.2,
+      0.3,
+      0.4,
+      0.3,
+      0.4,
+      0.1
+    ],
+    "probes": 160,
+    "provenance_consistency": 1.0,
+    "self_contradiction_rate": 0.0,
+    "stale_state_rate": 0.1625,
+    "unattributed_answer_rate": 0.0,
+    "unrecovered_changes": 12,
+    "unsupported_belief_rate": 0.0
+  },
+  "protocol_version": "phase3-confirmatory-lock",
+  "scoring_protocol": {
+    "causal_endpoint": "excess-net-repair-v1",
+    "inaction_baseline_arm": "no-consolidation",
+    "matching_rule": "one control per consulted decoy, capped by eligible slots",
+    "selection_rule": "sha256(run_seed,outcome_event_id,selection_salt,context,key)",
+    "untouched_control": "matched-contemporaneous-v1",
+    "version": "LIS-SCORE-v0.3.0",
+    "window_probes": 3
+  },
+  "scoring_protocol_sha256": "c001a916c4ceb05ec02735c1f2f8066bc81b5d035beab2821657bdb1d9a0a7df",
+  "seed": 141418605,
+  "source_tree_sha256": "283cb026b7a4554abce71978e1f42a29c99e71d5996f2391e473cffe4f96b46c",
+  "stream": "delayed_credit"
+}

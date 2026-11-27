@@ -1,0 +1,91 @@
+{
+  "arms": [
+    "confidence-decay",
+    "contradiction-regrounding",
+    "evidence-reconstruction",
+    "hybrid-symbolic-latent",
+    "last-write-wins",
+    "lossy-latent",
+    "periodic-reset",
+    "provenance-regrounding",
+    "unconstrained-accumulator"
+  ],
+  "claims": {
+    "H1_cost_matched_separation": {
+      "depends_on": [
+        "integrity_violation_rate"
+      ],
+      "reasons": [],
+      "valid": true
+    },
+    "H2_horizon_rank_stability": {
+      "depends_on": [
+        "integrity_violation_rate"
+      ],
+      "reasons": [],
+      "valid": true
+    },
+    "H3_integrity_not_accuracy": {
+      "depends_on": [
+        "unsupported_belief_rate",
+        "self_contradiction_rate",
+        "canonical_accuracy"
+      ],
+      "reasons": [],
+      "valid": true
+    },
+    "self_contradiction_analysis": {
+      "depends_on": [
+        "self_contradiction_rate"
+      ],
+      "reasons": [],
+      "valid": true
+    },
+    "stale_state_analysis": {
+      "depends_on": [
+        "stale_state_rate"
+      ],
+      "reasons": [],
+      "valid": true
+    },
+    "unsupported_belief_analysis": {
+      "depends_on": [
+        "unsupported_belief_rate"
+      ],
+      "reasons": [],
+      "valid": true
+    }
+  },
+  "classification": "CONFIRMATORY",
+  "experiment": "EXP-A001",
+  "inert_metrics": [],
+  "metric_status": {
+    "canonical_accuracy": {
+      "live": true,
+      "reason": "meaningful_at_zero"
+    },
+    "integrity_violation_rate": {
+      "live": true,
+      "reason": "live"
+    },
+    "self_contradiction_rate": {
+      "live": true,
+      "reason": "live"
+    },
+    "stale_state_rate": {
+      "live": true,
+      "reason": "live"
+    },
+    "unsupported_belief_rate": {
+      "live": true,
+      "reason": "live"
+    }
+  },
+  "n_runs": 9,
+  "note": "Validity only. This says nothing about which arm performed better. Read `claims` for per-claim validity; `valid_for_comparison` is structural only.",
+  "protocol_version": "phase3-confirmatory-lock",
+  "reasons": [],
+  "structural_reasons": [],
+  "structurally_valid": true,
+  "valid_for_comparison": true
+}
